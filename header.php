@@ -23,14 +23,19 @@
 	    					</div>
     						<ul class="login_wrap">
     							<li><a href="#" data-toggle="modal" data-target="#reg-box"><i class="fa fa-user"></i>Register</a></li>
-    							<li><a href="#" data-toggle="modal" data-target="#signin-box"><i class="fa fa-sign-in"></i>Sign In</a></li>
+    							<li><a href="#" data-toggle="modal" data-target="#signin-box"><i class="fa fa-sign-in"></i>log In</a></li>
+    							<!--<li><a href="#" ><i class="fa fa-facebook" aria-hidden="true"></i></a></li>-->
+    							<a href="https://www.facebook.com/apexinternationalofficial/" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+    							<a href="#" target="_blank" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
+    							<a href="#" target="_blank" class="btn-social btn-youtube"><i class="fa fa-youtube"></i></a>
+    							 <a href="#" target="_blank" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
     						</ul>	    					
-	    					<ul class="top_nav">
+	    					<!--<ul class="top_nav">
 	    						<li><a href="#">News</a></li>
 	    						<li><a href="#">Event</a></li>
-	    						<!--<li><a href="our-courses.html">Giving</a></li>
-	    						<li><a href="contactus.html">contact us</a></li>-->
-	    					</ul>
+	    						<li><a href="our-courses.html">Giving</a></li>
+	    						<li><a href="contactus.html">contact us</a></li>
+	    					</ul>-->
 	    				</div>
 	    			</div>
 	    		</div>
@@ -46,7 +51,7 @@
     				<div class="row">
     					<div class="col-md-2">
     						<div class="logo_wrap">
-    							<a href="#"><img src="extra-images/apex.png" alt=""></a>
+    							<a href="index.php"><img src="extra-images/apex.png" alt=""></a>
     						</div>
     					</div>
     					<div class="col-md-10">
@@ -55,30 +60,30 @@
     							<ul>
     								<li><a href="index.php">home</a></li>
 									<li><a href="aboutus.php">About Us</a></li>
-		                            <li><a href="#">Event</a>
+		                            <li><a href="#">admission</a>
 		                            	
 		                            </li>
-		                            <li><a href="#">Blog</a>
+		                          
+		                            <li><a href="#">Facualty & Staff</a>
 		                            	
 		                            </li>
-		                            <li><a href="#">Academics</a>
-		                            	
-		                            </li>
-		                            <li><a href="#">Teacher</a>
-		                            	
-		                            </li>
-		                            <li><a href="#">Gallery</a>
+		                            
+		                            <li><a href="gallery-masonary.php">Gallery</a>
 		                            	<ul>
-		                                	<li><a href="#">Masonary 2 Col </a></li>
-		                                	<li><a href="#">Masonary 3 Col </a></li>
-		                                	<li><a href="#">Masonary 4 Col </a></li>
-		                                    <li><a href="#">Simple gallery</a></li>
+		                                	<li><a href="gallery-masonary.php">Masonary 2 Col </a></li>
+		                                	<li><a href="gallery-masonary.php">Masonary 3 Col </a></li>
+		                                	<li><a href="gallery-masonary.php">Masonary 4 Col </a></li>
+		                                    <li><a href="gallery-masonary.php">Simple gallery</a></li>
 		                                </ul>
 		                            </li>
-									<li><a href="#">Admission</a>
+		                              <li><a href="our-blog.php">Blog</a>
 		                            	
 		                            </li>
-									<li><a href="#">Contact US</a>
+		                            <li><a href="event-list.php">Events</a>
+		                            	
+		                            </li>
+									
+									<li><a href="contactus.php">Contact US</a>
 		                            	
 		                            </li>
 		                           
@@ -89,10 +94,10 @@
 					                <ul class="dl-menu">
 										<li><a href="index.php">home</a></li>
 										<li><a href="aboutus.php">about us</a></li>
-					                    <li class="#"><a href="#">Event</a>
+					                    <li class="#"><a href="event-list.php">Event</a>
 					                       
 					                    </li>
-					                    <li class="#"><a href="#">Blog</a>
+					                    <li class="#"><a href="our-blog.php">Blog</a>
 					                       
 					                    </li>
 					                    <li class="#"><a href="#">Academics</a>
@@ -101,12 +106,12 @@
 					                    <li class="#"><a href="#">Teacher</a>
 					                       
 					                    </li>
-					                    <li class="#"><a href="#">Gallery</a>
+					                    <li class="#"><a href="gallery-masonary.php">Gallery</a>
 					                        <ul class="dl-submenu">
-					                            <li><a href="#">Masonary 2 Col </a></li>
-			                                	<li><a href="#">Masonary 3 Col </a></li>
-			                                	<li><a href="#">Masonary 4 Col </a></li>
-			                                    <li><a href="#">Simple gallery</a></li>
+					                            <li><a href="gallery-masonary.php">Masonary 2 Col </a></li>
+			                                	<li><a href="gallery-masonary.php">Masonary 3 Col </a></li>
+			                                	<li><a href="gallery-masonary.php">Masonary 4 Col </a></li>
+			                                    <li><a href="gallery-masonary.php">Simple gallery</a></li>
 					                        </ul>
 					                    </li>
 					                    <li class="menu-item kode-parent-menu"><a href="#">Admission</a>
@@ -114,7 +119,7 @@
 					                            <li><a href="#">Admission</a></li>
 					                        </ul>
 					                    </li>
-					                    <li class="menu-item kode-parent-menu"><a href="#">Contact US</a>
+					                    <li class="menu-item kode-parent-menu"><a href="contactus.php">Contact US</a>
 					                        
 					                    </li>
 					                </ul>

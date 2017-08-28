@@ -187,44 +187,7 @@
     				</div>
     			</div>
     		</section>
-    		<!--ABOUT UNIVERSITY END-->
-
-    		<!--COUNTER SECTION START-->
-			<section class="edu2_counter_wrap">
-				<div class="container">
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-group2"></i></span>
-						<h3 class="counter">8,532</h3>
-						<h5>STUDENTS</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-book236"></i></span>
-						<h3 class="counter">11,223</h3>
-						<h5>CLASSES COMPLETE</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-win5"></i></span>
-						<h3 class="counter">282,673</h3>
-						<h5>STUDENTS ENROLLED</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-user255"></i></span>
-						<h3 class="counter">270</h3>
-						<h5>CERTIFIED TEACHERS</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-				</div>
-			</section>
-			<!--COUNTER SECTION END-->
-
-			<!--KF INTRO WRAP START-->
+    		
 			<section class="abut-padiing">
 				<div class="kf_intro_des_wrap aboutus_page">
 					<div class="container">

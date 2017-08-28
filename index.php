@@ -184,9 +184,9 @@
 					<figure>
 						<img src="extra-images/banner4.jpg" alt=""/>
 						<figcaption>
-							<span>The Best Learning Institution</span>
+							<!--<span>The Best Learning Institution</span>-->
 							<h2 class="slider-txt">welcome to Apex International School</h2>
-							<p>The School With International Standards</p>
+							<p>Together towards Excellence</p>
 							<a href="#" class="btn-1">read more</a>
 						</figcaption>
 					</figure>
@@ -195,7 +195,7 @@
 					<figure>
 						<img src="extra-images/banner2.jpg" alt=""/>
 						<figcaption>
-							<span>Opening A New World Of Education</span>
+							<!--<span>Opening A New World Of Education</span>-->
 							<h2 class="slider-txt">largest Education Institute</h2>
 							<p>The School With International Standards</p>
 							<a href="#" class="btn-1">read more</a>
@@ -322,7 +322,7 @@
  												<li>03/12/2015</li>
  												<li><a href="#">21 Comments</a></li>
 											</ul>
-											<a href="#" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
+											<a href="event-list.php" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
 											<span>24</span>
 										</div>
 									</div>
@@ -350,7 +350,7 @@
  												<li>03/12/2015</li>
  												<li><a href="#">21 Comments</a></li>
 											</ul>
-											<a href="#" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
+											<a href="event-list.php" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
 											<span>03</span>
 										</div>
 									</div>
@@ -377,7 +377,7 @@
  												<li>03/12/2015</li>
  												<li><a href="#">21 Comments</a></li>
 											</ul>
-											<a href="#" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
+											<a href="event-list.php" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
 											<span>31</span>
 										</div>
 									</div>
@@ -405,7 +405,7 @@
  												<li>03/12/2015</li>
  												<li><a href="#">21 Comments</a></li>
 											</ul>
-											<a href="#" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
+											<a href="event-list.php" class="readmore">read more<i class="fa fa-long-arrow-right"></i></a>
 											<span>11</span>
 										</div>
 									</div>
@@ -553,58 +553,20 @@
 			</section>
 			<!--GALLERY SECTION END-->
 
-			<!--COUNTER SECTION START-->
-			<section class="edu2_counter_wrap">
-				<div class="container">
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-group2"></i></span>
-						<h3 class="counter">8,532</h3>
-						<h5>STUDENTS</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-book236"></i></span>
-						<h3 class="counter">11,223</h3>
-						<h5>CLASSES COMPLETE</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class="icon-win5"></i></span>
-						<h3 class="counter">282,673</h3>
-						<h5>STUDENTS ENROLLED</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-					<!--EDU2 COUNTER DES START-->
-					<div class="edu2_counter_des">
-						<span><i class=" icon-user255"></i></span>
-						<h3 class="counter">270</h3>
-						<h5>CERTIFIED TEACHERS</h5>
-					</div>
-					<!--EDU2 COUNTER DES END-->
-				</div>
-			</section>
-			<!--COUNTER SECTION END-->
-
-			<!-- FACULTY WRAP START-->
-			<section>
+		<!--	<section>
 				<div class="container">
 					<div class="row">
-						<!-- HEADING 1 START-->
+						
 						<div class="col-md-12">
 							<div class="kf_edu2_heading1">
 								<h3>Faculty member</h3>
 							</div>
 						</div>
-						<!-- HEADING 1 END-->
-
-						<!-- FACULTY SLIDER WRAP START-->
+						
 						<div class="edu2_faculty_wrap">
 							<div id="owl-demo-8" class="owl-carousel owl-theme">
 								<div class="item">
-									<!-- FACULTY DES START-->
+									 FACULTY DES START
 									<div class="edu2_faculty_des">
 										<figure><img src="extra-images/principal.jpg" alt=""/>
 											<figcaption>
@@ -620,11 +582,11 @@
 											
 										</div>
 									</div>
-									<!-- FACULTY DES END-->
+									
 								</div>
 
 								<div class="item">
-									<!-- FACULTY DES START-->
+									
 									<div class="edu2_faculty_des">
 										<figure><img src="extra-images/headmistress.jpg" alt=""/>
 											<figcaption>
@@ -640,11 +602,11 @@
 											
 										</div>
 									</div>
-									<!-- FACULTY DES END-->
+								
 								</div>
 
 								<div class="item">
-									<!-- FACULTY DES START-->
+									
 									<div class="edu2_faculty_des">
 										<figure><img src="extra-images/administrator.jpg" alt=""/>
 											<figcaption>
@@ -660,11 +622,11 @@
 											
 										</div>
 									</div>
-									<!-- FACULTY DES END-->
+									
 								</div>
 
 								<div class="item">
-									<!-- FACULTY DES START-->
+									
 									<div class="edu2_faculty_des">
 										<figure><img src="extra-images/public_relation.jpg" alt=""/>
 											<figcaption>
@@ -680,11 +642,11 @@
 											
 										</div>
 									</div>
-									<!-- FACULTY DES END-->
+									
 								</div>
 
 								<div class="item">
-									<!-- FACULTY DES START-->
+									
 									<div class="edu2_faculty_des">
 										<figure><img src="extra-images/clerk.jpg" alt=""/>
 											<figcaption>
@@ -700,21 +662,21 @@
 											
 										</div>
 									</div>
-									<!-- FACULTY DES END-->
+									
 								</div>
 							</div>
 						</div>
-						<!-- FACULTY SLIDER WRAP END-->
+					
 					</div>
 				</div>
-			</section>
+			</section>-->
 			<!-- FACULTY WRAP START-->
 
 			
 
 
 			<!--TRAINING WRAP START-->
-			<section class="edu2_tarining_bg">
+		<!--	<section class="edu2_tarining_bg">
 				<div class="container">
 					<div class="row">
 						
@@ -723,7 +685,7 @@
 							<div class="edu2_training_wrap">
 								<h2>Admission Open fall 2018</h2>
 								<h3>September intake</h3>
-								<!--COUNTDOWN START-->
+								
 								<ul class="countdown">
 									<li>
 										<span class="days">40</span>
@@ -742,7 +704,7 @@
 										<p class="seconds_ref">seconds</p>
 									</li>
 								</ul>
-								<!--COUNTDOWN END-->
+								
 								<strong>limited Seating</strong>
 								<a href="#" class="btn-1" data-toggle="modal" data-target="#registr">REGISTER NOW</a>
 							</div>
@@ -750,104 +712,14 @@
 						</div>
 					</div>
 				</div>
-			</section>
-		
-
-			<!--OUR TESTEMONIAL WRAP START-->
-			<!--<section>
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-12">
-							<div class="kf_edu2_heading2">
-								<h3>Our Testimonial</h3>
-							</div>
-						</div>
-						
-						
-						<div class="edu2_testemonial_slider_wrap">
-							<div id="owl-demo-9">
-								<div class="item">
-									
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.1.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="item">
-									
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.2.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="item">
-									
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.1.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-								
-								<div class="item">
-									
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.2.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-
-								<div class="item">
-									
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.1.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-								
-								<div class="item">
-									 TESTEMONIAL SLIDER WRAP START
-									<div class="edu_testemonial_wrap">
-										<figure><img src="extra-images/testemonial.2.jpg" alt=""/></figure>
-										<div class="kode-text">
-											<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.aenean sollicitudin, lorem quis bibendum auctor...</p>
-											<a href="#">John Doe<span>- Happy Student</span></a>
-										</div>
-									</div>
-									
-								</div>
-							</div>
-						</div>
-						
-					</div>
-				</div>
 			</section>-->
-			<!--OUR TESTEMONIAL WRAP END-->
+		
 		</div>
 
 		<!--EDU2 FOOTER WRAP START-->
+		<div class="kf_location_wrap">
+				<div id="map-canvas" class="map-canvas"></div>
+    		</div>
 		<!--NEWS LETTERS START-->
 		<div class="edu2_ft_topbar_wrap">
 			<div class="container">

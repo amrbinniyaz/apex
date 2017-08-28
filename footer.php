@@ -132,7 +132,11 @@
 	<script src="js/jquery.sidr.min.js"></script>
 	<!--Custom JavaScript-->
 	<script src="js/custom.js"></script>
-
+    <!--Map-->
+   <!-- AIzaSyC50w9BuJBAlfV1C5DVvxdEjHBPKQqciw8-->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?AIzaSyC50w9BuJBAlfV1C5DVvxdEjHBPKQqciw8&callback=initMap"
+  type="text/javascript"></script>-->
     
 </body>
 
