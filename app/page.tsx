@@ -1,12 +1,19 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowUp, ArrowUpRight, ArrowRight, Menu, Pause, Play } from 'lucide-react';
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { SchoolFilm } from '@/components/school-film';
+import { ArchIntro } from '@/components/arch-intro';
+import { SchoolDoodle } from '@/components/school-doodle';
+import { ArrowDown, ArrowUpRight, Pause, Play } from 'lucide-react';
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const base = 'https://www.pgs.org.uk';
-const links = [['Contact', '/contact'], ['Visit us', '/admissions/visit-us'], ['Apply now', '/admissions/admissions-process']];
+const heroSlides = [
+  { image: 'apex-cinematic-hero-v2.png', label: 'Science', alt: 'Apex pupils discovering together in a sunlit science laboratory, with colourful glassware', width: 1671, height: 941 },
+  { image: 'apex-skating-hero.png', label: 'Skating', alt: 'An Apex pupil smiling as she adjusts her blue skating guards in a sunlit school courtyard', width: 1672, height: 941 },
+];
 const stages = [
   { name: 'Pre-School', age: '2–4 years', image: 'junior.jpg', line: 'Where curiosity begins', url: '/our-school/pre-school-2-4-' },
   { name: 'Junior School', age: '4–11 years', image: 'senior.jpg', line: 'A world of discovery', url: '/our-school/junior-school-4-11-/welcome-to-junior-school' },
@@ -15,119 +22,156 @@ const stages = [
 ];
 
 export default function Home() {
-  const hero = useRef<HTMLVideoElement>(null);
+  const [introActive, setIntroActive] = useState(true);
+  const finishIntro = useCallback(() => setIntroActive(false), []);
   const [paused, setPaused] = useState(false);
-  const [scene, setScene] = useState(0);
+  const [heroSlide, setHeroSlide] = useState(0);
+  const [heroVisible, setHeroVisible] = useState(true);
+  const heroScene = useRef<HTMLElement>(null);
   const archSection = useRef<HTMLElement>(null);
-  const welcome = useRef<HTMLVideoElement>(null);
-  const [filmPaused, setFilmPaused] = useState(false);
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const mobile = window.matchMedia('(max-width: 767px)').matches;
-    if (hero.current) {
-      hero.current.src = `/assets/hero${mobile ? '-mobile' : ''}.mp4`;
-      hero.current.poster = `/assets/hero${mobile ? '-mobile' : ''}-poster.jpg`;
-      if (!reduced) hero.current.play().catch(() => setPaused(true));
-      else setPaused(true);
-    }
+    setPaused(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }, []);
   useEffect(() => {
+    const section = heroScene.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting), { threshold: 0.1 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (paused || !heroVisible || introActive) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setHeroSlide(current => (current + 1) % heroSlides.length);
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [paused, heroVisible, introActive]);
+  useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) { setFilmPaused(true); return; }
+    if (reduced) return;
     const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
     }), { threshold: .12 });
     elements.forEach(el => { el.classList.add('will-reveal'); observer.observe(el); });
     let frame = 0;
-    const update = () => {
+    let progress = 0;
+    let lastTime = 0;
+    const update = (time: number) => {
       frame = 0;
       if (!archSection.current) return;
       const bounds = archSection.current.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, -bounds.top / (bounds.height - window.innerHeight)));
-      archSection.current.style.setProperty('--arch-progress', String(progress));
-      document.querySelector<HTMLElement>('.hero-film')?.style.setProperty('transform', `translateY(${Math.min(window.scrollY, window.innerHeight) * .15}px)`);
+      const target = Math.min(1, Math.max(0, -bounds.top / Math.max(1, bounds.height - window.innerHeight)));
+      const elapsed = lastTime ? Math.min(64, time - lastTime) : 16;
+      lastTime = time;
+      progress += (target - progress) * (1 - Math.exp(-elapsed / 180));
+      if (Math.abs(target - progress) < .0001) progress = target;
+      const reveal = Math.min(1, progress * 1.02);
+      const button = Math.min(1, progress * 2.55);
+      archSection.current.style.setProperty('--arch-progress', String(1 - (1 - reveal) ** 2));
+      archSection.current.style.setProperty('--film-button-progress', String(1 - (1 - button) ** 2));
+      heroScene.current?.style.setProperty('--scene-scroll', `${Math.min(window.scrollY, window.innerHeight)}px`);
+      if (progress !== target) frame = requestAnimationFrame(update);
     };
-    const scroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const scroll = () => { if (!frame) { lastTime = 0; frame = requestAnimationFrame(update); } };
     window.addEventListener('scroll', scroll, { passive: true });
     window.addEventListener('resize', scroll);
-    update();
-    const videoObserver = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting && !filmPaused) welcome.current?.play().catch(() => setFilmPaused(true));
-        else welcome.current?.pause();
-      }
-    }, { threshold: .1 });
-    if (welcome.current) videoObserver.observe(welcome.current);
-    return () => { observer.disconnect(); videoObserver.disconnect(); cancelAnimationFrame(frame); window.removeEventListener('scroll', scroll); window.removeEventListener('resize', scroll); };
-  }, [filmPaused]);
-  function toggleVideo() {
-    const video = hero.current;
-    if (!video) return;
-    if (video.paused) video.play().then(() => setPaused(false)).catch(() => setPaused(true));
-    else { video.pause(); setPaused(true); }
-  }
-  function toggleSchoolFilm() {
-    if (!welcome.current) return;
-    if (welcome.current.paused) welcome.current.play().then(() => setFilmPaused(false)).catch(() => setFilmPaused(true));
-    else { welcome.current.pause(); setFilmPaused(true); }
-  }
+    scroll();
+    return () => { observer.disconnect(); cancelAnimationFrame(frame); window.removeEventListener('scroll', scroll); window.removeEventListener('resize', scroll); };
+  }, []);
   return (
-    <main id="top">
+    <main id="top" className={introActive ? 'intro-active' : 'intro-complete'}>
+      {introActive && <ArchIntro onComplete={finishIntro} />}
+      {introActive && <button className="intro-skip" onClick={finishIntro}>Skip intro <ArrowUpRight size={16} /></button>}
       <a className="skip-link" href="#discover">Skip to content</a>
-      <header className="site-header">
-        <a href="#top" aria-label="The Portsmouth Grammar School home"><img className="brand" src="/assets/logo.png" alt="The Portsmouth Grammar School" /></a>
-        <nav aria-label="Main navigation">
-          {links.map(([label, href]) => <a className="utility-link" key={label} href={base + href}>{label}</a>)}
-          <Dialog>
-            <DialogTrigger className="menu-trigger"><Menu size={27} strokeWidth={1.5} /><i>menu</i></DialogTrigger>
-            <DialogContent className="school-menu">
-              <DialogTitle className="menu-title">Explore PGS</DialogTitle>
-              <nav aria-label="School navigation">{[['About us', '/about-us/welcome-from-the-head'], ['Admissions', '/admissions/admissions-process'], ['Our school', '/our-school/senior-school-11-16-/welcome-to-senior-school'], ['The PGS experience', '/pgs-experience/academics'], ['Stories & news', '/media'], ...links].map(([label, href]) => <a key={label} href={base + href}>{label}<ArrowUpRight /></a>)}</nav>
-            </DialogContent>
-          </Dialog>
-        </nav>
-      </header>
-      <section className="hero" aria-label="Inspiring the best in you — pupil stories">
-        <h1 className="sr-only">Inspiring the best in you</h1>
-        <video ref={hero} className="hero-film" muted loop playsInline preload="auto" poster="/assets/hero-poster.jpg" onTimeUpdate={() => { if (hero.current) setScene(Math.min(2, Math.floor(hero.current.currentTime / 7))); }} aria-label="Animated pupil portraits celebrating curiosity, creativity and ambition" />
-        <div className="mobile-strapline">Inspiring the best in <i>you</i></div>
-        <div className="hero-controls">
-          <button className="play-control" aria-label={paused ? 'Play hero animation' : 'Pause hero animation'} onClick={toggleVideo}>{paused ? <Play size={16} /> : <Pause size={16} />}</button>
-          {[0, 1, 2].map(index => <button key={index} className={`scene-dot ${scene === index ? 'active' : ''}`} aria-label={`Show pupil story ${index + 1}`} aria-pressed={scene === index} onClick={() => { if (hero.current) { hero.current.currentTime = index * 7 + .5; setScene(index); } }}><span /></button>)}
-          <span className="scene-number">0{scene + 1} / 03</span>
+      <SiteHeader home />
+      <section ref={heroScene} className={`hero cinematic-hero ${paused || !heroVisible ? 'cinematic-paused' : ''}`} aria-labelledby="hero-title" aria-roledescription="carousel">
+        {heroSlides.map((slide, index) => <div key={slide.image} className={`cinematic-image-wrap cinematic-slide ${heroSlide === index ? 'is-active' : ''}`} aria-hidden={heroSlide !== index}>
+          <img className={`cinematic-image cinematic-image-${slide.label.toLowerCase()}`} src={`/assets/${slide.image}`} alt={slide.alt} width={slide.width} height={slide.height} fetchPriority={index === 0 ? 'high' : 'low'} />
+        </div>)}
+        <div className="cinematic-shade" aria-hidden="true" />
+        <div className="cinematic-copy"><p>A place to wonder, learn and grow.</p><h1 id="hero-title">Find your spark.<br />Make it <span>shine.</span></h1></div>
+        <a className="cinematic-scroll" href="#discover"><span>Step into our world</span><ArrowDown size={26} strokeWidth={1.5} /></a>
+        <div className="cinematic-controls">
+          <div className="cinematic-slide-selectors" role="group" aria-label="Choose hero image">{heroSlides.map((slide, index) => <button key={slide.label} className={heroSlide === index ? 'is-active' : ''} aria-label={`Show ${slide.label.toLowerCase()} hero image`} aria-pressed={heroSlide === index} onClick={() => { setHeroSlide(index); setPaused(true); }}><span className="cinematic-slide-number">0{index + 1}</span><span className="cinematic-slide-label">{slide.label}</span></button>)}</div>
+          <button aria-label={paused ? 'Play hero slideshow' : 'Pause hero slideshow'} onClick={() => setPaused(value => !value)}>{paused ? <Play size={17} /> : <Pause size={17} />}</button>
         </div>
-        <a className="scroll-cue" href="#discover" aria-label="Discover the school"><span>scroll to discover</span><ArrowDown strokeWidth={1} /></a>
       </section>
       <section id="discover" ref={archSection} className="discover-section">
         <div className="discover-sticky">
-        <img className="city-art" src="/assets/archway.jpg" alt="" />
-        <div className="discover-heading"><p>Step through the archway</p><h2>& discover the <i>buzz</i></h2></div>
-        <div className="arch-window"><video ref={welcome} muted loop playsInline preload="metadata" poster="/assets/senior.jpg" src="/assets/welcome.mp4" aria-label="A glimpse of daily life at PGS" /></div>
-        <div className="film-controls"><button className="film-toggle" onClick={toggleSchoolFilm} aria-label={filmPaused ? 'Play school film' : 'Pause school film'}>{filmPaused ? <Play size={16} /> : <Pause size={16} />}</button><span>A glimpse of life at PGS</span></div>
+        <SchoolFilm sectionRef={archSection} />
+        <div className="discover-mask">
+          <div className="discover-campus" aria-hidden="true"><img src="/assets/apex-campus-pencil.png" alt="" width="1672" height="941" loading="lazy" /></div>
+          <div className="discover-heading"><p>Every spark has a story.</p><h2>Step into ours.</h2><span className="discover-mobile-cue">Scroll to see it unfold <ArrowDown size={16} /></span></div>
+        </div>
         </div>
       </section>
-      <section className="excellence-section" id="our-school">
-        <img className="crest-watermark" src="/assets/crest.png" alt="" loading="lazy" />
-        <div className="section-intro" data-reveal><p className="eyebrow">A school for every chapter</p><h2>Big ideas.<br />Bright futures.<br /><i>Your own path.</i></h2><p className="intro-copy">From the first spark of curiosity to the confidence to take your next step. Discover a school full of possibilities.</p></div>
-        <Carousel className="school-carousel" opts={{ align: 'start', loop: true }} aria-label="Explore the school stages">
-          <CarouselContent className="school-track">{stages.map((stage, index) => <CarouselItem key={stage.name} className="stage-slide"><a className="stage-card" href={base + stage.url} data-reveal><div className="stage-image"><img src={'/assets/' + stage.image} alt={stage.name + ' at PGS'} loading="lazy" /><span className="stage-age">{stage.age}</span></div><div className="stage-info"><span className="stage-index">0{index + 1}</span><div><h3>{stage.name}</h3><p>{stage.line}</p></div><ArrowUpRight strokeWidth={1} /></div></a></CarouselItem>)}</CarouselContent>
-          <div className="stage-navigation"><span>Find your next chapter</span><CarouselPrevious className="stage-arrow" /><CarouselNext className="stage-arrow" /></div>
+      <section className="apex-chapters" id="our-school" aria-labelledby="chapters-title">
+        <div className="chapter-intro">
+          <div className="chapter-copy" data-reveal>
+            <p className="chapter-kicker">A school for every chapter</p>
+            <h2 id="chapters-title">Big ideas.<br />Bright futures.</h2>
+            <p className="chapter-handwritten">Your own path.</p>
+            <p className="chapter-description">From the first spark of curiosity to the confidence to take your next step. There’s a whole world of possibilities ahead.</p>
+          </div>
+          <figure className="chapter-art" data-reveal>
+            <SchoolDoodle kind="bulb" className="chapter-idea-doodle" />
+            <SchoolDoodle kind="stars" className="chapter-stars-doodle" />
+            <img src="/assets/apex-chapter-illustration.png" alt="Hand-drawn pupils with books and an oversized pencil, imagining what comes next" width="1536" height="1024" loading="lazy" />
+            <figcaption>Little moments. Big discoveries.</figcaption>
+          </figure>
+        </div>
+        <Carousel className="chapter-carousel" opts={{ align: 'start', loop: true }} aria-label="Explore the school stages">
+          <div className="chapter-journey-heading">
+            <SchoolDoodle kind="arrow-left" className="chapter-curly-arrow" />
+            <p>Every adventure starts somewhere.</p>
+            <div className="chapter-navigation"><CarouselPrevious className="chapter-arrow" /><CarouselNext className="chapter-arrow" /></div>
+          </div>
+          <CarouselContent className="chapter-track">
+            {stages.map((stage, index) => <CarouselItem key={stage.name} className="chapter-slide">
+              <a className="chapter-card" href={base + stage.url}>
+                <div className="chapter-photo"><img src={'/assets/' + stage.image} alt={stage.name + ' at PGS'} loading="lazy" /><span className="chapter-age">{stage.age}</span></div>
+                <div className="chapter-card-heading"><span className="chapter-number">0{index + 1}</span><h3>{stage.name}</h3><ArrowUpRight size={24} strokeWidth={1.5} /></div>
+                <p>{stage.line}</p>
+              </a>
+            </CarouselItem>)}
+          </CarouselContent>
+          <p className="chapter-endnote">Room to explore. Space to become <span>you.</span></p>
         </Carousel>
       </section>
-      <section className="possibilities-section">
-        <div className="possibilities-image" data-reveal><img src="/assets/sixth.jpg" alt="Pupils sharing ideas at Portsmouth Grammar School" loading="lazy" /></div>
-        <div className="possibilities-copy" data-reveal><p className="eyebrow">The PGS experience</p><h2>Be curious.<br />Be courageous.<br /><i>Be you.</i></h2><p>In the classroom, on the stage and out on the playing field, there is room to explore what matters to you.</p><a className="text-link" href={base + '/pgs-experience/co-curriculum/clubs-activities'}>Explore the possibilities <ArrowRight size={22} /></a></div>
+      <section className="apex-possibilities" id="life-at-apex" aria-labelledby="possibilities-title">
+        <div className="possibilities-sketchbook" data-reveal>
+          <figure className="possibilities-art-paper">
+            <SchoolDoodle kind="book" className="possibilities-book-doodle" />
+            <p className="possibilities-paper-label">Life beyond the classroom</p>
+            <img src="/assets/apex-possibilities-illustration.png" alt="Illustrated pupils exploring music, sport, and reading together" width="1536" height="1024" loading="lazy" />
+            <figcaption>Find what makes you, you.</figcaption>
+          </figure>
+        </div>
+        <div className="possibilities-story" data-reveal>
+          <SchoolDoodle kind="stars" className="possibilities-stars-doodle" />
+          <p className="possibilities-kicker">So much more to discover</p>
+          <h2 id="possibilities-title">Be curious.<br />Be courageous.<br /><span>Be you.</span></h2>
+          <p className="possibilities-description">In the classroom, on the stage and out on the playing field, there is room to explore what matters to you.</p>
+          <a className="possibilities-explore" href={base + '/pgs-experience/co-curriculum/clubs-activities'}>Explore the possibilities <ArrowUpRight size={24} strokeWidth={1.5} /></a>
+        </div>
       </section>
-      <section className="portsmouth-section">
-        <img src="/assets/education.jpg" alt="Portsmouth Harbour and the Spinnaker Tower" loading="lazy" />
-        <div data-reveal><p className="eyebrow">A city of possibilities</p><h2>Education<br /><i>at the heart of Portsmouth</i></h2><a className="light-link" href={base + '/admissions/visit-us'}>Come and see for yourself <ArrowUpRight /></a></div>
+      <section className="apex-visit" id="visit-apex" aria-labelledby="visit-title">
+        <div className="visit-copy" data-reveal>
+          <p className="visit-kicker">A little hello. A big beginning.</p>
+          <h2 id="visit-title">Come and see<br />what’s possible.</h2>
+          <p className="visit-handwritten">We’d love to meet you.</p>
+          <p className="visit-description">Meet our school community and explore where your child’s next chapter could begin.</p>
+          <div className="visit-action"><a className="visit-button apex-cta" href="/visit-us">Let’s plan a visit <ArrowUpRight size={23} strokeWidth={1.5} /></a><SchoolDoodle kind="arrow-left" className="visit-curly-arrow" /></div>
+          <p className="visit-location">Odumbra, Olavanna · Kozhikode, Kerala</p>
+        </div>
+        <figure className="visit-postcard" data-reveal>
+          <SchoolDoodle kind="plane" className="visit-plane-doodle" />
+          <div className="visit-photo"><img src="/assets/apex-campus-source.jpg" alt="Apex pupils exploring together in their science laboratory" width="1200" height="900" loading="lazy" /></div>
+          <figcaption><span>A little glimpse of life at Apex</span><span className="visit-postcard-mark" aria-hidden="true">Apex<br />with love.</span></figcaption>
+        </figure>
       </section>
-      <footer className="site-footer">
-        <img className="footer-building" src="/assets/building.png" alt="" loading="lazy" />
-        <div className="footer-main"><div className="footer-invitation" data-reveal><p className="eyebrow">Your story starts here</p><h2>Inspiring<br />the best<br />in <i>you</i></h2><div className="footer-actions">{links.map(([label, href]) => <a href={base + href} key={label}>{label}<ArrowUpRight size={18} /></a>)}</div></div><div className="footer-contact"><img src="/assets/logo.png" alt="The Portsmouth Grammar School" loading="lazy" /><p>High Street, Portsmouth<br />Hampshire, PO1 2LN</p><a href="tel:+442392360036">(023) 9236 0036 <ArrowUpRight size={18} /></a><div className="footer-school-links">{stages.map(stage => <a key={stage.name} href={base + stage.url}>{stage.name}<ArrowUpRight size={15} /></a>)}</div></div></div>
-        <div className="footer-bottom"><p>PGS homepage design study · Inspired by <a href={base}>pgs.org.uk</a></p><a href="#top">Back to top <ArrowUp size={18} /></a></div>
-      </footer>
+      <SiteFooter home />
     </main>
   );
 }

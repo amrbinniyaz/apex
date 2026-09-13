@@ -1,0 +1,20 @@
+[
+  {
+    "key": "pupil",
+    "prompt": "Use case: background-extraction, identity-preserve. Edit the supplied photo for a website foreground layer. Preserve the exact same girl, her face, age, hair, pose, blue checked school uniform, hands and open book from this photo. Remove ALL pale paper background and empty space, leaving genuine transparent alpha, not white and not a painted checkerboard. Include the whole pupil from top of her hair through her hands and open book. Tightly frame the cutout as a portrait 4:5 image. Keep a small softly feathered portion of the desk under the book fading into actual transparency at the bottom. Keep natural crisp hair edges. No frame, no text, no logos added, no new objects. This will overlap separate photographs, so the space around her head, shoulders and arms must really be transparent.",
+    "referenced_image_paths": [
+      "/Users/macbookpro/apex-new/public/assets/apex-hero.png"
+    ]
+  },
+  {
+    "key": "painting",
+    "prompt": "Use case: identity-preserve, creative school campaign scene. Use the supplied girl as the exact character reference: same girl and age, pigtails, blue pinafore and checked blouse. Create a separate photorealistic candid photograph of her painting a bright imaginative garden in watercolor at a small wooden easel in a sunlit school art room. Medium side view, smiling gently with concentration, brush held naturally, palette beside easel. Face in left third, colorful painting on right half. Warm cream walls, natural daylight, shallow depth of field, authentic school photography, muted background with vivid cobalt uniform and dabs of coral paint. Landscape 3:2 image. The scene is a creative imagined activity for a decorative website collage. No typography, watermarks, promotional borders, anniversary seals or added logos.",
+    "referenced_image_paths": [
+      "/Users/macbookpro/apex-new/public/assets/apex-hero.png"
+    ]
+  },
+  {
+    "key": "paint-detail",
+    "prompt": "Standalone photorealistic school art photography, landscape 3:2. Close-up overhead detail of a child's small hand wearing the cuff of a blue and white checked school blouse, making a gentle blue watercolor brushstroke on thick cream drawing paper. An open watercolor paint set with cobalt, coral, butter yellow, a ceramic water cup and a few wooden colored pencils loosely arranged on a light wooden classroom desk. A partly finished whimsical garden painting. Beautiful authentic natural window light, tactile paper grain and pigments, refined editorial crop. No face or body, no text, no logos, no frame. Intended as a small independently positioned photo panel behind a pupil portrait on a school website."
+  }
+]
