@@ -1,0 +1,227 @@
+/* Photographic inner-page openings with a focused reading column. */
+.ad-photographic-hero {
+  height: 76svh;
+  min-height: 550px;
+  max-height: 790px;
+  position: relative;
+  color: var(--apex-paper);
+  background: var(--apex-ink);
+  overflow: hidden;
+}
+.ad-page-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+}
+.ad-apply .ad-page-photo {
+  object-position: center 42%;
+}
+.ad-page-photo-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      #101d3c80 0%,
+      #101d3c08 36%,
+      #101d3c25 51%,
+      #101d3cdb 100%
+    ),
+    linear-gradient(90deg, #101d3c33, transparent 65%);
+}
+.ad-page-title-group {
+  position: absolute;
+  left: 6vw;
+  right: 120px;
+  bottom: 55px;
+  max-width: 1050px;
+}
+.ad-page-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-family: var(--apex-interface);
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff9ebc9;
+  margin-bottom: 21px;
+}
+.ad-page-breadcrumb > a:hover {
+  color: #fff9eb;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ad-page-title-group h1 {
+  font-family: var(--apex-heading);
+  font-size: clamp(53px, 6.5vw, 96px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  text-shadow: 0 2px 15px #101d3c30;
+}
+.ad-page-title-group > p {
+  font-family: var(--apex-accent);
+  font-size: clamp(22px, 2.1vw, 30px);
+  line-height: 1.25;
+  margin-top: 17px;
+  color: #f4cc78;
+}
+.ad-hero-anchor {
+  position: absolute;
+  right: 6vw;
+  bottom: 58px;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #fff9eb77;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.ad-hero-anchor:hover {
+  background: #fff9eb20;
+}
+.ad-hero-anchor:focus-visible {
+  outline-color: #f4cc78;
+}
+.ad-page-intro {
+  max-width: 870px;
+  padding: 73px 25px 62px;
+  margin: 0 auto;
+  text-align: center;
+  scroll-margin-top: 20px;
+}
+.ad-page-intro h2 {
+  font-family: var(--apex-heading);
+  font-size: clamp(32px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.04em;
+  white-space: pre-line;
+  margin: 20px auto 25px;
+  color: var(--apex-ink);
+}
+.ad-intro-copy {
+  font-family: var(--apex-heading);
+  font-size: 18px;
+  line-height: 1.85;
+  max-width: 720px;
+  margin: 0 auto 29px;
+  color: #596375;
+}
+.ad-intro-note {
+  display: block;
+  font-family: var(--apex-interface);
+  font-size: 13px;
+  color: #697180;
+  margin-top: 18px;
+}
+.admissions-page .ad-practical {
+  max-width: 1250px;
+  padding-top: 72px;
+  padding-bottom: 78px;
+  gap: 7vw;
+  grid-template-columns: 0.85fr 1.15fr;
+}
+.admissions-page .ad-location {
+  max-width: none;
+  position: relative;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+@media (max-width: 767px) {
+  .ad-photographic-hero {
+    height: 72svh;
+    min-height: 490px;
+    max-height: 680px;
+  }
+  .ad-page-photo {
+    object-position: 53% center;
+  }
+  .ad-apply .ad-page-photo {
+    object-position: 56% center;
+  }
+  .ad-page-photo-shade {
+    background: linear-gradient(
+      180deg,
+      #101d3cb0 0%,
+      #101d3c18 36%,
+      #101d3c35 53%,
+      #101d3ced 100%
+    );
+  }
+  .ad-page-title-group {
+    left: 24px;
+    right: 65px;
+    bottom: 39px;
+  }
+  .ad-page-breadcrumb {
+    font-size: 12px;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .ad-page-title-group h1 {
+    font-size: clamp(40px, 10vw, 61px);
+  }
+  .ad-page-title-group > p {
+    font-size: 21px;
+    line-height: 1.3;
+    max-width: 260px;
+    margin-top: 15px;
+  }
+  .ad-hero-anchor {
+    right: 23px;
+    bottom: 40px;
+    width: 36px;
+    height: 36px;
+  }
+  .ad-hero-anchor svg {
+    width: 19px;
+    height: 19px;
+  }
+  .ad-page-intro {
+    padding: 44px 24px 35px;
+  }
+  .ad-page-intro h2 {
+    font-size: 31px;
+    margin-top: 17px;
+    margin-bottom: 22px;
+  }
+  .ad-intro-copy {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 25px;
+  }
+  .admissions-page .ad-practical {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 42px 24px 48px;
+  }
+  .admissions-page .ad-location {
+    padding-top: 43px;
+    padding-bottom: 43px;
+  }
+}
+@media (max-width: 370px) {
+  .ad-page-title-group {
+    left: 20px;
+    right: 58px;
+  }
+  .ad-page-title-group h1 {
+    font-size: 38px;
+  }
+  .ad-page-title-group > p {
+    font-size: 19px;
+  }
+  .ad-page-intro h2 {
+    font-size: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ad-hero-anchor {
+    transition: none;
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "/assets/apex-cinematic-hero-v2.png": {
+    "width": 1671,
+    "height": 941,
+    "widths": [480, 800, 1200, 1671],
+    "stem": "apex-cinematic-hero-v2"
+  },
+  "/assets/apex-skating-hero.png": {
+    "width": 1672,
+    "height": 941,
+    "widths": [480, 800, 1200, 1672],
+    "stem": "apex-skating-hero"
+  },
+  "/assets/apex-campus-pencil.png": {
+    "width": 1672,
+    "height": 941,
+    "widths": [480, 800, 1200, 1672],
+    "stem": "apex-campus-pencil"
+  },
+  "/assets/apex-chapter-illustration.png": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [480, 800, 1200, 1536],
+    "stem": "apex-chapter-illustration"
+  },
+  "/assets/apex-possibilities-illustration.png": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [480, 800, 1200, 1536],
+    "stem": "apex-possibilities-illustration"
+  },
+  "/assets/apex-campus-source.jpg": {
+    "width": 2400,
+    "height": 1480,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "apex-campus-source"
+  },
+  "/assets/apex-cinematic-source.jpg": {
+    "width": 2400,
+    "height": 1485,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "apex-cinematic-source"
+  },
+  "/assets/apex-skating-source.png": {
+    "width": 1450,
+    "height": 1416,
+    "widths": [480, 800, 1200, 1450],
+    "stem": "apex-skating-source"
+  },
+  "/assets/apex-video-campus.jpg": {
+    "width": 1179,
+    "height": 714,
+    "widths": [480, 800, 1179],
+    "stem": "apex-video-campus"
+  }
+}

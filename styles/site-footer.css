@@ -1,0 +1,141 @@
+.ad-page-sections {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 0 24px;
+  min-height: 62px;
+  background: #fff9ebf5;
+  border-bottom: 1px solid #24366820;
+  backdrop-filter: blur(12px);
+  font-family: var(--apex-interface);
+  font-size: 16px;
+}
+.ad-page-sections > span {
+  color: var(--apex-red);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-right: 1px solid #24366825;
+  padding-right: 33px;
+}
+.ad-page-sections > a {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  padding-top: 2px;
+}
+.ad-page-sections > a:hover,
+.ad-page-sections > a:focus-visible {
+  color: var(--apex-red);
+  border-bottom-color: var(--apex-red);
+}
+.admissions-page .ad-journey {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 8vw;
+  padding: 73px max(6vw, 24px);
+  align-items: start;
+}
+.admissions-page .ad-journey .ad-section-heading {
+  display: block;
+  margin: 0;
+}
+.admissions-page .ad-journey .ad-section-heading h2 {
+  font-size: clamp(31px, 3.1vw, 43px);
+  line-height: 1.2;
+  white-space: pre-line;
+  margin: 20px 0 23px;
+}
+.ad-process-note {
+  font-family: var(--apex-heading);
+  font-size: 16px;
+  line-height: 1.85;
+  color: #596375;
+  max-width: 370px;
+}
+.admissions-page .ad-journey ol {
+  display: block;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  max-width: none;
+}
+.admissions-page .ad-journey li {
+  display: grid;
+  grid-template-columns: 51px 1fr;
+  gap: 18px;
+  padding: 27px 0;
+  border-top: 1px solid #2436682a;
+}
+.admissions-page .ad-journey li:last-child {
+  border-bottom: 1px solid #2436682a;
+}
+.admissions-page .ad-step-number {
+  position: static;
+  font-family: var(--apex-heading);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--apex-red);
+}
+.admissions-page .ad-journey h3 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+.admissions-page .ad-journey li p {
+  max-width: 490px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+@media (max-width: 767px) {
+  .ad-page-sections {
+    justify-content: flex-start;
+    gap: 25px;
+    padding: 0 24px;
+    min-height: 54px;
+    overflow-x: auto;
+    font-size: 14px;
+    scrollbar-width: none;
+  }
+  .ad-page-sections::-webkit-scrollbar {
+    display: none;
+  }
+  .ad-page-sections > span {
+    display: none;
+  }
+  .ad-page-sections > a {
+    min-height: 54px;
+  }
+  .admissions-page .ad-journey {
+    grid-template-columns: 1fr;
+    gap: 29px;
+    padding: 44px 24px;
+  }
+  .admissions-page .ad-journey .ad-section-heading h2 {
+    font-size: 31px;
+    margin: 17px 0 19px;
+  }
+  .ad-process-note {
+    font-size: 15px;
+    max-width: none;
+  }
+  .admissions-page .ad-journey li {
+    grid-template-columns: 37px 1fr;
+    gap: 13px;
+    padding: 23px 0;
+  }
+  .admissions-page .ad-step-number {
+    font-size: 23px;
+  }
+  .admissions-page .ad-journey h3 {
+    font-size: 21px;
+  }
+  .admissions-page .ad-journey li p {
+    font-size: 15px;
+  }
+}

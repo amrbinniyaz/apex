@@ -1,0 +1,136 @@
+/* Shared Apex navigation and typography on every route. */
+.site-header.cinematic-header.header-paper {
+  position: relative;
+  inset: auto;
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+  border-bottom: 1px solid #24366814;
+}
+.header-paper .brand-name {
+  text-shadow: none;
+}
+.header-paper .brand {
+  filter: none;
+}
+.header-paper a:focus-visible,
+.header-paper button:focus-visible {
+  outline-color: var(--apex-red);
+}
+.shared-site-header .utility-link[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.apex-shared-menu {
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+  font-family: var(--apex-heading);
+}
+.apex-shared-menu .menu-title {
+  font-family: var(--apex-heading);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.apex-shared-menu nav a {
+  font-family: var(--apex-heading);
+}
+.apex-shared-menu nav a[aria-current='page'] {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.admissions-page {
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+}
+.admissions-page .ad-hero h1,
+.admissions-page .ad-section-heading h2,
+.admissions-page .ad-enquiry-aside h2,
+.admissions-page .enquiry-paper h2,
+.admissions-page .ad-practical h2,
+.admissions-page .ad-location h2,
+.admissions-page .ad-journey h3 {
+  font-family: var(--apex-heading);
+  font-weight: 700;
+}
+.admissions-page .ad-hero h1 em {
+  font-family: var(--apex-heading);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--apex-red);
+}
+.admissions-page .ad-enquiry-aside > p:not(.ad-hand),
+.admissions-page .ad-journey li p,
+.admissions-page .ad-faqs details > p {
+  font-family: var(--apex-heading);
+  font-size: 17px;
+  line-height: 1.8;
+}
+.admissions-page .ad-hand {
+  color: var(--apex-red);
+}
+.admissions-page .ad-text-link {
+  font-family: var(--apex-accent);
+  font-size: 23px;
+  color: var(--apex-red);
+}
+.admissions-page .ad-faqs summary {
+  font-family: var(--apex-heading);
+  font-size: 18px;
+}
+.admissions-page .enquiry-progress .current {
+  color: var(--apex-red);
+}
+.admissions-page .enquiry-progress .current b {
+  background: var(--apex-red);
+  border-color: var(--apex-red);
+}
+.apex-cta,
+.admissions-page .ad-button.apex-cta {
+  font-family: var(--apex-accent);
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.2;
+  background: var(--apex-red);
+  color: var(--apex-paper);
+  border: 1px solid var(--apex-red);
+  border-radius: 3px;
+  box-shadow: none;
+  padding: 15px 24px;
+  gap: 28px;
+  min-height: 56px;
+  transition: background 0.2s;
+}
+.apex-cta:hover,
+.admissions-page .ad-button.apex-cta:hover {
+  background: #a52e3a;
+  border-color: #a52e3a;
+  box-shadow: none;
+  transform: none;
+  translate: none;
+}
+.apex-cta:focus-visible {
+  outline: 2px solid var(--apex-ink);
+  outline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .site-header.cinematic-header.header-paper {
+    min-height: 151px;
+  }
+  .apex-shared-menu {
+    background: var(--apex-red);
+    color: var(--apex-paper);
+  }
+  .admissions-page .ad-enquiry-aside > p:not(.ad-hand),
+  .admissions-page .ad-journey li p,
+  .admissions-page .ad-faqs details > p {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .apex-cta,
+  .admissions-page .ad-button.apex-cta {
+    transition: none;
+  }
+}

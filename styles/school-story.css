@@ -1,0 +1,1345 @@
+.apex-chapters {
+  --chapter-ink: #243668;
+  --chapter-red: #b83b45;
+  --chapter-paper: #fff9eb;
+  position: relative;
+  overflow: hidden;
+  padding: 100px max(5vw, 24px) 64px;
+  background: var(--chapter-paper);
+  color: var(--chapter-ink);
+  isolation: isolate;
+}
+.apex-chapters:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='.6'/%3E%3C/svg%3E");
+}
+.chapter-intro {
+  max-width: 1380px;
+  margin: 0 auto 64px;
+  display: grid;
+  grid-template-columns: 1.04fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+.chapter-copy {
+  position: relative;
+  z-index: 1;
+  padding-left: 18px;
+}
+.chapter-kicker {
+  display: inline-block;
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.2;
+  color: var(--chapter-red);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  background: #fffdf6;
+  transform: rotate(-2deg);
+  margin-bottom: 30px;
+  border: 1px solid #c98d7833;
+  box-shadow: 2px 3px 0 #dfc8a321;
+}
+.chapter-copy h2 {
+  font-family: ApexStory, Georgia, serif;
+  font-size: clamp(48px, 5.7vw, 88px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+.chapter-handwritten {
+  font-family: ApexHand, cursive;
+  font-size: clamp(42px, 4.3vw, 67px);
+  color: var(--chapter-red);
+  line-height: 1.05;
+  display: table;
+  margin: 13px 0 26px;
+  transform: rotate(-3deg);
+  position: relative;
+}
+.chapter-handwritten:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -4px;
+  width: 102%;
+  height: 8px;
+  border-bottom: 3px solid currentColor;
+  border-radius: 50%;
+  transform: rotate(-1deg);
+}
+.chapter-description {
+  max-width: 440px;
+  font-family: ApexStory, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #515064;
+}
+.chapter-art {
+  margin: 0 -35px 0 -30px;
+  position: relative;
+  transform: rotate(2deg);
+}
+.chapter-art > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+.chapter-art figcaption {
+  font-family: ApexHand, cursive;
+  font-size: 25px;
+  text-align: center;
+  margin-top: -8px;
+  transform: rotate(-4deg);
+  color: var(--chapter-red);
+}
+.chapter-carousel {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.chapter-journey-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 18px 16px;
+  border-top: 1px solid #24366835;
+}
+.chapter-journey-heading > p {
+  font-family: ApexHand, cursive;
+  font-size: 30px;
+  line-height: 1.15;
+  transform: rotate(-1deg);
+}
+.chapter-navigation {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.chapter-arrow {
+  position: static !important;
+  transform: none !important;
+  width: 46px !important;
+  height: 46px !important;
+  background: transparent !important;
+  border: 1.5px solid var(--chapter-ink) !important;
+  border-radius: 48% 52% 44% 56% !important;
+  color: var(--chapter-ink) !important;
+  box-shadow: none !important;
+  transition:
+    background 0.2s,
+    rotate 0.2s !important;
+}
+.chapter-arrow:hover {
+  background: #dce8ed !important;
+  rotate: -7deg;
+}
+.chapter-arrow:focus-visible {
+  outline: 3px solid var(--chapter-red);
+  outline-offset: 3px;
+}
+.chapter-track {
+  margin-left: -28px;
+  padding: 24px 0 30px;
+  align-items: flex-start;
+}
+.chapter-slide {
+  flex-basis: 31.5%;
+  padding-left: 28px;
+  --paper-tilt: -2deg;
+}
+.chapter-slide:nth-child(2n) {
+  --paper-tilt: 2deg;
+  padding-top: 17px;
+}
+.chapter-slide:nth-child(3n) {
+  --paper-tilt: -1deg;
+}
+.chapter-card {
+  display: block;
+  padding: 13px 13px 24px;
+  margin: 8px 5px;
+  background: #fffef9;
+  border: 1px solid #cfc8b78c;
+  box-shadow: 3px 6px 0 #c7b99d24;
+  transform: rotate(var(--paper-tilt));
+  transition:
+    transform 0.35s,
+    box-shadow 0.35s;
+  position: relative;
+}
+.chapter-card:before {
+  content: '';
+  position: absolute;
+  left: 37%;
+  top: -11px;
+  width: 26%;
+  height: 25px;
+  background: #e4c98788;
+  transform: rotate(-5deg);
+  z-index: 2;
+  clip-path: polygon(1% 0, 100% 4%, 97% 100%, 0 93%);
+}
+.chapter-card:hover,
+.chapter-card:focus-visible {
+  transform: rotate(0) translateY(-6px);
+  box-shadow: 5px 12px 0 #c7b99d30;
+}
+.chapter-card:focus-visible {
+  outline: 3px solid var(--chapter-red);
+  outline-offset: 5px;
+}
+.chapter-photo {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+  background: #dce8ed;
+}
+.chapter-photo > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.72);
+  transition: filter 0.3s;
+}
+.chapter-card:hover .chapter-photo > img {
+  filter: saturate(1);
+}
+.chapter-age {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  font-family: ApexHand, cursive;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--chapter-ink);
+  background: #fff9eb;
+  padding: 3px 10px;
+  transform: rotate(3deg);
+}
+.chapter-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 2px 6px;
+}
+.chapter-number {
+  font-family: ApexHand, cursive;
+  color: var(--chapter-red);
+  font-size: 25px;
+  line-height: 1;
+}
+.chapter-card-heading h3 {
+  font-family: ApexStory, Georgia, serif;
+  font-size: clamp(20px, 1.75vw, 27px);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.chapter-card-heading > svg {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--chapter-red);
+}
+.chapter-card > p {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.25;
+  margin-left: 35px;
+  color: #65616c;
+}
+.chapter-endnote {
+  font-family: ApexHand, cursive;
+  font-size: 25px;
+  text-align: center;
+  padding: 15px 0 5px;
+  color: #65616c;
+}
+.chapter-endnote > span {
+  color: var(--chapter-red);
+  font-size: 1.35em;
+  border-bottom: 2px solid currentColor;
+}
+@media (min-width: 1700px) {
+  .chapter-slide {
+    flex-basis: 25%;
+  }
+}
+@media (max-width: 1000px) {
+  .apex-chapters {
+    padding: 75px 30px 45px;
+  }
+  .chapter-copy {
+    padding-left: 0;
+  }
+  .chapter-intro {
+    gap: 0;
+  }
+  .chapter-copy h2 {
+    font-size: clamp(45px, 6.1vw, 64px);
+  }
+  .chapter-kicker {
+    font-size: 20px;
+    padding: 7px 10px;
+    margin-bottom: 25px;
+  }
+  .chapter-art {
+    margin: 0 -20px 0 -10px;
+  }
+  .chapter-art figcaption {
+    font-size: 22px;
+  }
+  .chapter-slide {
+    flex-basis: 45%;
+  }
+  .chapter-description {
+    font-size: 17px;
+  }
+  .chapter-card-heading h3 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 640px) {
+  .apex-chapters {
+    padding: 60px 20px 38px;
+  }
+  .chapter-intro {
+    grid-template-columns: 1fr;
+    margin-bottom: 38px;
+    gap: 14px;
+  }
+  .chapter-copy {
+    text-align: center;
+  }
+  .chapter-kicker {
+    font-size: 19px;
+    margin-bottom: 24px;
+  }
+  .chapter-copy h2 {
+    font-size: clamp(43px, 10.8vw, 66px);
+    line-height: 1.12;
+  }
+  .chapter-handwritten {
+    font-size: 44px;
+    margin: 14px auto 24px;
+  }
+  .chapter-description {
+    font-size: 16px;
+    max-width: 330px;
+    margin: auto;
+    line-height: 1.65;
+  }
+  .chapter-art {
+    margin: 0 auto;
+    width: min(100%, 400px);
+    transform: rotate(1deg);
+  }
+  .chapter-art figcaption {
+    margin-top: -10px;
+    font-size: 22px;
+  }
+  .chapter-journey-heading {
+    padding: 22px 0 8px;
+    gap: 10px;
+  }
+  .chapter-journey-heading > p {
+    font-size: 24px;
+    max-width: 190px;
+  }
+  .chapter-navigation {
+    gap: 7px;
+  }
+  .chapter-arrow {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .chapter-slide {
+    flex-basis: 86%;
+    padding-left: 20px;
+  }
+  .chapter-track {
+    margin-left: -20px;
+    padding-top: 18px;
+  }
+  .chapter-card-heading h3 {
+    font-size: 24px;
+  }
+  .chapter-card > p {
+    font-size: 22px;
+  }
+  .chapter-endnote {
+    font-size: 21px;
+    padding: 5px 16px;
+  }
+  .chapter-card-heading {
+    gap: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chapter-card,
+  .chapter-arrow {
+    transition: none !important;
+  }
+  .chapter-card:hover {
+    transform: rotate(var(--paper-tilt));
+  }
+}
+
+/* The next page of the same illustrated story. */
+.apex-possibilities {
+  background: #243668;
+  color: #fff9eb;
+  padding: 110px max(6vw, 24px) 120px;
+  display: grid;
+  grid-template-columns: 1.13fr 1fr;
+  gap: 7vw;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.possibilities-sketchbook {
+  position: relative;
+  max-width: 750px;
+}
+.possibilities-art-paper {
+  position: relative;
+  background: #fff9eb;
+  color: #243668;
+  margin: 0;
+  padding: 22px 20px 30px;
+  transform: rotate(-3deg);
+  box-shadow: 9px 12px 0 #14234a55;
+}
+.possibilities-art-paper:before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: -16px;
+  left: 40%;
+  width: 24%;
+  height: 35px;
+  background: #afcddbce;
+  transform: rotate(7deg);
+  clip-path: polygon(2% 0, 100% 4%, 97% 100%, 0 96%);
+}
+.possibilities-paper-label {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.2;
+  text-align: center;
+  color: #b83b45;
+  transform: rotate(1deg);
+}
+.possibilities-art-paper > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+.possibilities-art-paper figcaption {
+  font-family: ApexHand, cursive;
+  font-size: clamp(24px, 2.3vw, 35px);
+  text-align: center;
+  line-height: 1.15;
+  transform: rotate(1deg);
+}
+.possibilities-story {
+  max-width: 570px;
+}
+.possibilities-kicker {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #b9d9e7;
+  margin-bottom: 28px;
+}
+.possibilities-story h2 {
+  font-family: ApexStory, Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(42px, 4.25vw, 67px);
+  letter-spacing: -0.045em;
+  line-height: 1.13;
+}
+.possibilities-story h2 > span {
+  display: inline-block;
+  font-family: ApexHand, cursive;
+  font-size: 1.27em;
+  line-height: 1.1;
+  font-weight: 400;
+  color: #f4cc78;
+  transform: rotate(-4deg);
+  margin: 10px 0 4px;
+  position: relative;
+}
+.possibilities-story h2 > span:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  bottom: 0;
+  width: 103%;
+  height: 7px;
+  border-bottom: 2px solid currentColor;
+  border-radius: 50%;
+}
+.possibilities-description {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 420px;
+  margin-top: 28px;
+  color: #ecebf0;
+}
+.possibilities-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  font-family: ApexHand, cursive;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #fff9eb;
+  border-bottom: 1px solid #aecbde;
+  padding: 12px 0;
+  margin-top: 22px;
+  transition: color 0.2s;
+}
+.possibilities-explore svg {
+  color: #f4cc78;
+  transition: transform 0.2s;
+}
+.possibilities-explore:hover {
+  color: #f4cc78;
+}
+.possibilities-explore:hover svg {
+  transform: translate(3px, -3px);
+}
+.possibilities-explore:focus-visible {
+  outline: 3px solid #f4cc78;
+  outline-offset: 6px;
+}
+@media (max-width: 1000px) {
+  .apex-possibilities {
+    padding: 85px 35px 90px;
+    gap: 5vw;
+    grid-template-columns: 1fr 1fr;
+  }
+  .possibilities-story h2 {
+    font-size: clamp(35px, 4.35vw, 46px);
+  }
+  .possibilities-description {
+    font-size: 17px;
+  }
+  .possibilities-kicker {
+    font-size: 21px;
+    margin-bottom: 20px;
+  }
+  .possibilities-art-paper {
+    padding: 20px 10px 23px;
+  }
+  .possibilities-paper-label {
+    font-size: 19px;
+  }
+  .possibilities-explore {
+    font-size: 23px;
+    gap: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .apex-possibilities {
+    grid-template-columns: 1fr;
+    padding: 64px 26px 70px;
+    gap: 48px;
+  }
+  .possibilities-sketchbook {
+    max-width: 440px;
+    margin: auto;
+    width: 100%;
+  }
+  .possibilities-art-paper {
+    padding: 22px 12px 27px;
+    transform: rotate(-2deg);
+  }
+  .possibilities-paper-label {
+    font-size: 21px;
+  }
+  .possibilities-art-paper figcaption {
+    font-size: 27px;
+  }
+  .possibilities-story {
+    padding: 0 2px;
+    max-width: 440px;
+    margin: auto;
+    width: 100%;
+  }
+  .possibilities-kicker {
+    font-size: 21px;
+    margin-bottom: 22px;
+  }
+  .possibilities-story h2 {
+    font-size: clamp(38px, 9.7vw, 57px);
+  }
+  .possibilities-description {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 24px;
+  }
+  .possibilities-explore {
+    font-size: 25px;
+    width: 100%;
+    margin-top: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .possibilities-explore,
+  .possibilities-explore svg {
+    transition: none;
+  }
+}
+
+/* Carry the editorial serif and handwritten voice through the opening story. */
+.site-header {
+  color: #243668;
+  align-items: center;
+  padding-top: 24px;
+}
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.brand-lockup .brand {
+  width: 76px;
+  height: auto;
+}
+.brand-name {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.brand-name > span {
+  display: block;
+  font-family: ApexHand, cursive;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  margin-top: 3px;
+}
+.site-header > nav {
+  align-items: center;
+}
+.site-header .utility-link {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+  border: 0;
+  margin-top: 0;
+  padding: 8px 22px;
+}
+.site-header .utility-link:hover {
+  color: #b83b45;
+}
+.site-header .menu-trigger {
+  background: #b83b45;
+  margin-top: -24px;
+  height: 99px;
+  width: 78px;
+}
+.menu-trigger i {
+  font-family: ApexHand, cursive;
+  font-style: normal;
+  font-size: 22px;
+}
+.discover-section {
+  background: #fff9eb;
+}
+.discover-mask {
+  background: #fff9eb;
+}
+.discover-campus {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.25;
+}
+.discover-campus img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+.discover-campus:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #fff9ebed 0%,
+    #fff9ebd9 22%,
+    #fff9eb75 43%,
+    #fff9eb29 66%,
+    #fff9eb66 100%
+  );
+}
+.discover-mask .discover-heading {
+  top: calc(9svh* (1 - var(--arch-progress)));
+  padding: 0 30px;
+  color: #243668;
+}
+.discover-mask .discover-heading p {
+  font-family: ApexStory, Georgia, serif;
+  font-size: clamp(36px, 4vw, 62px);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+.discover-mask .discover-heading h2 {
+  font-family: ApexHand, cursive;
+  font-size: clamp(47px, 5.3vw, 82px);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-top: 7px;
+  color: #b83b45;
+  transform: rotate(-2deg);
+}
+.school-film-full i {
+  font-family: ApexHand, cursive;
+  font-style: normal;
+  font-size: clamp(24px, 2.3vw, 35px);
+  letter-spacing: 0;
+}
+.school-film-full > span,
+.school-film-controls button {
+  background: #b83b45;
+}
+.school-film-full > span {
+  border-radius: 48% 52% 47% 53%;
+}
+.school-film-dialog {
+  font-family: ApexStory, Georgia, serif;
+}
+.school-film-dialog h2 {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #243668;
+}
+.school-film-dialog > a {
+  font-family: ApexHand, cursive;
+  font-size: 21px;
+  color: #b83b45;
+}
+@media (max-width: 1100px) and (min-width: 768px) {
+  .brand-lockup .brand {
+    width: 65px;
+  }
+  .brand-name {
+    font-size: 26px;
+  }
+  .brand-name > span {
+    font-size: 16px;
+  }
+  .site-header .utility-link {
+    font-size: 21px;
+    padding: 8px 14px;
+  }
+}
+@media (max-width: 767px) {
+  .site-header {
+    padding: 20px;
+    align-items: flex-start;
+  }
+  .brand-lockup {
+    gap: 10px;
+  }
+  .brand-lockup .brand {
+    width: 56px;
+  }
+  .brand-name {
+    font-size: 25px;
+  }
+  .brand-name > span {
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  .site-header .menu-trigger {
+    width: 59px;
+    height: 80px;
+    margin-top: -20px;
+    margin-right: 0;
+  }
+  .menu-trigger i {
+    font-size: 19px;
+  }
+  .discover-mask .discover-heading {
+    top: 12%;
+    padding: 0 20px;
+  }
+  .discover-mask .discover-heading p {
+    font-size: clamp(28px, 6.8vw, 40px);
+    max-width: 500px;
+    margin: auto;
+  }
+  .discover-mask .discover-heading h2 {
+    font-size: clamp(36px, 9vw, 52px);
+    margin-top: 10px;
+  }
+  .school-film-full i {
+    font-size: 26px;
+  }
+}
+@media (max-width: 370px) {
+  .brand-name {
+    font-size: 22px;
+  }
+  .brand-name > span {
+    font-size: 13px;
+  }
+  .brand-lockup .brand {
+    width: 50px;
+  }
+}
+
+/* A postcard invitation and a warm, useful closing chapter. */
+.apex-visit {
+  background: #e1edf0;
+  color: #243668;
+  padding: 110px max(6vw, 24px) 120px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 7vw;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.visit-copy {
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+.visit-kicker {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  line-height: 1.2;
+  color: #b83b45;
+  transform: rotate(-2deg);
+  margin-bottom: 25px;
+}
+.visit-copy h2 {
+  font-family: ApexStory, Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(44px, 4.4vw, 70px);
+  line-height: 1.13;
+  letter-spacing: -0.05em;
+}
+.visit-handwritten {
+  font-family: ApexHand, cursive;
+  font-size: clamp(31px, 3vw, 47px);
+  color: #b83b45;
+  line-height: 1.2;
+  margin-top: 13px;
+  transform: rotate(-3deg);
+}
+.visit-description {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  max-width: 405px;
+  margin-top: 28px;
+  color: #50576a;
+}
+.visit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  font-family: ApexHand, cursive;
+  font-size: 25px;
+  line-height: 1.2;
+  background: #b83b45;
+  color: #fff9eb;
+  border: 1px solid #b83b45;
+  border-radius: 3px 7px 4px 6px;
+  padding: 17px 25px;
+  margin-top: 28px;
+  box-shadow: 4px 4px 0 #243668;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.visit-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #243668;
+}
+.visit-button:focus-visible {
+  outline: 3px solid #243668;
+  outline-offset: 7px;
+}
+.visit-location {
+  font-family: ApexHand, cursive;
+  font-size: 19px;
+  line-height: 1.3;
+  margin-top: 22px;
+  color: #5d6473;
+}
+.visit-postcard {
+  margin: 0;
+  position: relative;
+  padding: 15px 15px 22px;
+  background: #fff9eb;
+  transform: rotate(3deg);
+  box-shadow: 7px 10px 0 #24366814;
+  max-width: 670px;
+  border: 1px solid #d1d3c9;
+}
+.visit-postcard:before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: -16px;
+  left: 37%;
+  width: 27%;
+  height: 35px;
+  background: #d9ba7699;
+  transform: rotate(-6deg);
+  clip-path: polygon(2% 0, 100% 6%, 98% 100%, 0 93%);
+}
+.visit-photo {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #c6d2db;
+}
+.visit-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.72);
+}
+.visit-postcard figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 19px 7px 0;
+  font-family: ApexHand, cursive;
+  font-size: 25px;
+  line-height: 1.15;
+}
+.visit-postcard-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 78px;
+  height: 78px;
+  border: 1px solid #b83b4566;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 18px;
+  color: #b83b45;
+  transform: rotate(-12deg);
+}
+.apex-footer {
+  background: #fff9eb;
+  color: #243668;
+  padding: 75px max(6vw, 24px) 26px;
+  position: relative;
+  overflow: hidden;
+}
+.apex-footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr 1.1fr;
+  gap: 7vw;
+  max-width: 1400px;
+  margin: auto;
+}
+.footer-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+}
+.footer-brand-lockup img {
+  display: block;
+  width: 85px;
+  height: auto;
+  flex-shrink: 0;
+}
+.footer-brand-lockup > span {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 35px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.footer-brand-lockup > span > span {
+  display: block;
+  font-family: ApexHand, cursive;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.3;
+  letter-spacing: 0;
+  margin-top: 5px;
+}
+.apex-footer-brand > p {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 19px;
+  line-height: 1.65;
+  margin-top: 25px;
+}
+.apex-footer-brand > p > span {
+  display: inline-block;
+  font-family: ApexHand, cursive;
+  color: #b83b45;
+  font-size: 29px;
+  line-height: 1.25;
+  transform: rotate(-3deg);
+  margin-top: 3px;
+}
+.apex-footer-nav h2,
+.apex-footer-contact h2 {
+  font-family: ApexHand, cursive;
+  font-size: 28px;
+  font-weight: 400;
+  color: #b83b45;
+  margin: 3px 0 22px;
+  line-height: 1.2;
+}
+.apex-footer-nav > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-family: ApexStory, Georgia, serif;
+  font-size: 16px;
+  line-height: 1.45;
+  padding: 11px 0;
+  border-bottom: 1px solid #24366822;
+}
+.apex-footer-nav > a svg,
+.apex-footer-contact > a svg {
+  flex-shrink: 0;
+  color: #b83b45;
+  transition: transform 0.2s;
+}
+.apex-footer-nav > a:hover,
+.apex-footer-contact > a:hover {
+  color: #b83b45;
+}
+.apex-footer-nav > a:hover svg,
+.apex-footer-contact > a:hover svg {
+  transform: translate(2px, -2px);
+}
+.apex-footer-contact address {
+  font-family: ApexStory, Georgia, serif;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  color: #555b6a;
+}
+.apex-footer-contact > a {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-family: Agenda, sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 5px 0;
+  overflow-wrap: anywhere;
+}
+.apex-footer-contact .footer-email {
+  font-size: 17px;
+}
+.apex-footer-contact .footer-directions {
+  font-family: ApexHand, cursive;
+  font-size: 23px;
+  color: #b83b45;
+  display: inline-flex;
+  border-bottom: 1px solid #b83b4577;
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+.apex-footer-signoff {
+  max-width: 1400px;
+  margin: 55px auto 28px;
+  padding: 32px 0 36px;
+  border-top: 1px solid #24366833;
+  border-bottom: 1px solid #24366833;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.apex-footer-signoff > p {
+  font-family: ApexStory, Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.5vw, 54px);
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+.apex-footer-signoff > p > span {
+  display: inline-block;
+  font-family: ApexHand, cursive;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #b83b45;
+  transform: rotate(-3deg);
+  margin-left: 7px;
+}
+.apex-footer-signoff > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  font-family: ApexHand, cursive;
+  font-size: 21px;
+}
+.apex-footer-signoff > a > svg {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #243668;
+  border-radius: 48% 52% 46% 54%;
+  transition: transform 0.2s;
+}
+.apex-footer-signoff > a:hover > svg {
+  transform: translateY(-4px);
+}
+.apex-footer-bottom {
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  font-family: Agenda, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #676979;
+}
+.apex-footer-bottom > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.apex-footer-bottom > span {
+  font-family: ApexHand, cursive;
+  font-size: 18px;
+}
+.apex-footer a:focus-visible {
+  outline: 2px solid #b83b45;
+  outline-offset: 5px;
+}
+@media (max-width: 1000px) {
+  .apex-visit {
+    padding: 85px 35px 90px;
+    gap: 5vw;
+  }
+  .visit-copy h2 {
+    font-size: clamp(38px, 4.5vw, 49px);
+  }
+  .visit-description {
+    font-size: 17px;
+  }
+  .visit-handwritten {
+    font-size: 33px;
+  }
+  .visit-postcard {
+    padding: 11px 11px 16px;
+  }
+  .visit-postcard figcaption {
+    font-size: 21px;
+    margin: 15px 2px 0;
+  }
+  .visit-postcard-mark {
+    width: 60px;
+    height: 60px;
+    font-size: 15px;
+  }
+  .apex-footer {
+    padding: 60px 35px 25px;
+  }
+  .apex-footer-top {
+    gap: 5vw;
+    grid-template-columns: 1.05fr 0.8fr 1.15fr;
+  }
+  .footer-brand-lockup {
+    gap: 10px;
+  }
+  .footer-brand-lockup img {
+    width: 65px;
+  }
+  .footer-brand-lockup > span {
+    font-size: 28px;
+  }
+  .footer-brand-lockup > span > span {
+    font-size: 17px;
+  }
+  .apex-footer-contact .footer-email {
+    font-size: 16px;
+  }
+  .apex-footer-signoff > p {
+    font-size: 34px;
+  }
+  .apex-footer-bottom {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .apex-visit {
+    grid-template-columns: 1fr;
+    padding: 65px 26px 75px;
+    gap: 50px;
+  }
+  .visit-copy {
+    max-width: 480px;
+    margin: auto;
+    width: 100%;
+  }
+  .visit-kicker {
+    font-size: 22px;
+    margin-bottom: 23px;
+  }
+  .visit-copy h2 {
+    font-size: clamp(38px, 9.7vw, 60px);
+  }
+  .visit-handwritten {
+    font-size: 35px;
+  }
+  .visit-description {
+    font-size: 16px;
+    margin-top: 24px;
+  }
+  .visit-button {
+    font-size: 25px;
+    padding: 16px 22px;
+  }
+  .visit-postcard {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    transform: rotate(2deg);
+  }
+  .visit-postcard figcaption {
+    font-size: 22px;
+  }
+  .apex-footer {
+    padding: 55px 26px 25px;
+  }
+  .apex-footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 25px;
+  }
+  .apex-footer-brand {
+    grid-column: 1/-1;
+  }
+  .footer-brand-lockup img {
+    width: 72px;
+  }
+  .footer-brand-lockup > span {
+    font-size: 32px;
+  }
+  .footer-brand-lockup > span > span {
+    font-size: 20px;
+  }
+  .apex-footer-brand > p {
+    font-size: 18px;
+    margin-top: 19px;
+  }
+  .apex-footer-nav h2,
+  .apex-footer-contact h2 {
+    font-size: 25px;
+    margin-bottom: 17px;
+  }
+  .apex-footer-nav > a {
+    font-size: 15px;
+    gap: 7px;
+  }
+  .apex-footer-contact address {
+    font-size: 15px;
+  }
+  .apex-footer-contact > a {
+    font-size: 16px;
+    gap: 7px;
+    flex-wrap: wrap;
+  }
+  .apex-footer-contact .footer-email {
+    font-size: 15px;
+  }
+  .apex-footer-contact .footer-directions {
+    font-size: 20px;
+  }
+  .apex-footer-signoff {
+    margin: 40px auto 22px;
+    padding: 26px 0;
+    gap: 16px;
+    align-items: flex-end;
+  }
+  .apex-footer-signoff > p {
+    font-size: 27px;
+    max-width: 260px;
+  }
+  .apex-footer-signoff > p > span {
+    margin: 3px 0 0;
+  }
+  .apex-footer-signoff > a > span {
+    display: none;
+  }
+  .apex-footer-signoff > a > svg {
+    width: 40px;
+    height: 40px;
+  }
+  .apex-footer-bottom {
+    display: grid;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .apex-footer-bottom > span {
+    display: none;
+  }
+}
+@media (max-width: 380px) {
+  .apex-footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .apex-footer-brand {
+    grid-column: auto;
+  }
+  .apex-footer-nav {
+    max-width: 280px;
+  }
+  .apex-footer-contact > a {
+    flex-wrap: nowrap;
+  }
+  .visit-postcard figcaption {
+    font-size: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visit-button,
+  .apex-footer a svg {
+    transition: none;
+  }
+}

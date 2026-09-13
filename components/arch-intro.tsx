@@ -1,11 +1,16 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect } from 'react';
 
 export function ArchIntro({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     // Deep links and restored scroll positions should go straight to their content.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.location.hash || window.scrollY > 80) {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.location.hash ||
+      window.scrollY > 80
+    ) {
       onComplete();
       return;
     }
@@ -13,7 +18,10 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
     const timeout = window.setTimeout(onComplete, 3800);
     const dismiss = () => onComplete();
     window.addEventListener('wheel', dismiss, { passive: true, once: true });
-    window.addEventListener('touchstart', dismiss, { passive: true, once: true });
+    window.addEventListener('touchstart', dismiss, {
+      passive: true,
+      once: true,
+    });
     window.addEventListener('keydown', dismiss, { once: true });
     return () => {
       window.clearTimeout(timeout);
@@ -24,12 +32,24 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
   }, [onComplete]);
 
   return (
-    <div className="arch-intro" aria-hidden="true" onAnimationEnd={event => {
-      if (event.target === event.currentTarget) onComplete();
-    }}>
+    <div
+      className="arch-intro"
+      aria-hidden="true"
+      onAnimationEnd={(event) => {
+        if (event.target === event.currentTarget) onComplete();
+      }}
+    >
       <div className="arch-intro-brand">
-        <img src="/assets/apex-logo.svg" alt="" width="205" height="221" fetchPriority="high" />
-        <span>Apex<span>International School</span></span>
+        <Image
+          src="/assets/apex-logo.svg"
+          alt=""
+          width="205"
+          height="221"
+          fetchPriority="high"
+        />
+        <span>
+          Apex<span>International School</span>
+        </span>
       </div>
     </div>
   );

@@ -1,0 +1,217 @@
+/* Small original pen doodles in the margins of the school scrapbook. */
+.school-doodle {
+  display: block;
+  width: 110px;
+  height: auto;
+  aspect-ratio: 1;
+  color: #243668;
+  pointer-events: none;
+  user-select: none;
+  flex-shrink: 0;
+  overflow: visible;
+}
+.doodle-arrow-left,
+.doodle-arrow-right {
+  color: #bc1235;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ink-ready .doodle-stroke {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .ink-ready .doodle-wash {
+    opacity: 0;
+  }
+  .ink-ready.ink-visible .doodle-stroke {
+    animation: apex-ink-draw 1.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation-delay: calc(0.15s + var(--ink-order)*0.32s);
+  }
+  .ink-ready.ink-visible .doodle-wash {
+    animation: apex-ink-wash 0.8s ease-out both;
+    animation-delay: calc(1.25s + var(--ink-order)*0.32s);
+  }
+  .ink-ready.ink-visible:is(.doodle-arrow-left, .doodle-arrow-right)
+    .doodle-stroke {
+    animation-duration: 1.75s;
+    animation-delay: 0.15s;
+  }
+  .ink-ready.ink-visible:is(.doodle-arrow-left, .doodle-arrow-right)
+    g
+    + g
+    .doodle-stroke {
+    animation-duration: 0.4s;
+    animation-delay: 1.85s;
+  }
+}
+@keyframes apex-ink-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes apex-ink-wash {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.chapter-idea-doodle {
+  position: absolute;
+  left: 0;
+  top: -18px;
+  width: 112px;
+  rotate: -13deg;
+}
+.chapter-stars-doodle {
+  position: absolute;
+  right: 0;
+  top: 5%;
+  width: 94px;
+  rotate: 9deg;
+}
+.chapter-journey-heading {
+  position: relative;
+}
+.chapter-curly-arrow {
+  position: absolute;
+  right: 120px;
+  top: -74px;
+  width: 150px;
+  rotate: -14deg;
+}
+.possibilities-book-doodle {
+  position: absolute;
+  left: -35px;
+  bottom: -50px;
+  width: 120px;
+  rotate: 12deg;
+  background-color: #fff9eb;
+  border-radius: 50%;
+}
+.possibilities-story {
+  position: relative;
+}
+.possibilities-stars-doodle {
+  position: absolute;
+  top: -62px;
+  right: 0;
+  width: 110px;
+  rotate: 16deg;
+}
+.visit-action {
+  position: relative;
+  width: fit-content;
+}
+.visit-curly-arrow {
+  position: absolute;
+  left: calc(100% + 4px);
+  top: -28px;
+  width: 135px;
+  rotate: -10deg;
+}
+.visit-plane-doodle {
+  position: absolute;
+  right: -30px;
+  top: -97px;
+  width: 165px;
+  rotate: -8deg;
+  z-index: 3;
+}
+@media (max-width: 1000px) {
+  .chapter-idea-doodle {
+    width: 90px;
+    left: -8px;
+  }
+  .chapter-stars-doodle {
+    width: 78px;
+    right: -5px;
+  }
+  .chapter-curly-arrow {
+    width: 130px;
+    right: 110px;
+    top: -82px;
+  }
+  .possibilities-book-doodle {
+    width: 95px;
+    left: -25px;
+    bottom: -39px;
+  }
+  .possibilities-stars-doodle {
+    width: 88px;
+    top: -51px;
+  }
+  .visit-curly-arrow {
+    width: 100px;
+    left: calc(100% - 5px);
+    top: -35px;
+  }
+  .visit-plane-doodle {
+    width: 130px;
+    right: -20px;
+    top: -82px;
+  }
+}
+@media (max-width: 700px) {
+  .visit-curly-arrow {
+    width: 94px;
+    left: calc(100% - 6px);
+    top: -40px;
+  }
+  .visit-plane-doodle {
+    width: 112px;
+    right: -9px;
+    top: -72px;
+  }
+  .visit-postcard {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 640px) {
+  .chapter-idea-doodle {
+    width: 78px;
+    top: 0;
+    left: -8px;
+  }
+  .chapter-stars-doodle {
+    width: 65px;
+    top: 10px;
+    right: -7px;
+  }
+  .chapter-curly-arrow {
+    width: 95px;
+    right: 73px;
+    top: -50px;
+    rotate: -22deg;
+  }
+  .chapter-journey-heading {
+    margin-top: 24px;
+  }
+  .possibilities-book-doodle {
+    width: 87px;
+    left: -18px;
+    bottom: -35px;
+  }
+  .possibilities-stars-doodle {
+    width: 82px;
+    right: -13px;
+    top: -34px;
+  }
+  .possibilities-kicker {
+    padding-right: 42px;
+  }
+}
+@media (max-width: 370px) {
+  .visit-curly-arrow {
+    width: 75px;
+    left: calc(100% - 10px);
+    top: -28px;
+  }
+  .chapter-curly-arrow {
+    right: 60px;
+    width: 84px;
+  }
+}
