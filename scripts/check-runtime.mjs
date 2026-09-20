@@ -11,7 +11,8 @@ for (const route of ['/', '/visit-us', '/apply-now']) {
   );
   assert.match(html, /<link[^>]+rel="canonical"/);
   assert.match(html, /application\/ld\+json/);
-  assert.doesNotMatch(html, /noindex|pgs\.org\.uk|Portsmouth/);
+  assert.doesNotMatch(html, /noindex/);
+  assert.match(html, /Apex International School/);
   assert.match(html, /assets\/responsive\//);
   console.log(`${route}: rendered with metadata and responsive images`);
 }

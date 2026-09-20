@@ -3,14 +3,99 @@
   height: 100svh;
   min-height: 720px;
   background: #132341;
-  color: #fff9eb;
+  color: var(--apex-paper);
   isolation: isolate;
+}
+@media (min-width: 768px) {
+  .cinematic-hero[data-scene='art'] .cinematic-copy {
+    top: 34%;
+    bottom: auto;
+    left: 5vw;
+    max-width: 31vw;
+  }
+  .cinematic-hero[data-scene='art'] .cinematic-copy h1 {
+    font-size: clamp(30px, 3.6vw, 60px);
+  }
+  .cinematic-image.cinematic-image-art {
+    object-position: 65% center;
+  }
+}
+/* Pale editorial portraits share open space and readable navy copy. */
+@media (min-width: 768px) {
+  .cinematic-hero[data-tone='light'] .cinematic-image-skating {
+    height: calc(100% - 110px);
+    margin-top: 110px;
+    object-fit: contain;
+    object-position: right bottom;
+    mask-image:
+      linear-gradient(90deg, transparent 20%, #000 45%),
+      linear-gradient(180deg, transparent, #000 15%);
+    mask-composite: intersect;
+  }
+}
+.cinematic-hero[data-tone='light'] {
+  background: var(--apex-paper);
+  color: #243668;
+}
+.cinematic-hero[data-tone='light'] .cinematic-shade {
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--apex-paper) 85.1%, transparent),
+    transparent 17%
+  );
+}
+.cinematic-hero[data-tone='light'] .cinematic-copy {
+  top: 38%;
+  bottom: auto;
+  left: 5vw;
+  max-width: 29vw;
+  text-shadow: none;
+}
+.cinematic-hero[data-tone='light'] .cinematic-copy h1 {
+  font-size: clamp(36px, 3.6vw, 62px);
+}
+.cinematic-hero[data-tone='light'] .cinematic-copy > p,
+.cinematic-hero[data-tone='light'] .cinematic-copy h1 > span {
+  color: #b83b45;
+}
+.cinematic-hero[data-tone='light'] .cinematic-scroll,
+.cinematic-hero[data-tone='light'] .cinematic-slide-selectors button {
+  color: #243668;
+}
+.cinematic-hero[data-tone='light'] .cinematic-slide-selectors button.is-active {
+  color: #b83b45;
+  border-color: #b83b45;
+}
+.cinematic-hero[data-tone='light'] .cinematic-controls > button {
+  color: #243668;
+  background: color-mix(in srgb, var(--apex-paper) 80%, transparent);
+  border-color: #24366880;
+}
+.cinematic-hero[data-tone='light'] .cinematic-controls > button:hover {
+  background: var(--apex-surface-hover);
+}
+.cinematic-hero[data-tone='light'] a:focus-visible,
+.cinematic-hero[data-tone='light'] button:focus-visible,
+#top:has(.cinematic-hero[data-tone='light']) .cinematic-header a:focus-visible,
+#top:has(.cinematic-hero[data-tone='light'])
+  .cinematic-header
+  button:focus-visible {
+  outline-color: #b83b45;
+}
+#top:has(.cinematic-hero[data-tone='light']) .cinematic-header .brand-name {
+  color: #243668;
+  text-shadow: none;
 }
 .cinematic-image-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: 0;
+}
+.cinematic-image-wrap > picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .cinematic-slide {
   opacity: 0;
@@ -31,7 +116,7 @@
   gap: 7px;
   min-height: 44px;
   background: transparent;
-  color: #fff9eb9c;
+  color: color-mix(in srgb, var(--apex-paper) 61.18%, transparent);
   border: 0;
   border-bottom: 1px solid transparent;
   font-family: ApexHand, cursive;
@@ -46,7 +131,7 @@
   border-bottom-color: #f4cc78;
 }
 .cinematic-slide-selectors button:hover {
-  color: #fff9eb;
+  color: var(--apex-paper);
 }
 .cinematic-slide-number {
   font-family: Agenda, sans-serif;
@@ -92,7 +177,7 @@
   line-height: 1.25;
   margin-bottom: 18px;
   letter-spacing: 0.015em;
-  color: #fff5d6;
+  color: var(--apex-paper);
 }
 .cinematic-copy h1 {
   font-family: ApexStory, Georgia, serif;
@@ -133,7 +218,7 @@
   flex-direction: column;
   align-items: center;
   gap: 9px;
-  color: #fff9eb;
+  color: var(--apex-paper);
   font-family: ApexHand, cursive;
   font-size: 19px;
   line-height: 1.1;
@@ -153,7 +238,7 @@
 .cinematic-controls > span {
   font-family: ApexHand, cursive;
   font-size: 21px;
-  color: #fff5d6;
+  color: var(--apex-paper);
   transform: rotate(-2deg);
 }
 .cinematic-controls > button {
@@ -162,9 +247,9 @@
   display: grid;
   place-items: center;
   background: #14234050;
-  border: 1px solid #fff9eb9c;
+  border: 1px solid color-mix(in srgb, var(--apex-paper) 61.18%, transparent);
   border-radius: 50%;
-  color: #fff9eb;
+  color: var(--apex-paper);
   transition: background 0.2s;
 }
 .cinematic-controls > button:hover {
@@ -181,7 +266,7 @@
 }
 .site-header.cinematic-header {
   padding: 28px 42px;
-  color: #fff9eb;
+  color: var(--apex-paper);
   align-items: flex-start;
 }
 .cinematic-header .brand-lockup {
@@ -204,9 +289,8 @@
 }
 .site-header.cinematic-header .utility-link {
   background: #243668e8;
-  color: #fff9eb;
-  font-family: ApexHand, cursive;
-  font-size: 24px;
+  color: var(--apex-paper);
+
   padding: 12px 24px;
   position: relative;
 }
@@ -260,7 +344,6 @@
     font-size: 18px;
   }
   .site-header.cinematic-header .utility-link {
-    font-size: 21px;
     padding: 11px 16px;
   }
   .site-header.cinematic-header .menu-trigger {
@@ -300,6 +383,9 @@
   }
 }
 @media (max-width: 370px) {
+  .cinematic-scroll > span {
+    display: none;
+  }
   .site-header.cinematic-header .menu-trigger {
     height: 51px;
   }
@@ -362,7 +448,7 @@
   align-items: center;
   flex-direction: column;
   gap: 20px;
-  color: #fff9eb;
+  color: var(--apex-paper);
   text-align: center;
   animation: apex-crest-arrive 0.75s ease-out both;
 }
@@ -397,7 +483,7 @@
   padding: 10px 0;
   background: none;
   border: 0;
-  color: #fff9eb;
+  color: var(--apex-paper);
   font-family: ApexHand, cursive;
   font-size: 20px;
   cursor: pointer;
@@ -613,7 +699,7 @@
     min-width: 46px;
     width: 46px;
     height: 46px;
-    border: 1px solid #fff9eb66;
+    border: 1px solid color-mix(in srgb, var(--apex-paper) 40%, transparent);
     box-shadow: 0 3px 14px #14234024;
   }
   .school-film-controls .film-audio-toggle {
@@ -682,7 +768,7 @@
   align-items: center;
   gap: 10px;
   padding: 12px;
-  background: #fff9eb;
+  background: var(--apex-paper);
   color: #243668;
 }
 .full-film-controls button {
@@ -694,7 +780,7 @@
   display: grid;
   place-items: center;
   background: #b83b45;
-  color: #fff9eb;
+  color: var(--apex-paper);
   cursor: pointer;
 }
 .full-film-controls button:disabled {
@@ -721,7 +807,7 @@
 }
 .full-film-error {
   padding: 15px;
-  color: #fff9eb;
+  color: var(--apex-paper);
   font-size: 16px;
 }
 .full-film-stage:fullscreen {
@@ -748,11 +834,6 @@
 /* Mobile admissions links stay visible above the photographic hero. */
 .header-quicklinks {
   display: contents;
-}
-.menu-quicklinks,
-.menu-school-brand,
-.menu-mobile-footer {
-  display: none;
 }
 @media (max-width: 767px) {
   .cinematic-hero {
@@ -782,7 +863,7 @@
     height: 48px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background: #fff9eb;
+    background: var(--apex-paper);
     color: #243668;
   }
   .site-header.cinematic-header .utility-link {
@@ -793,12 +874,6 @@
     color: #243668;
     margin: 0;
     padding: 0 8px;
-    font-family: ApexHand, cursive;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.1;
-    text-transform: none;
-    letter-spacing: 0;
   }
   .site-header.cinematic-header .utility-link + .utility-link:before {
     border-color: #24366826;
@@ -806,7 +881,7 @@
     height: 40%;
   }
   .site-header.cinematic-header .utility-link:hover {
-    background: #f3ead7;
+    background: var(--apex-surface-hover);
     color: #b83b45;
   }
   .site-header.cinematic-header .menu-trigger {
@@ -817,7 +892,7 @@
     height: 83px;
     margin: 0;
     background: #b83b45;
-    color: #fff9eb;
+    color: var(--apex-paper);
     border-radius: 0 0 34px 34px;
     gap: 2px;
   }
@@ -871,168 +946,6 @@
   .cinematic-slide-selectors button {
     min-width: 32px;
   }
-  .school-menu {
-    position: fixed !important;
-    inset: 0 !important;
-    translate: none !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    height: 100dvh;
-    max-height: 100dvh;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    border-radius: 0 !important;
-    padding: 78px 28px max(30px, env(safe-area-inset-bottom)) !important;
-    background: #b83b45;
-    color: #fff9eb;
-    display: flex !important;
-    flex-direction: column;
-    gap: 0 !important;
-    animation: none !important;
-  }
-  .menu-quicklinks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background: #fff9eb;
-    color: #243668;
-  }
-  .menu-quicklinks a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-family: ApexHand, cursive;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.1;
-    text-transform: none;
-    letter-spacing: 0;
-  }
-  .menu-quicklinks a + a:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 30%;
-    height: 40%;
-    border-left: 1px solid #24366826;
-  }
-  .menu-school-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-right: 50px;
-    margin-bottom: 26px;
-  }
-  .menu-school-brand img {
-    width: 49px;
-    height: auto;
-    flex-shrink: 0;
-  }
-  .menu-school-brand > span {
-    font-family: ApexHand, cursive;
-    font-size: 20px;
-    line-height: 1.15;
-    max-width: 130px;
-  }
-  .school-menu .menu-title {
-    font-family: ApexStory, Georgia, serif;
-    font-style: normal;
-    font-size: 34px;
-    line-height: 1.15;
-    letter-spacing: -0.035em;
-    color: #fff9eb;
-    margin: 0 0 18px;
-    font-weight: 700;
-  }
-  .school-menu nav a {
-    align-items: center;
-    min-height: 52px;
-    padding: 13px 0;
-    border-bottom: 1px solid #fff9eb35;
-    font-family: ApexStory, Georgia, serif;
-    font-size: 20px;
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-  }
-  .school-menu nav a:hover {
-    color: #f4cc78;
-  }
-  .school-menu nav a svg {
-    width: 20px;
-    height: 20px;
-    color: #f4cc78;
-  }
-  .school-menu [data-slot='dialog-close'] {
-    top: 48px;
-    right: 20px;
-    width: 64px;
-    height: 83px;
-    border-radius: 0 0 34px 34px;
-    background: #a52e3a;
-    color: #fff9eb;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .school-menu [data-slot='dialog-close'] .sr-only {
-    position: static;
-    width: auto;
-    height: auto;
-    clip: auto;
-    clip-path: none;
-    overflow: visible;
-    white-space: normal;
-    font-family: ApexHand, cursive;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  .school-menu [data-slot='dialog-close'] svg {
-    width: 23px;
-    height: 23px;
-  }
-  .menu-mobile-footer {
-    display: block;
-    padding-top: 28px;
-    margin-top: auto;
-  }
-  .menu-mobile-footer p {
-    font-family: ApexHand, cursive;
-    font-size: 23px;
-    line-height: 1.2;
-    color: #f4cc78;
-  }
-  .menu-mobile-footer > a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 50px;
-    margin-top: 15px;
-    padding: 12px 17px;
-    background: #fff9eb;
-    color: #243668;
-    border-radius: 3px;
-    font-family: ApexHand, cursive;
-    font-size: 23px;
-    line-height: 1.15;
-  }
-  .menu-mobile-footer > span {
-    display: block;
-    font-family: Agenda, sans-serif;
-    font-size: 14px;
-    color: #fff9ebbf;
-    margin-top: 19px;
-  }
-  .school-menu a:focus-visible,
-  .school-menu button:focus-visible {
-    outline: 2px solid #f4cc78;
-    outline-offset: 4px;
-  }
 }
 @media (max-width: 370px) {
   .cinematic-header .brand {
@@ -1058,9 +971,14 @@
   .cinematic-copy h1 {
     font-size: clamp(30px, 9.65vw, 35px);
   }
-  .school-menu {
-    padding-left: 23px !important;
-    padding-right: 23px !important;
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .cinematic-slide-label {
+    display: none;
+  }
+  .cinematic-slide-selectors button {
+    min-width: 32px;
+    justify-content: center;
   }
 }
 @media (max-width: 767px) and (max-height: 720px) {
@@ -1070,14 +988,56 @@
   .cinematic-copy {
     bottom: 105px;
   }
-  .school-menu .menu-title {
-    font-size: 30px;
+}
+
+@media (max-width: 767px) {
+  .cinematic-hero[data-tone='light'] .cinematic-image {
+    object-position: 80% center;
+    height: 68%;
+    margin-top: 105px;
   }
-  .menu-school-brand {
-    margin-bottom: 20px;
+  .cinematic-hero[data-tone='light'] .cinematic-shade {
+    background: linear-gradient(
+      0deg,
+      var(--apex-paper) 0%,
+      var(--apex-paper) 19%,
+      color-mix(in srgb, var(--apex-paper) 0%, transparent) 47%
+    );
   }
-  .school-menu nav a {
-    min-height: 47px;
-    padding: 10px 0;
+  .cinematic-hero[data-tone='light'] .cinematic-copy {
+    top: auto;
+    bottom: 112px;
+    left: 24px;
+    right: 24px;
+    max-width: none;
+  }
+  .cinematic-hero[data-tone='light'] .cinematic-copy > p {
+    display: none;
+  }
+  .cinematic-hero[data-tone='light'] .cinematic-copy h1 {
+    font-size: clamp(30px, 9.2vw, 44px);
+  }
+  .cinematic-image-art {
+    object-fit: contain;
+    object-position: center top;
+    height: calc(100% - 50px);
+    margin-top: 50px;
+    animation: none;
+    mask-image: linear-gradient(
+      180deg,
+      transparent,
+      #000 8%,
+      #000 85%,
+      transparent
+    );
+  }
+  .cinematic-hero[data-scene='art'] .cinematic-shade {
+    background: linear-gradient(
+      0deg,
+      #0d1931 0%,
+      #0d1931ed 14%,
+      #0d1931a6 25%,
+      transparent 47%
+    );
   }
 }

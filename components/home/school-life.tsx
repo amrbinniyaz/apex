@@ -1,47 +1,73 @@
+'use client';
+
+import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { SchoolImage as Image } from '@/components/school-image';
-import { SchoolDoodle } from '@/components/school-doodle';
+import { SchoolImage } from '@/components/school-image';
+import { activities, activityHref } from '@/lib/activities';
+
+const featuredActivities = [
+  'art-and-craft',
+  'skating',
+  'chess',
+  'taekwondo',
+  'school-radio',
+].map((slug) => activities.find((activity) => activity.slug === slug)!);
 
 export function SchoolLife() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <section
-      className="apex-possibilities"
+      className="home-life"
       id="life-at-apex"
-      aria-labelledby="possibilities-title"
+      aria-labelledby="home-life-title"
     >
-      <div className="possibilities-sketchbook" data-reveal>
-        <figure className="possibilities-art-paper">
-          <SchoolDoodle kind="book" className="possibilities-book-doodle" />
-          <p className="possibilities-paper-label">Life beyond the classroom</p>
-          <Image
-            sizes="(max-width: 767px) 100vw, 50vw"
-            src="/assets/apex-possibilities-illustration.png"
-            alt="Illustrated pupils exploring music, sport, and reading together"
-            width="1536"
-            height="1024"
-            loading="lazy"
-          />
-          <figcaption>Find what makes you, you.</figcaption>
-        </figure>
-      </div>
-      <div className="possibilities-story" data-reveal>
-        <SchoolDoodle kind="stars" className="possibilities-stars-doodle" />
-        <p className="possibilities-kicker">So much more to discover</p>
-        <h2 id="possibilities-title">
-          Be curious.
-          <br />
-          Be courageous.
-          <br />
-          <span>Be you.</span>
-        </h2>
-        <p className="possibilities-description">
-          In the classroom, on the stage and out on the playing field, there is
-          room to explore what matters to you.
-        </p>
-        <Link className="possibilities-explore" href="/visit-us">
-          Explore the possibilities <ArrowUpRight size={24} strokeWidth={1.5} />
-        </Link>
+      <div className="home-life-inner">
+        <div className="home-life-heading">
+          <h2 id="home-life-title">Life at Apex</h2>
+          <Link className="apex-text-link" href="/life-at-apex">
+            All activities <ArrowUpRight size={21} aria-hidden="true" />
+          </Link>
+        </div>
+
+        <div className="home-life-cinema">
+          {featuredActivities.map((activity, index) => (
+            <div
+              className="home-life-scene"
+              key={activity.slug}
+              data-active={activeIndex === index}
+              data-activity={activity.slug}
+              aria-hidden={activeIndex !== index}
+            >
+              <SchoolImage
+                src={activity.image}
+                alt={activity.alt}
+                width={1440}
+                height={960}
+                sizes="(max-width: 767px) 100vw, 88vw"
+                loading="lazy"
+              />
+            </div>
+          ))}
+
+          <nav className="home-life-links" aria-label="Activities at Apex">
+            {featuredActivities.map((activity, index) => (
+              <Link
+                key={activity.slug}
+                href={activityHref(activity.slug)}
+                data-active={activeIndex === index}
+                onFocus={() => setActiveIndex(index)}
+                onPointerEnter={(event) => {
+                  if (event.pointerType === 'mouse') setActiveIndex(index);
+                }}
+              >
+                <span>{activity.name}</span>
+                <ArrowUpRight size={20} aria-hidden="true" />
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </section>
   );

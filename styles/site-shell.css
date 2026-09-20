@@ -21,25 +21,6 @@
   text-underline-offset: 6px;
   text-decoration-thickness: 1px;
 }
-.apex-shared-menu {
-  background: var(--apex-paper);
-  color: var(--apex-ink);
-  font-family: var(--apex-heading);
-}
-.apex-shared-menu .menu-title {
-  font-family: var(--apex-heading);
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: -0.035em;
-}
-.apex-shared-menu nav a {
-  font-family: var(--apex-heading);
-}
-.apex-shared-menu nav a[aria-current='page'] {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 1px;
-}
 .admissions-page {
   background: var(--apex-paper);
   color: var(--apex-ink);
@@ -86,6 +67,29 @@
   background: var(--apex-red);
   border-color: var(--apex-red);
 }
+/* Header actions share typography in both navigation states. */
+.site-header.cinematic-header .utility-link,
+.apex-menu-utility a {
+  font-family: var(--apex-accent);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .site-header.cinematic-header .utility-link,
+  .apex-menu-utility a {
+    font-size: 21px;
+  }
+}
+@media (max-width: 767px) {
+  .site-header.cinematic-header .utility-link,
+  .apex-menu-utility a {
+    font-size: 19px;
+  }
+}
 .apex-cta,
 .admissions-page .ad-button.apex-cta {
   font-family: var(--apex-accent);
@@ -118,10 +122,6 @@
   .site-header.cinematic-header.header-paper {
     min-height: 151px;
   }
-  .apex-shared-menu {
-    background: var(--apex-red);
-    color: var(--apex-paper);
-  }
   .admissions-page .ad-enquiry-aside > p:not(.ad-hand),
   .admissions-page .ad-journey li p,
   .admissions-page .ad-faqs details > p {
@@ -133,4 +133,27 @@
   .admissions-page .ad-button.apex-cta {
     transition: none;
   }
+}
+
+/* Secondary actions keep the shared CTA typography without a filled button. */
+.apex-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 44px;
+  font: 400 23px/1.3 var(--apex-accent);
+  color: var(--apex-red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.apex-text-link:hover {
+  color: #a52e3a;
+}
+.apex-text-link:focus-visible {
+  outline: 2px solid var(--apex-ink);
+  outline-offset: 4px;
+}
+.apex-text-link svg {
+  flex-shrink: 0;
 }

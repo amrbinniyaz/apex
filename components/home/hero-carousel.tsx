@@ -5,6 +5,22 @@ import { ArrowDown, Pause, Play } from 'lucide-react';
 import { useMediaQuery } from '@/hooks/use-media-query';
 const heroSlides = [
   {
+    image: 'apex-art-cinematic-hero.png',
+    mobileImage: 'apex-art-cinematic-hero-mobile',
+    label: 'Art',
+    alt: 'An Apex pupil and teacher proudly displaying a handmade flower artwork in the art classroom',
+    width: 1672,
+    height: 941,
+  },
+  {
+    image: 'apex-creativity-hero-v2.png',
+    label: 'Creativity',
+    alt: 'A creative portrait of an Apex pupil drawing, with imagined scenes of her making paper crafts and thinking',
+    width: 1672,
+    height: 941,
+    tone: 'light',
+  },
+  {
     image: 'apex-cinematic-hero-v2.png',
     label: 'Science',
     alt: 'Apex pupils discovering together in a sunlit science laboratory, with colourful glassware',
@@ -12,11 +28,12 @@ const heroSlides = [
     height: 941,
   },
   {
-    image: 'apex-skating-hero.png',
+    image: 'apex-skating-editorial-hero.png',
     label: 'Skating',
-    alt: 'An Apex pupil smiling as she adjusts her blue skating guards in a sunlit school courtyard',
+    alt: 'A creative portrait of an Apex pupil adjusting her blue skating guards, with imagined scenes of her skating and balancing',
     width: 1672,
     height: 941,
+    tone: 'light',
   },
 ];
 
@@ -51,6 +68,8 @@ export function HeroCarousel({ introActive }: { introActive: boolean }) {
       className={`hero cinematic-hero ${paused || !heroVisible ? 'cinematic-paused' : ''}`}
       aria-labelledby="hero-title"
       aria-roledescription="carousel"
+      data-tone={heroSlides[heroSlide].tone ?? 'dark'}
+      data-scene={heroSlides[heroSlide].label.toLowerCase()}
     >
       {heroSlides.map((slide, index) => (
         <div
@@ -58,29 +77,43 @@ export function HeroCarousel({ introActive }: { introActive: boolean }) {
           className={`cinematic-image-wrap cinematic-slide ${heroSlide === index ? 'is-active' : ''}`}
           aria-hidden={heroSlide !== index}
         >
-          <Image
-            className={`cinematic-image cinematic-image-${slide.label.toLowerCase()}`}
-            src={`/assets/${slide.image}`}
-            alt={slide.alt}
-            preload={index === 0}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            width={slide.width}
-            height={slide.height}
-            fetchPriority={index === 0 ? 'high' : 'low'}
-          />
+          <picture>
+            {slide.mobileImage && (
+              <source
+                media="(max-width: 767px)"
+                srcSet={`/assets/responsive/${slide.mobileImage}-480.webp 480w, /assets/responsive/${slide.mobileImage}-800.webp 800w, /assets/responsive/${slide.mobileImage}-1024.webp 1024w`}
+                sizes="100vw"
+                width={1024}
+                height={1536}
+              />
+            )}
+            <Image
+              className={`cinematic-image cinematic-image-${slide.label.toLowerCase()}`}
+              src={`/assets/${slide.image}`}
+              alt={slide.alt}
+              preload={index === 0 && !slide.mobileImage}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              width={slide.width}
+              height={slide.height}
+              fetchPriority={index === 0 ? 'high' : 'low'}
+            />
+          </picture>
         </div>
       ))}
       <div className="cinematic-shade" aria-hidden="true" />
       <div className="cinematic-copy">
-        <p>A place to wonder, learn and grow.</p>
         <h1 id="hero-title">
           Find your spark.
           <br />
           Make it <span>shine.</span>
         </h1>
       </div>
-      <a className="cinematic-scroll" href="#discover">
-        <span>Step into our world</span>
+      <a
+        className="cinematic-scroll"
+        href="#discover"
+        aria-label="Discover Apex"
+      >
+        <span>Discover Apex</span>
         <ArrowDown size={26} strokeWidth={1.5} />
       </a>
       <div className="cinematic-controls">

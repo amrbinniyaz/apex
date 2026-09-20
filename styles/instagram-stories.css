@@ -1,0 +1,132 @@
+/* Reuses the homepage's chapter cards, paper tilts and carousel controls. */
+.instagram-stories {
+  --chapter-ink: var(--apex-ink);
+  --chapter-red: var(--apex-red);
+  --chapter-paper: var(--apex-paper);
+  padding: clamp(52px, 6vw, 88px) max(24px, calc((100vw - 1280px) / 2));
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+  font-family: var(--apex-interface);
+  border-top: 1px solid #24366814;
+  scroll-margin-top: 90px;
+  overflow: hidden;
+}
+.instagram-stories-heading {
+  text-align: center;
+  margin: 0 auto 28px;
+}
+.instagram-stories-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--apex-red);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 13px;
+}
+.instagram-stories-heading h2 {
+  font-family: var(--apex-heading);
+  font-weight: 700;
+  font-size: clamp(33px, 3.5vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  margin-bottom: 13px;
+}
+.instagram-stories [data-slot='carousel-content'] {
+  padding-inline: 8px;
+  margin-inline: -8px;
+}
+.instagram-story-card {
+  color: var(--apex-ink);
+}
+/* Keep the complete Instagram artwork inside the homepage's photo frame. */
+.instagram-story-image {
+  background: var(--apex-surface-muted);
+}
+.instagram-story-image > img {
+  object-fit: contain;
+  filter: none;
+}
+.instagram-story-reel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+}
+.instagram-story-copy {
+  padding: 0 2px;
+}
+.instagram-story-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 7px;
+  color: var(--apex-red);
+  font-size: 12px;
+  margin-top: 18px;
+}
+.instagram-story-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.instagram-story-meta time {
+  color: #73716b;
+}
+.instagram-story-copy .chapter-card-heading {
+  align-items: flex-start;
+  margin-top: 14px;
+}
+.instagram-story-copy .chapter-number {
+  padding-top: 2px;
+}
+.instagram-story-copy > p {
+  font-family: var(--apex-accent);
+  font-size: 23px;
+  line-height: 1.25;
+  margin: 12px 0 0 35px;
+  color: #65616c;
+}
+.instagram-stories-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #24366835;
+}
+.instagram-stories-profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.instagram-stories-profile > svg {
+  flex-shrink: 0;
+}
+.instagram-stories-arrows {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .instagram-stories {
+    padding: 48px 24px;
+  }
+  .instagram-stories-heading {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  .instagram-stories-kicker {
+    justify-content: flex-start;
+    font-size: 10px;
+  }
+  .instagram-story-copy > p {
+    font-size: 22px;
+  }
+  .instagram-stories-bottom {
+    flex-wrap: wrap;
+  }
+}

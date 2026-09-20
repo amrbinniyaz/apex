@@ -3,14 +3,7 @@
 import Link from 'next/link';
 import { school } from '@/lib/school';
 import Image from 'next/image';
-import { useState } from 'react';
-import { ArrowUpRight, Menu } from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { SiteMenu } from '@/components/site-menu';
 
 export function SiteHeader({
   home = false,
@@ -19,20 +12,12 @@ export function SiteHeader({
 }: {
   home?: boolean;
   photo?: boolean;
-  current?: 'visit' | 'apply';
+  current?: 'visit' | 'apply' | 'life';
 }) {
-  const [open, setOpen] = useState(false);
   const links = [
     ['Contact', '#contact'],
     ['Visit us', '/visit-us'],
     ['Apply now', '/apply-now'],
-  ];
-  const navigation = [
-    ['Home', home ? '#top' : '/'],
-    ['Our school', `${home ? '' : '/'}#our-school`],
-    ['Life at Apex', `${home ? '' : '/'}#life-at-apex`],
-    ['School film', `${home ? '' : '/'}#discover`],
-    ...links,
   ];
   const isCurrent = (href: string) =>
     (current === 'visit' && href === '/visit-us') ||
@@ -70,56 +55,7 @@ export function SiteHeader({
             </Link>
           ))}
         </div>
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger className="menu-trigger" aria-label="Open school menu">
-            <Menu size={27} strokeWidth={1.5} />
-            <i>menu</i>
-          </DialogTrigger>
-          <DialogContent className="school-menu apex-shared-menu">
-            <div className="menu-quicklinks">
-              {links.map(([label, href]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  aria-current={isCurrent(href) ? 'page' : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-            <div className="menu-school-brand">
-              <Image
-                src="/assets/apex-logo.svg"
-                alt=""
-                width="205"
-                height="221"
-              />
-              <span>A world of possibilities.</span>
-            </div>
-            <DialogTitle className="menu-title">Explore Apex</DialogTitle>
-            <nav aria-label="School navigation">
-              {navigation.map(([label, href]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  aria-current={isCurrent(href) ? 'page' : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  {label}
-                  <ArrowUpRight />
-                </Link>
-              ))}
-            </nav>
-            <div className="menu-mobile-footer">
-              <p>Your next chapter starts here.</p>
-              <Link href="/visit-us" onClick={() => setOpen(false)}>
-                Come for a visit <ArrowUpRight size={20} />
-              </Link>
-              <span>Odumbra, Olavanna · Kozhikode</span>
-            </div>
-          </DialogContent>
-        </Dialog>
+        <SiteMenu home={home} current={current} />
       </nav>
     </header>
   );

@@ -23,8 +23,8 @@ export function SchoolDiscovery() {
             />
           </div>
           <div className="discover-heading">
-            <p>Every spark has a story.</p>
-            <h2>Step into ours.</h2>
+            <p>Our school</p>
+            <h2>Discover Apex.</h2>
             <span className="discover-mobile-cue">
               Scroll to see it unfold <ArrowDown size={16} />
             </span>

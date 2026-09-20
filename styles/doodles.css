@@ -89,7 +89,7 @@
   bottom: -50px;
   width: 120px;
   rotate: 12deg;
-  background-color: #fff9eb;
+  background-color: var(--apex-paper);
   border-radius: 50%;
 }
 .possibilities-story {
@@ -105,13 +105,6 @@
 .visit-action {
   position: relative;
   width: fit-content;
-}
-.visit-curly-arrow {
-  position: absolute;
-  left: calc(100% + 4px);
-  top: -28px;
-  width: 135px;
-  rotate: -10deg;
 }
 .visit-plane-doodle {
   position: absolute;
@@ -144,11 +137,6 @@
     width: 88px;
     top: -51px;
   }
-  .visit-curly-arrow {
-    width: 100px;
-    left: calc(100% - 5px);
-    top: -35px;
-  }
   .visit-plane-doodle {
     width: 130px;
     right: -20px;
@@ -156,11 +144,6 @@
   }
 }
 @media (max-width: 700px) {
-  .visit-curly-arrow {
-    width: 94px;
-    left: calc(100% - 6px);
-    top: -40px;
-  }
   .visit-plane-doodle {
     width: 112px;
     right: -9px;
@@ -205,11 +188,6 @@
   }
 }
 @media (max-width: 370px) {
-  .visit-curly-arrow {
-    width: 75px;
-    left: calc(100% - 10px);
-    top: -28px;
-  }
   .chapter-curly-arrow {
     right: 60px;
     width: 84px;

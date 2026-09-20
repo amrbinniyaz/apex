@@ -7,9 +7,11 @@ import { ArrowLeft, ArrowRight, Check, Copy, Mail } from 'lucide-react';
 export function EnquiryForm({
   kind,
   directSubmission = false,
+  initialMessage = '',
 }: {
   kind: 'visit' | 'apply';
   directSubmission?: boolean;
+  initialMessage?: string;
 }) {
   const visiting = kind === 'visit';
   const [sending, setSending] = useState(false);
@@ -30,7 +32,7 @@ export function EnquiryForm({
     phone: '',
     year: '',
     timing: '',
-    message: '',
+    message: initialMessage,
   });
   const [step, setStep] = useState(1);
   const review = step === 3;
@@ -265,10 +267,10 @@ export function EnquiryForm({
           </p>
           <h2 ref={heading} tabIndex={-1}>
             {step === 1
-              ? 'First, a little about you.'
+              ? 'Your contact details'
               : visiting
-                ? 'Make the visit yours.'
-                : 'Tell us about your plans.'}
+                ? 'Your visit preferences'
+                : 'Your admission plans'}
           </h2>
           <p className="enquiry-intro">
             {step === 1

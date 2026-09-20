@@ -20,16 +20,15 @@ export function SchoolStages() {
     >
       <div className="chapter-intro">
         <div className="chapter-copy" data-reveal>
-          <p className="chapter-kicker">A school for every chapter</p>
+          <p className="chapter-kicker">Learning at Apex</p>
           <h2 id="chapters-title">
             Big ideas.
             <br />
             Bright futures.
           </h2>
-          <p className="chapter-handwritten">Your own path.</p>
           <p className="chapter-description">
-            From the first spark of curiosity to the confidence to take your
-            next step. There’s a whole world of possibilities ahead.
+            Explore classroom learning, creative work and activities across
+            school life.
           </p>
         </div>
         <figure className="chapter-art" data-reveal>
@@ -37,13 +36,12 @@ export function SchoolStages() {
           <SchoolDoodle kind="stars" className="chapter-stars-doodle" />
           <Image
             sizes="(max-width: 767px) 100vw, 50vw"
-            src="/assets/apex-chapter-illustration.png"
+            src="/assets/apex-chapter-illustration-transparent.png"
             alt="Hand-drawn pupils with books and an oversized pencil, imagining what comes next"
             width="1536"
             height="1024"
             loading="lazy"
           />
-          <figcaption>Little moments. Big discoveries.</figcaption>
         </figure>
       </div>
       <Carousel
@@ -53,7 +51,7 @@ export function SchoolStages() {
       >
         <div className="chapter-journey-heading">
           <SchoolDoodle kind="arrow-left" className="chapter-curly-arrow" />
-          <p>Every adventure starts somewhere.</p>
+          <p>Learning in practice</p>
           <div className="chapter-navigation">
             <CarouselPrevious className="chapter-arrow" />
             <CarouselNext className="chapter-arrow" />
@@ -72,7 +70,6 @@ export function SchoolStages() {
                     height={900}
                     loading="lazy"
                   />
-                  <span className="chapter-age">{stage.label}</span>
                 </div>
                 <div className="chapter-card-heading">
                   <span className="chapter-number">0{index + 1}</span>
@@ -84,9 +81,6 @@ export function SchoolStages() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <p className="chapter-endnote">
-          Room to explore. Space to become <span>you.</span>
-        </p>
       </Carousel>
     </section>
   );

@@ -46,11 +46,11 @@
   font-family: var(--apex-interface);
   font-size: 14px;
   line-height: 1.4;
-  color: #fff9ebc9;
+  color: color-mix(in srgb, var(--apex-paper) 78.82%, transparent);
   margin-bottom: 21px;
 }
 .ad-page-breadcrumb > a:hover {
-  color: #fff9eb;
+  color: var(--apex-paper);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -77,12 +77,12 @@
   height: 50px;
   display: grid;
   place-items: center;
-  border: 1px solid #fff9eb77;
+  border: 1px solid color-mix(in srgb, var(--apex-paper) 46.67%, transparent);
   border-radius: 50%;
   transition: background 0.2s;
 }
 .ad-hero-anchor:hover {
-  background: #fff9eb20;
+  background: color-mix(in srgb, var(--apex-paper) 12.55%, transparent);
 }
 .ad-hero-anchor:focus-visible {
   outline-color: #f4cc78;
@@ -101,7 +101,7 @@
   line-height: 1.22;
   letter-spacing: -0.04em;
   white-space: pre-line;
-  margin: 20px auto 25px;
+  margin: 0 auto 25px;
   color: var(--apex-ink);
 }
 .ad-intro-copy {
@@ -111,13 +111,6 @@
   max-width: 720px;
   margin: 0 auto 29px;
   color: #596375;
-}
-.ad-intro-note {
-  display: block;
-  font-family: var(--apex-interface);
-  font-size: 13px;
-  color: #697180;
-  margin-top: 18px;
 }
 .admissions-page .ad-practical {
   max-width: 1250px;
@@ -187,7 +180,7 @@
   }
   .ad-page-intro h2 {
     font-size: 31px;
-    margin-top: 17px;
+    margin-top: 0;
     margin-bottom: 22px;
   }
   .ad-intro-copy {

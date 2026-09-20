@@ -7,10 +7,18 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { SchoolDoodle } from '@/components/school-doodle';
 import { EnquiryForm } from '@/components/enquiry-form';
+import { InstagramStories } from '@/components/instagram-stories';
+import { ContentFeature, ContentFacts } from '@/components/content-page-blocks';
 
 const directions = school.directions;
 
-export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
+export function AdmissionsPage({
+  kind,
+  initialMessage = '',
+}: {
+  kind: 'visit' | 'apply';
+  initialMessage?: string;
+}) {
   const visiting = kind === 'visit';
   const directSubmission = deliveryConfigured({
     apiKey: process.env.RESEND_API_KEY,
@@ -20,7 +28,7 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
   const steps = visiting
     ? [
         [
-          'Say hello',
+          'Send an enquiry',
           'Tell us a little about your family and what you’d like to discover.',
         ],
         [
@@ -28,13 +36,13 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
           'Contact the school to agree a visit date that works for you.',
         ],
         [
-          'Bring your curiosity',
-          'Come with your questions, explore the school and imagine your child here.',
+          'Visit the school',
+          'Explore the campus and discuss your questions with the school.',
         ],
       ]
     : [
         [
-          'Start a conversation',
+          'Enquire about a place',
           'Share the class you’re interested in and when you hope to join.',
         ],
         [
@@ -42,7 +50,7 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
           'Ask the school about places, fees and the documents you’ll need.',
         ],
         [
-          'Take your next step',
+          'Complete your application',
           'The school will guide you through its application process.',
         ],
       ];
@@ -116,12 +124,12 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
               <span>{visiting ? 'Visit us' : 'Admissions'}</span>
             </nav>
             <h1 id="ad-page-title">
-              {visiting ? 'Visit Apex.' : 'Begin at Apex.'}
+              {visiting ? 'Visit Apex.' : 'Admissions.'}
             </h1>
             <p>
               {visiting
-                ? 'See where their story could begin.'
-                : 'A new chapter. A world of possibility.'}
+                ? 'Explore the campus and meet our school community.'
+                : 'Information for families considering Apex.'}
             </p>
           </div>
           <Link
@@ -139,61 +147,33 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
           <Link href="#next-steps">Next steps</Link>
           <Link href="#questions">Your questions</Link>
           {visiting && <Link href="#getting-here">Getting here</Link>}
+          <Link href="#apex-stories">Our stories</Link>
         </nav>
         <section className="ad-page-intro" id="introduction">
-          <p className="ad-hand">
-            {visiting
-              ? 'A school, experienced in person'
-              : 'Your child. Their possibilities.'}
-          </p>
-          <h2>
-            {visiting
-              ? 'A sense of place.\nA feeling of belonging.'
-              : 'An important decision,\nmade with confidence.'}
-          </h2>
+          <h2>{visiting ? 'Plan a school visit' : 'Enquire about a place'}</h2>
           <p className="ad-intro-copy">
             {visiting
-              ? 'There is only so much a website can tell you. Come and explore our campus, ask your questions and discover what life at Apex could feel like for your child.'
-              : 'Every child’s journey is different. Tell us about your family, explore what Apex has to offer and get the guidance you need to take the next step.'}
+              ? 'Arrange a visit to explore the campus and discuss classroom learning, activities and admissions with the school.'
+              : 'Tell us the class you are interested in and your preferred start date. The school can explain availability, fees and the application process.'}
           </p>
           <Link className="ad-button apex-cta" href="#enquire">
             {visiting ? 'Arrange a visit' : 'Enquire about admission'}{' '}
             <ArrowDown size={18} />
           </Link>
-          <span className="ad-intro-note">
-            {visiting
-              ? 'Odumbra, Olavanna · Kozhikode, Kerala'
-              : 'A conversation is a good place to start.'}
-          </span>
         </section>
+        <ContentFeature kind={kind} />
+        <ContentFacts />
         <section
           className="ad-enquiry"
           id="enquire"
           aria-label={visiting ? 'Visit enquiry' : 'Admissions enquiry'}
         >
           <aside className="ad-enquiry-aside">
-            <p className="ad-hand">
-              {visiting ? 'Plan your visit' : 'Begin your enquiry'}
-            </p>
-            <h2>
-              {visiting ? (
-                <>
-                  Discover whether
-                  <br />
-                  Apex feels right.
-                </>
-              ) : (
-                <>
-                  Let’s discuss
-                  <br />
-                  their future.
-                </>
-              )}
-            </h2>
+            <h2>{visiting ? 'Arrange your visit' : 'Admissions enquiry'}</h2>
             <p>
               {visiting
-                ? 'Tell us what matters to your family. We’ll help you explore the school and the questions you’d like answered.'
-                : 'Share your plans and ask about class availability, fees or the application process. Your enquiry is the start of a conversation.'}
+                ? 'Share a preferred date and what you would like to see. Please wait for the school to confirm your visit before travelling.'
+                : 'Share your child’s class, preferred start date and any questions about fees or the application process.'}
             </p>
             <div className="ad-personal-contact">
               <span>Prefer a conversation?</span>
@@ -206,7 +186,11 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
             </div>
             <SchoolDoodle kind="arrow-left" className="ad-quiet-arrow" />
           </aside>
-          <EnquiryForm kind={kind} directSubmission={directSubmission} />
+          <EnquiryForm
+            kind={kind}
+            directSubmission={directSubmission}
+            initialMessage={initialMessage}
+          />
         </section>
         <section
           className="ad-journey"
@@ -214,21 +198,14 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
           aria-labelledby="journey-title"
         >
           <div className="ad-section-heading">
-            <p className="ad-hand">What happens next</p>
             <h2 id="journey-title">
-              {visiting
-                ? 'Get to know\nyour next chapter.'
-                : 'A clear path,\none step at a time.'}
+              {visiting ? 'How to arrange a visit' : 'The admissions process'}
             </h2>
             <p className="ad-process-note">
               {visiting
-                ? 'A visit is a chance to ask, explore and find your own sense of the school. Here’s how to get started.'
+                ? 'Contact the school to agree a date and discuss what you would like to see.'
                 : 'Begin with an enquiry. The school can then confirm class availability and guide your family through the formal application requirements.'}
             </p>
-            <Link className="ad-text-link" href="#enquire">
-              {visiting ? 'Plan your visit' : 'Start an enquiry'}{' '}
-              <ArrowUpRight size={18} />
-            </Link>
           </div>
           <ol>
             {steps.map(([title, copy], index) => (
@@ -244,13 +221,7 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
         </section>
         <section className="ad-practical" id="questions">
           <div>
-            <p className="ad-hand">Useful information</p>
-            <h2>Your questions, answered.</h2>
-            {!visiting && (
-              <Link className="ad-text-link" href="/visit-us">
-                Explore a campus visit <ArrowUpRight size={18} />
-              </Link>
-            )}
+            <h2>Frequently asked questions</h2>
           </div>
           <div className="ad-faqs">
             {faqs.map(([question, answer]) => (
@@ -268,8 +239,7 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
           <section className="ad-location" id="getting-here">
             <div>
               <MapPin size={26} strokeWidth={1.4} />
-              <p className="ad-hand">Getting here</p>
-              <h2>We look forward to welcoming you.</h2>
+              <h2>Getting here</h2>
               <address>
                 Odumbra, Olavanna P.O.
                 <br />
@@ -293,15 +263,7 @@ export function AdmissionsPage({ kind }: { kind: 'visit' | 'apply' }) {
             />
           </section>
         )}
-        <section className="ad-crosslink">
-          <p>{visiting ? 'Your next step' : 'Get to know us'}</p>
-          <Link href={visiting ? '/apply-now' : '/visit-us'}>
-            {visiting
-              ? 'Explore admission to Apex.'
-              : 'Experience the school in person.'}{' '}
-            <ArrowUpRight />
-          </Link>
-        </section>
+        <InstagramStories />
       </main>
       <SiteFooter />
     </div>

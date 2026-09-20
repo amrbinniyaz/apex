@@ -11,22 +11,20 @@ export function VisitInvitation() {
       aria-labelledby="visit-title"
     >
       <div className="visit-copy" data-reveal>
-        <p className="visit-kicker">A little hello. A big beginning.</p>
+        <p className="visit-kicker">Visit Apex</p>
         <h2 id="visit-title">
           Come and see
           <br />
           what’s possible.
         </h2>
-        <p className="visit-handwritten">We’d love to meet you.</p>
         <p className="visit-description">
-          Meet our school community and explore where your child’s next chapter
-          could begin.
+          Meet our school community, explore the campus and ask the questions
+          that matter to your family.
         </p>
         <div className="visit-action">
           <Link className="visit-button apex-cta" href="/visit-us">
-            Let’s plan a visit <ArrowUpRight size={23} strokeWidth={1.5} />
+            Arrange a visit <ArrowUpRight size={23} strokeWidth={1.5} />
           </Link>
-          <SchoolDoodle kind="arrow-left" className="visit-curly-arrow" />
         </div>
         <p className="visit-location">Odumbra, Olavanna · Kozhikode, Kerala</p>
       </div>
@@ -35,20 +33,15 @@ export function VisitInvitation() {
         <div className="visit-photo">
           <Image
             sizes="(max-width: 767px) 100vw, 50vw"
-            src="/assets/apex-campus-source.jpg"
-            alt="Apex pupils exploring together in their science laboratory"
-            width="1200"
-            height="900"
+            src="/assets/07a6dcb8-4d03-4929-a681-785467613806.JPG"
+            alt="Apex pupils receiving a certificate together at a school event"
+            width={1600}
+            height={1142}
             loading="lazy"
           />
         </div>
         <figcaption>
-          <span>A little glimpse of life at Apex</span>
-          <span className="visit-postcard-mark" aria-hidden="true">
-            Apex
-            <br />
-            with love.
-          </span>
+          <span>Pupils receiving a certificate at a school event</span>
         </figcaption>
       </figure>
     </section>

@@ -1,0 +1,722 @@
+.home-life {
+  padding: clamp(56px, 7vw, 106px) max(6vw, 24px);
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+}
+.home-life-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.home-life-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.home-life-heading h2 {
+  font-family: var(--apex-heading);
+  font-weight: 700;
+  font-size: clamp(38px, 4.8vw, 68px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+.home-life-heading > a {
+  flex-shrink: 0;
+}
+.home-life-cinema {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 2 / 1;
+  min-height: 410px;
+  overflow: hidden;
+  background: #101b2b;
+}
+.home-life-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 550ms ease;
+  pointer-events: none;
+}
+.home-life-scene[data-active='true'] {
+  opacity: 1;
+}
+.home-life-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.home-life-scene[data-activity='chess'] img {
+  object-position: center 68%;
+}
+.home-life-scene[data-activity='taekwondo'] img,
+.home-life-scene[data-activity='school-radio'] img {
+  object-fit: contain;
+  padding-bottom: 100px;
+}
+.home-life-cinema::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 42%,
+    #07101b40 65%,
+    #07101bed 100%
+  );
+}
+.home-life-links {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2.8vw, 40px);
+  padding: 32px clamp(24px, 3.4vw, 50px);
+}
+.home-life-links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 56px;
+  padding: 14px 0;
+  border-top: 1px solid #ffffff66;
+  color: #fff;
+  font: 400 clamp(20px, 2vw, 29px)/1.2 var(--apex-accent);
+  text-decoration: none;
+  transition: border-color 200ms ease;
+}
+.home-life-links a[data-active='true'],
+.home-life-links a:hover {
+  border-color: #fff;
+}
+.home-life-links svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+.home-life-links a[data-active='true'] svg,
+.home-life-links a:hover svg {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+.home-life-links a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 6px;
+}
+@media (max-width: 767px) {
+  .home-life-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .home-life-heading > a {
+    font-size: 22px;
+  }
+  .home-life-cinema {
+    aspect-ratio: 4 / 5;
+    min-height: 480px;
+  }
+  .home-life-scene img {
+    object-position: center top;
+    height: 75%;
+  }
+  .home-life-scene[data-activity='taekwondo'] img,
+  .home-life-scene[data-activity='school-radio'] img {
+    padding-bottom: 0;
+  }
+  .home-life-cinema::after {
+    background: linear-gradient(
+      180deg,
+      transparent 26%,
+      #07101b55 47%,
+      #07101bf5 72%
+    );
+  }
+  .home-life-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    padding: 20px 24px;
+  }
+  .home-life-links a {
+    font-size: 23px;
+    min-height: 54px;
+  }
+  .home-life-links a:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-life-scene,
+  .home-life-links a,
+  .home-life-links svg {
+    transition: none;
+  }
+}
+.activity-page {
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+}
+.activity-page main,
+.home-activities {
+  overflow: clip;
+}
+.activity-page :where(main h1),
+.activity-page :where(main h2),
+.activity-page :where(main h3),
+.home-activities h2 {
+  font-family: var(--apex-heading);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+.activity-page :where(main h2),
+.home-activities h2 {
+  font-size: clamp(30px, 3.3vw, 49px);
+  line-height: 1.16;
+}
+.activity-page :where(main) em {
+  color: var(--apex-red);
+  font-style: normal;
+}
+.activity-page :where(main) .content-block-kicker,
+.home-activities .content-block-kicker {
+  font-size: 14px;
+  letter-spacing: 0.09em;
+}
+.activity-section {
+  padding: 72px max(6vw, 24px);
+}
+.activity-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 26px max(6vw, 24px) 0;
+  font-family: var(--apex-interface);
+  font-size: 14px;
+  color: #65697a;
+}
+.activity-breadcrumb a:hover {
+  color: var(--apex-red);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.activity-hero {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  padding: 55px max(6vw, 24px) 76px;
+  max-width: 1680px;
+  margin: auto;
+}
+.activity-hero-copy h1 {
+  font-size: clamp(44px, 5vw, 78px);
+  line-height: 1.02;
+  margin: 0 0 24px;
+}
+.activity-lead {
+  max-width: 430px;
+  font-family: var(--apex-heading);
+  font-size: 19px;
+  line-height: 1.7;
+  color: #575e70;
+  margin-bottom: 28px;
+}
+.activity-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.activity-location {
+  margin-top: 20px;
+  font: 14px/1.5 var(--apex-interface);
+  color: #626978;
+}
+.activity-hero-photo {
+  position: relative;
+  background: var(--apex-surface);
+  padding: 12px 12px 0;
+  border: 1px solid #24366819;
+  box-shadow: 5px 8px 0 #d8dce038;
+  rotate: 1deg;
+}
+.activity-hero-photo::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 40%;
+  width: 22%;
+  height: 26px;
+  background: #dac18b80;
+  rotate: -4deg;
+  z-index: 1;
+}
+.activity-hero-photo > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.activity-hero-photo figcaption {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 7px 20px;
+  font: 24px/1.2 var(--apex-accent);
+}
+.activity-hero-photo figcaption > span {
+  font: 14px/1.5 var(--apex-interface);
+  color: #65697a;
+}
+.activity-taekwondo .activity-hero-photo,
+.activity-school-radio .activity-hero-photo {
+  max-width: 530px;
+  justify-self: center;
+}
+.activity-taekwondo .activity-hero-photo > img,
+.activity-school-radio .activity-hero-photo > img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.activity-art-and-craft .activity-hero-photo {
+  rotate: -1.2deg;
+}
+.activity-art-and-craft .activity-hero-photo > img {
+  aspect-ratio: 3/2;
+}
+.activity-chess .activity-hero-photo > img {
+  aspect-ratio: 16/9;
+  object-position: 50% 68%;
+}
+.activity-intro {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 8vw;
+  border-top: 1px solid #2436681c;
+  max-width: 1600px;
+  margin: auto;
+}
+.activity-intro p:not(.content-block-kicker),
+.activity-story p:not(.content-block-kicker) {
+  font: 18px/1.8 var(--apex-heading);
+  color: #555d6c;
+}
+.activity-intro p + p {
+  margin-top: 22px;
+}
+.activity-benefits {
+  background: var(--apex-surface-muted);
+  border-block: 1px solid #24366810;
+}
+.activity-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 38px;
+}
+.activity-benefit-grid article {
+  background: var(--apex-surface);
+  padding: 30px;
+  border-top: 3px solid #b83b45;
+}
+.activity-benefit-number {
+  font: 32px/1 var(--apex-accent);
+  color: #b83b45;
+}
+.activity-benefit-grid h3 {
+  margin: 20px 0 14px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+.activity-benefit-grid p {
+  font: 17px/1.7 var(--apex-interface);
+  color: #5d6372;
+}
+.activity-story,
+.activity-questions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7vw;
+}
+.activity-story h2 {
+  margin-bottom: 25px;
+}
+.activity-source-list {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+}
+.activity-source-list > a {
+  display: block;
+  padding: 28px;
+  border: 1px solid #24366827;
+  background: var(--apex-surface);
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.activity-source-list > a:hover {
+  background: var(--apex-surface-hover);
+  border-color: #b83b45;
+}
+.activity-source-list > a > span:first-child {
+  font: 14px/1.5 var(--apex-interface);
+  color: #626978;
+}
+.activity-source-list h3 {
+  font-size: 27px;
+  margin: 12px 0 22px;
+}
+.activity-source-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 22px/1.3 var(--apex-accent);
+  color: var(--apex-red);
+  gap: 16px;
+}
+.activity-questions {
+  border-top: 1px solid #2436681c;
+  padding-top: 45px;
+}
+.activity-questions details {
+  border-bottom: 1px solid #24366826;
+}
+.activity-questions summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 0;
+  font: 18px/1.5 var(--apex-heading);
+}
+.activity-questions summary::-webkit-details-marker {
+  display: none;
+}
+.activity-questions summary > span {
+  font: 30px/1 var(--apex-interface);
+  color: var(--apex-red);
+  transition: rotate 0.2s;
+}
+.activity-questions details[open] summary > span {
+  rotate: 45deg;
+}
+.activity-questions details p {
+  font: 17px/1.75 var(--apex-interface);
+  color: #555d6c;
+  padding: 0 20px 22px 0;
+}
+.activity-questions details p a {
+  color: var(--apex-red);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.activity-visit {
+  scroll-margin-top: 80px;
+  text-align: center;
+  background: #e6edf0;
+  padding-block: 72px;
+}
+.activity-visit h2 {
+  font-size: clamp(36px, 4.6vw, 64px);
+}
+.activity-visit > p {
+  max-width: 650px;
+  margin: 24px auto 30px;
+  font: 18px/1.7 var(--apex-heading);
+  color: #555d6c;
+}
+.activity-visit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.activity-call {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  font: 23px/1.3 var(--apex-accent);
+  color: var(--apex-ink);
+  min-height: 48px;
+}
+.activity-call:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.activity-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.activity-section-heading > a {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  font: 23px/1.3 var(--apex-accent);
+  color: var(--apex-red);
+  flex-shrink: 0;
+  min-height: 44px;
+}
+.activity-card-grid {
+  --chapter-red: var(--apex-red);
+  --chapter-ink: var(--apex-ink);
+  --paper-tilt: -1deg;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 38px 28px;
+}
+.activity-card {
+  min-width: 0;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+.activity-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+.activity-card .chapter-photo {
+  aspect-ratio: 4/3;
+  width: 100%;
+}
+.activity-card .chapter-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.activity-card:nth-child(even) {
+  rotate: 1deg;
+}
+.activity-card .activity-card-category {
+  font: 14px/1.4 var(--apex-interface);
+  color: #626978;
+  margin: 18px 8px 10px;
+}
+.activity-card[data-activity='taekwondo'] .chapter-photo img,
+.activity-card[data-activity='school-radio'] .chapter-photo img {
+  object-fit: contain;
+}
+.activity-card[data-activity='taekwondo'] .chapter-photo {
+  background: #0a65c5;
+}
+.activity-card[data-activity='school-radio'] .chapter-photo {
+  background: #f09a00;
+}
+.activity-card[data-activity='chess'] .chapter-photo img {
+  object-position: 50% 68%;
+  transform: scale(1.3);
+  transform-origin: 50% 68%;
+}
+.activity-card .chapter-card-heading {
+  margin-top: 0;
+}
+.activity-card .chapter-card-heading h3 {
+  font-size: clamp(24px, 2.2vw, 32px);
+}
+.activity-card .activity-card-summary {
+  font: 22px/1.35 var(--apex-accent);
+  color: #5e6272;
+  padding: 0 8px;
+  margin: 16px 0 22px;
+}
+.activity-card-grid-compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+.activity-card-grid-compact .activity-card {
+  grid-column: auto;
+}
+.activity-card-grid-compact .activity-card-category {
+  font-size: 14px;
+}
+.activity-card-grid-compact .activity-card .chapter-card-heading h3 {
+  font-size: 25px;
+}
+.activity-card-grid-compact .activity-card-summary {
+  font-size: 20px;
+}
+.home-activities {
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+  padding-top: 26px;
+}
+.activity-index-intro {
+  text-align: center;
+  padding-top: 65px;
+  padding-bottom: 40px;
+}
+.activity-index-intro h1 {
+  font-size: clamp(42px, 5.5vw, 80px);
+  line-height: 1.08;
+}
+.activity-index-intro > p:not(.content-block-kicker) {
+  font: 19px/1.7 var(--apex-heading);
+  color: #555d6c;
+  max-width: 740px;
+  margin: 28px auto;
+}
+.activity-index-cards {
+  padding-top: 30px;
+}
+.activity-index-cards > h2 {
+  font: 30px/1.4 var(--apex-accent);
+  color: var(--apex-red);
+  text-align: center;
+  margin-bottom: 38px;
+}
+.activity-page :where(main) .content-facts {
+  margin-bottom: 0;
+}
+.activity-page :where(main) a:focus-visible,
+.activity-page :where(main) summary:focus-visible,
+.home-activities a:focus-visible {
+  outline: 3px solid var(--apex-red);
+  outline-offset: 5px;
+}
+@media (max-width: 1100px) {
+  .activity-card-grid-compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .activity-hero-copy h1 {
+    font-size: 52px;
+  }
+  .activity-benefit-grid {
+    gap: 16px;
+  }
+  .activity-benefit-grid article {
+    padding: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .activity-section {
+    padding: 44px 24px;
+  }
+  .activity-breadcrumb {
+    padding: 22px 24px 0;
+    gap: 9px;
+  }
+  .activity-hero {
+    grid-template-columns: 1fr;
+    padding: 32px 24px 45px;
+    gap: 32px;
+  }
+  .activity-hero-copy h1 {
+    font-size: clamp(40px, 10vw, 56px);
+    margin-bottom: 17px;
+  }
+  .activity-lead {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+  .activity-location {
+    margin-top: 15px;
+  }
+  .activity-hero-photo {
+    width: 100%;
+    padding: 8px 8px 0;
+  }
+  .activity-hero-photo figcaption {
+    font-size: 23px;
+    padding: 14px 4px;
+  }
+  .activity-hero-photo figcaption > span {
+    font-size: 14px;
+  }
+  .activity-intro,
+  .activity-story,
+  .activity-questions {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .activity-intro p:not(.content-block-kicker),
+  .activity-story p:not(.content-block-kicker) {
+    font-size: 17px;
+  }
+  .activity-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 27px;
+  }
+  .activity-benefit-grid article {
+    position: relative;
+    padding: 24px 24px 24px 73px;
+  }
+  .activity-benefit-number {
+    position: absolute;
+    left: 23px;
+    top: 26px;
+  }
+  .activity-benefit-grid h3 {
+    margin-top: 0;
+    font-size: 25px;
+  }
+  .activity-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .activity-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+  .activity-card,
+  .activity-card:nth-child(4) {
+    grid-column: auto;
+  }
+  .activity-card .chapter-card-heading h3 {
+    font-size: 25px;
+  }
+  .activity-index-intro {
+    padding-top: 40px;
+  }
+  .activity-index-intro > p:not(.content-block-kicker) {
+    font-size: 17px;
+  }
+  .activity-visit-actions {
+    gap: 15px;
+  }
+}
+@media (max-width: 540px) {
+  .activity-card-grid,
+  .activity-card-grid-compact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .activity-card {
+    max-width: 420px;
+    width: 100%;
+    justify-self: center;
+  }
+  .activity-action {
+    font-size: 22px;
+    padding-inline: 20px;
+    gap: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .activity-source-list > a,
+  .activity-questions summary > span {
+    transition: none;
+  }
+}

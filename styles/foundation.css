@@ -115,38 +115,7 @@ p {
   min-height: 650px;
   position: relative;
   overflow: hidden;
-  background: #f5f5f5;
-}
-.school-menu {
-  max-width: 700px !important;
-  width: calc(100% - 36px);
-  padding: 55px !important;
-  border-radius: 3px !important;
-  background: #f5f5f5;
-}
-.menu-title {
-  font-family: Goudy, Georgia, serif;
-  font-style: italic;
-  font-size: 38px;
-  margin-bottom: 18px;
-  color: var(--red);
-}
-.school-menu nav {
-  display: grid;
-}
-.school-menu nav a {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #d9d5d3;
-  font-size: 23px;
-}
-.school-menu nav a:hover {
-  color: var(--red);
-}
-.school-menu [data-slot='dialog-close'] {
-  top: 14px;
-  right: 14px;
+  background: var(--apex-paper);
 }
 .discover-section {
   min-height: 100svh;
@@ -254,7 +223,7 @@ p {
   gap: 12px;
   padding: 7px 19px 7px 7px;
   border-radius: 40px;
-  background: #f5f5f5e8;
+  background: color-mix(in srgb, var(--apex-paper) 90.98%, transparent);
   white-space: nowrap;
   font-size: 16px;
 }
@@ -328,7 +297,7 @@ p {
   justify-content: space-between;
   gap: 20px;
   position: relative;
-  border-top: 1px solid #d8d3cf;
+  border-top: 1px solid #d5d7d9;
   padding-top: 25px;
   font-size: 14px;
   color: #706767;
@@ -575,7 +544,7 @@ p {
   max-height: calc(100svh - 32px);
   overflow: auto;
   padding: 20px !important;
-  background: #f5f5f5;
+  background: var(--apex-paper);
   gap: 16px;
 }
 .school-film-dialog h2 {

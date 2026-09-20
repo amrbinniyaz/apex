@@ -3,15 +3,26 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const files = [
+  'apex-art-cinematic-hero.png',
+  'apex-art-cinematic-hero-mobile.png',
+  'activities/taekwondo.webp',
+  'activities/school-radio.webp',
+  'activities/art-and-craft.webp',
+  'activities/skating.webp',
+  'activities/chess.webp',
+  'apex-creativity-hero-v2.png',
+  'apex-skating-editorial-hero.png',
   'apex-cinematic-hero-v2.png',
   'apex-skating-hero.png',
   'apex-campus-pencil.png',
-  'apex-chapter-illustration.png',
+  'apex-chapter-illustration-transparent.png',
   'apex-possibilities-illustration.png',
   'apex-campus-source.jpg',
   'apex-cinematic-source.jpg',
   'apex-skating-source.png',
   'apex-video-campus.jpg',
+  '07a6dcb8-4d03-4929-a681-785467613806.JPG',
+  'cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG',
 ];
 const manifest = {};
 let originalBytes = 0;

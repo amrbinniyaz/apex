@@ -1,4 +1,58 @@
 {
+  "/assets/apex-art-cinematic-hero.png": {
+    "width": 1672,
+    "height": 941,
+    "widths": [480, 800, 1200, 1672],
+    "stem": "apex-art-cinematic-hero"
+  },
+  "/assets/apex-art-cinematic-hero-mobile.png": {
+    "width": 1024,
+    "height": 1536,
+    "widths": [480, 800, 1024],
+    "stem": "apex-art-cinematic-hero-mobile"
+  },
+  "/assets/activities/taekwondo.webp": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [480, 800, 1080],
+    "stem": "taekwondo"
+  },
+  "/assets/activities/school-radio.webp": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [480, 800, 1080],
+    "stem": "school-radio"
+  },
+  "/assets/activities/art-and-craft.webp": {
+    "width": 1440,
+    "height": 960,
+    "widths": [480, 800, 1200, 1440],
+    "stem": "art-and-craft"
+  },
+  "/assets/activities/skating.webp": {
+    "width": 720,
+    "height": 720,
+    "widths": [480, 720],
+    "stem": "skating"
+  },
+  "/assets/activities/chess.webp": {
+    "width": 1440,
+    "height": 1800,
+    "widths": [480, 800, 1200, 1440],
+    "stem": "chess"
+  },
+  "/assets/apex-creativity-hero-v2.png": {
+    "width": 1672,
+    "height": 941,
+    "widths": [480, 800, 1200, 1672],
+    "stem": "apex-creativity-hero-v2"
+  },
+  "/assets/apex-skating-editorial-hero.png": {
+    "width": 1672,
+    "height": 941,
+    "widths": [480, 800, 1200, 1672],
+    "stem": "apex-skating-editorial-hero"
+  },
   "/assets/apex-cinematic-hero-v2.png": {
     "width": 1671,
     "height": 941,
@@ -17,11 +71,11 @@
     "widths": [480, 800, 1200, 1672],
     "stem": "apex-campus-pencil"
   },
-  "/assets/apex-chapter-illustration.png": {
+  "/assets/apex-chapter-illustration-transparent.png": {
     "width": 1536,
     "height": 1024,
     "widths": [480, 800, 1200, 1536],
-    "stem": "apex-chapter-illustration"
+    "stem": "apex-chapter-illustration-transparent"
   },
   "/assets/apex-possibilities-illustration.png": {
     "width": 1536,
@@ -52,5 +106,17 @@
     "height": 714,
     "widths": [480, 800, 1179],
     "stem": "apex-video-campus"
+  },
+  "/assets/07a6dcb8-4d03-4929-a681-785467613806.JPG": {
+    "width": 1600,
+    "height": 1142,
+    "widths": [480, 800, 1200, 1600],
+    "stem": "07a6dcb8-4d03-4929-a681-785467613806"
+  },
+  "/assets/cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG": {
+    "width": 1600,
+    "height": 1142,
+    "widths": [480, 800, 1200, 1600],
+    "stem": "cab4df71-3a80-47cc-8d48-e48c96e9e7a9"
   }
 }
