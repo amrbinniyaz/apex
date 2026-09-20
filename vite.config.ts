@@ -2,6 +2,8 @@ import { sites } from '@openai/sites-vite-plugin';
 import tailwindcss from '@tailwindcss/postcss';
 import vinext from 'vinext';
 import { defineConfig } from 'vite';
+import { createRequire } from 'node:module';
+import { resolve } from 'node:path';
 import hostingConfig from './.openai/hosting.json';
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
@@ -35,6 +37,33 @@ const localBindingConfig = {
 };
 
 export default defineConfig(async () => {
+  if (process.env.APEX_DEPLOY_TARGET === 'node') {
+    const { nitro } = await import('nitro/vite');
+    const require = createRequire(import.meta.url);
+    return {
+      resolve: {
+        alias: [
+          {
+            find: /^tailwindcss$/,
+            replacement: require.resolve('tailwindcss/index.css'),
+          },
+          {
+            find: /^tw-animate-css$/,
+            replacement: resolve(
+              'node_modules/tw-animate-css/dist/tw-animate.css',
+            ),
+          },
+          {
+            find: /^shadcn\/tailwind.css$/,
+            replacement: require.resolve('shadcn/tailwind.css'),
+          },
+        ],
+      },
+      css: { postcss: { plugins: [tailwindcss()] } },
+      plugins: [vinext(), nitro({ preset: 'node' })],
+    };
+  }
+
   // Keep Wrangler and Miniflare state project-local. These are non-secret tool
   // settings; application environment belongs in ignored `.env*` files.
   process.env.WRANGLER_WRITE_LOGS ??= 'false';

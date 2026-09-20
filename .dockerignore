@@ -1,0 +1,16 @@
+node_modules
+.git
+.env*
+dist
+.output
+.nitro
+.wrangler
+.vinext
+.next
+coverage
+output
+outputs
+work
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*

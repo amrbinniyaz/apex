@@ -1,6 +1,16 @@
 import assert from 'node:assert/strict';
 const origin = process.argv[2] || 'http://127.0.0.1:4173';
-for (const route of ['/', '/visit-us', '/apply-now']) {
+for (const route of [
+  '/',
+  '/visit-us',
+  '/apply-now',
+  '/life-at-apex',
+  '/life-at-apex/art-and-craft',
+  '/life-at-apex/skating',
+  '/life-at-apex/chess',
+  '/life-at-apex/taekwondo',
+  '/life-at-apex/school-radio',
+]) {
   const response = await fetch(new URL(route, origin));
   assert.equal(response.status, 200, route);
   const html = await response.text();
@@ -25,7 +35,7 @@ assert.match(
 const sitemap = await fetch(new URL('/sitemap.xml', origin));
 assert.equal(sitemap.status, 200);
 const xml = await sitemap.text();
-assert.equal((xml.match(/<loc>/g) || []).length, 3);
+assert.equal((xml.match(/<loc>/g) || []).length, 9);
 console.log('Robots and sitemap: correct');
 const image = await fetch(
   new URL('/assets/responsive/apex-cinematic-hero-v2-800.webp', origin),
