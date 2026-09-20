@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { ArrowUpRight } from 'lucide-react';
 import { SchoolImage } from '@/components/school-image';
 import { activities, activityHref } from '@/lib/activities';
@@ -16,7 +16,7 @@ export function ActivityCards({
       className={`activity-card-grid ${compact ? 'activity-card-grid-compact' : ''}`}
     >
       {items.map((activity, index) => (
-        <Link
+        <SiteLink
           className="chapter-card activity-card"
           href={activityHref(activity.slug)}
           key={activity.slug}
@@ -39,7 +39,7 @@ export function ActivityCards({
             <ArrowUpRight size={23} strokeWidth={1.5} />
           </div>
           <p className="activity-card-summary">{activity.summary}</p>
-        </Link>
+        </SiteLink>
       ))}
     </div>
   );

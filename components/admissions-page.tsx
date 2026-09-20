@@ -1,5 +1,5 @@
 import { deliveryConfigured } from '@/lib/enquiry';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { school } from '@/lib/school';
 import { SchoolImage as Image } from '@/components/school-image';
 import { ArrowDown, ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
@@ -89,9 +89,9 @@ export function AdmissionsPage({
       className={`admissions-page ${visiting ? 'ad-visit' : 'ad-apply'}`}
       id="top"
     >
-      <Link className="skip-link" href="#page-content">
+      <SiteLink className="skip-link" href="#page-content">
         Skip to content
-      </Link>
+      </SiteLink>
       <SiteHeader current={kind} photo />
       <main id="page-content">
         <section
@@ -119,7 +119,7 @@ export function AdmissionsPage({
           <div className="ad-page-photo-shade" aria-hidden="true" />
           <div className="ad-page-title-group">
             <nav className="ad-page-breadcrumb" aria-label="Breadcrumb">
-              <Link href="/">Home</Link>
+              <SiteLink href="/">Home</SiteLink>
               <span aria-hidden="true">/</span>
               <span>{visiting ? 'Visit us' : 'Admissions'}</span>
             </nav>
@@ -132,22 +132,24 @@ export function AdmissionsPage({
                 : 'Information for families considering Apex.'}
             </p>
           </div>
-          <Link
+          <SiteLink
             className="ad-hero-anchor"
             href="#introduction"
             aria-label="Explore this page"
           >
             <ArrowDown size={23} strokeWidth={1.5} />
-          </Link>
+          </SiteLink>
         </section>
         <nav className="ad-page-sections" aria-label="On this page">
           <span>{visiting ? 'Your visit' : 'Admissions'}</span>
-          <Link href="#introduction">Overview</Link>
-          <Link href="#enquire">{visiting ? 'Plan a visit' : 'Enquire'}</Link>
-          <Link href="#next-steps">Next steps</Link>
-          <Link href="#questions">Your questions</Link>
-          {visiting && <Link href="#getting-here">Getting here</Link>}
-          <Link href="#apex-stories">Our stories</Link>
+          <SiteLink href="#introduction">Overview</SiteLink>
+          <SiteLink href="#enquire">
+            {visiting ? 'Plan a visit' : 'Enquire'}
+          </SiteLink>
+          <SiteLink href="#next-steps">Next steps</SiteLink>
+          <SiteLink href="#questions">Your questions</SiteLink>
+          {visiting && <SiteLink href="#getting-here">Getting here</SiteLink>}
+          <SiteLink href="#apex-stories">Our stories</SiteLink>
         </nav>
         <section className="ad-page-intro" id="introduction">
           <h2>{visiting ? 'Plan a school visit' : 'Enquire about a place'}</h2>
@@ -156,10 +158,10 @@ export function AdmissionsPage({
               ? 'Arrange a visit to explore the campus and discuss classroom learning, activities and admissions with the school.'
               : 'Tell us the class you are interested in and your preferred start date. The school can explain availability, fees and the application process.'}
           </p>
-          <Link className="ad-button apex-cta" href="#enquire">
+          <SiteLink className="ad-button apex-cta" href="#enquire">
             {visiting ? 'Arrange a visit' : 'Enquire about admission'}{' '}
             <ArrowDown size={18} />
-          </Link>
+          </SiteLink>
         </section>
         <ContentFeature kind={kind} />
         <ContentFacts />
@@ -177,12 +179,12 @@ export function AdmissionsPage({
             </p>
             <div className="ad-personal-contact">
               <span>Prefer a conversation?</span>
-              <Link href={school.phoneHref}>
+              <SiteLink href={school.phoneHref}>
                 <Phone size={18} /> {school.phone}
-              </Link>
-              <Link href={`mailto:${school.email}`}>
+              </SiteLink>
+              <SiteLink href={`mailto:${school.email}`}>
                 <Mail size={18} /> Email the school
-              </Link>
+              </SiteLink>
             </div>
             <SchoolDoodle kind="arrow-left" className="ad-quiet-arrow" />
           </aside>
@@ -245,14 +247,14 @@ export function AdmissionsPage({
                 <br />
                 Kozhikode, Kerala 673025, India
               </address>
-              <Link
+              <SiteLink
                 className="ad-button apex-cta"
                 href={directions}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Get directions <ArrowUpRight size={18} />
-              </Link>
+              </SiteLink>
             </div>
             <Image
               src="/assets/apex-campus-pencil.png"

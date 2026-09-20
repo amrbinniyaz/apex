@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { SchoolImage as Image } from '@/components/school-image';
 import { SchoolDoodle } from '@/components/school-doodle';
 import { schoolStages } from '@/lib/school';
@@ -60,7 +60,7 @@ export function SchoolStages() {
         <CarouselContent className="chapter-track">
           {schoolStages.map((stage, index) => (
             <CarouselItem key={stage.name} className="chapter-slide">
-              <Link className="chapter-card" href={stage.href}>
+              <SiteLink className="chapter-card" href={stage.href}>
                 <div className="chapter-photo">
                   <Image
                     sizes="(max-width: 767px) 100vw, 50vw"
@@ -77,7 +77,7 @@ export function SchoolStages() {
                   <ArrowUpRight size={24} strokeWidth={1.5} />
                 </div>
                 <p>{stage.line}</p>
-              </Link>
+              </SiteLink>
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { school } from '@/lib/school';
 import Image from 'next/image';
 import { SiteMenu } from '@/components/site-menu';
@@ -26,7 +26,7 @@ export function SiteHeader({
     <header
       className={`site-header cinematic-header shared-site-header ${photo ? 'header-photo' : 'header-paper'}`}
     >
-      <Link
+      <SiteLink
         className="brand-lockup"
         href={home ? '#top' : '/'}
         aria-label={`${school.name} home`}
@@ -41,18 +41,18 @@ export function SiteHeader({
         <span className="brand-name">
           Apex<span>International School</span>
         </span>
-      </Link>
+      </SiteLink>
       <nav aria-label="Main navigation">
         <div className="header-quicklinks">
           {links.map(([label, href]) => (
-            <Link
+            <SiteLink
               className="utility-link"
               key={label}
               href={href}
               aria-current={isCurrent(href) ? 'page' : undefined}
             >
               {label}
-            </Link>
+            </SiteLink>
           ))}
         </div>
         <SiteMenu home={home} current={current} />

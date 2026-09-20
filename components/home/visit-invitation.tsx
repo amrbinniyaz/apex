@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { SchoolImage as Image } from '@/components/school-image';
 import { SchoolDoodle } from '@/components/school-doodle';
 
@@ -22,9 +22,9 @@ export function VisitInvitation() {
           that matter to your family.
         </p>
         <div className="visit-action">
-          <Link className="visit-button apex-cta" href="/visit-us">
+          <SiteLink className="visit-button apex-cta" href="/visit-us">
             Arrange a visit <ArrowUpRight size={23} strokeWidth={1.5} />
-          </Link>
+          </SiteLink>
         </div>
         <p className="visit-location">Odumbra, Olavanna · Kozhikode, Kerala</p>
       </div>

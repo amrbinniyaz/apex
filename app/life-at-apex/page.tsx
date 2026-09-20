@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -50,9 +50,12 @@ export default function LifeAtApex() {
             A school visit is a chance to talk about your child’s interests,
             explore the campus and ask about current activities for their class.
           </p>
-          <Link className="apex-cta activity-action" href="/visit-us#enquire">
+          <SiteLink
+            className="apex-cta activity-action"
+            href="/visit-us#enquire"
+          >
             Arrange a visit <ArrowUpRight size={23} />
-          </Link>
+          </SiteLink>
         </section>
       </main>
       <SiteFooter />

@@ -1,7 +1,7 @@
 'use client';
 
 import { useId, useRef, useState } from 'react';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react';
 import {
@@ -127,6 +127,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
       </DialogTrigger>
       <DialogContent
         className="apex-menu"
+        fullScreen
         showCloseButton={false}
         initialFocus={closeButton}
         finalFocus={() => !navigating.current}
@@ -142,7 +143,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
 
         <div className="apex-menu-body">
           <div className="apex-menu-navigation">
-            <Link
+            <SiteLink
               className="apex-menu-brand"
               href={home ? '#top' : '/'}
               onClick={close}
@@ -157,7 +158,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
               <span>
                 Apex<span>International School</span>
               </span>
-            </Link>
+            </SiteLink>
 
             <DialogTitle className="apex-menu-eyebrow">
               Explore Apex
@@ -199,23 +200,23 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
                           >
                             {item.children.map((child) => (
                               <li key={child.href}>
-                                <Link href={child.href} onClick={close}>
+                                <SiteLink href={child.href} onClick={close}>
                                   {child.label}
                                   <ArrowUpRight size={17} strokeWidth={1.5} />
-                                </Link>
+                                </SiteLink>
                               </li>
                             ))}
                           </ul>
                         </>
                       ) : (
-                        <Link
+                        <SiteLink
                           className="apex-menu-category"
                           href={item.href}
                           onClick={close}
                           aria-current={item.active ? 'page' : undefined}
                         >
                           <span>{item.label}</span>
-                        </Link>
+                        </SiteLink>
                       )}
                     </li>
                   );
@@ -238,20 +239,20 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
           >
             <div className="apex-menu-discover-content">
               <nav className="apex-menu-utility" aria-label="Quick links">
-                <Link href="/visit-us" onClick={close}>
+                <SiteLink href="/visit-us" onClick={close}>
                   Visit us <ArrowUpRight size={14} />
-                </Link>
-                <Link href="/apply-now" onClick={close}>
+                </SiteLink>
+                <SiteLink href="/apply-now" onClick={close}>
                   Apply now <ArrowUpRight size={14} />
-                </Link>
-                <Link href="#contact" onClick={close}>
+                </SiteLink>
+                <SiteLink href="#contact" onClick={close}>
                   Contact <ArrowUpRight size={14} />
-                </Link>
+                </SiteLink>
               </nav>
 
               <div className="apex-menu-cards">
                 {shortcuts.map((card) => (
-                  <Link
+                  <SiteLink
                     className="apex-menu-card"
                     href={card.href}
                     onClick={close}
@@ -273,7 +274,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
                         <ArrowUpRight size={19} strokeWidth={1.5} />
                       </span>
                     </div>
-                  </Link>
+                  </SiteLink>
                 ))}
               </div>
             </div>

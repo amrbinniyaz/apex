@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { ArrowRight, ArrowUpRight, Phone } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -65,9 +65,9 @@ export function ActivityPage({ activity }: { activity: Activity }) {
           }}
         />
         <nav className="activity-breadcrumb" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
+          <SiteLink href="/">Home</SiteLink>
           <span aria-hidden="true">/</span>
-          <Link href="/life-at-apex">Life at Apex</Link>
+          <SiteLink href="/life-at-apex">Life at Apex</SiteLink>
           <span aria-hidden="true">/</span>
           <span aria-current="page">{activity.name}</span>
         </nav>
@@ -78,12 +78,12 @@ export function ActivityPage({ activity }: { activity: Activity }) {
             </p>
             <h1 id="activity-title">{activity.name}</h1>
             <p className="activity-lead">{activity.summary}</p>
-            <Link
+            <SiteLink
               href="#activity-enquiry"
               className="apex-text-link activity-action"
             >
               Ask about {activity.name} <ArrowUpRight size={22} />
-            </Link>
+            </SiteLink>
             <p className="activity-location">
               Apex International School · Kozhikode, Kerala
             </p>
@@ -176,9 +176,12 @@ export function ActivityPage({ activity }: { activity: Activity }) {
                 <span aria-hidden="true">+</span>
               </summary>
               <p>
-                <Link href="/apply-now">Start an admissions enquiry</Link> or
-                arrange a school visit. Share your child’s class and interests
-                so the school can guide your family through the next steps.
+                <SiteLink href="/apply-now">
+                  Start an admissions enquiry
+                </SiteLink>{' '}
+                or arrange a school visit. Share your child’s class and
+                interests so the school can guide your family through the next
+                steps.
               </p>
             </details>
           </div>
@@ -194,9 +197,9 @@ export function ActivityPage({ activity }: { activity: Activity }) {
             class. You can include {activity.name} in your school visit enquiry.
           </p>
           <div className="activity-visit-actions">
-            <Link className="apex-cta activity-action" href={visitHref}>
+            <SiteLink className="apex-cta activity-action" href={visitHref}>
               Enquire about {activity.name} <ArrowUpRight size={23} />
-            </Link>
+            </SiteLink>
             <a className="activity-call" href={school.phoneHref}>
               <Phone size={18} />
               Talk to the school
@@ -211,9 +214,9 @@ export function ActivityPage({ activity }: { activity: Activity }) {
             <div>
               <h2 id="activity-related-title">Other activities at Apex</h2>
             </div>
-            <Link href="/life-at-apex">
+            <SiteLink href="/life-at-apex">
               All activities <ArrowRight size={20} />
-            </Link>
+            </SiteLink>
           </div>
           <ActivityCards exclude={activity.slug} compact />
         </section>

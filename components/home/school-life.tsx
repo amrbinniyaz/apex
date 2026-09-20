@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import { SchoolImage } from '@/components/school-image';
 import { activities, activityHref } from '@/lib/activities';
 
@@ -26,9 +26,9 @@ export function SchoolLife() {
       <div className="home-life-inner">
         <div className="home-life-heading">
           <h2 id="home-life-title">Life at Apex</h2>
-          <Link className="apex-text-link" href="/life-at-apex">
+          <SiteLink className="apex-text-link" href="/life-at-apex">
             All activities <ArrowUpRight size={21} aria-hidden="true" />
-          </Link>
+          </SiteLink>
         </div>
 
         <div className="home-life-cinema">
@@ -53,7 +53,7 @@ export function SchoolLife() {
 
           <nav className="home-life-links" aria-label="Activities at Apex">
             {featuredActivities.map((activity, index) => (
-              <Link
+              <SiteLink
                 key={activity.slug}
                 href={activityHref(activity.slug)}
                 data-active={activeIndex === index}
@@ -64,7 +64,7 @@ export function SchoolLife() {
               >
                 <span>{activity.name}</span>
                 <ArrowUpRight size={20} aria-hidden="true" />
-              </Link>
+              </SiteLink>
             ))}
           </nav>
         </div>

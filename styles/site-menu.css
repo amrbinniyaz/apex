@@ -64,6 +64,7 @@
 /* Full-screen navigation with independent desktop panels and a mobile reading flow. */
 .apex-menu[data-slot='dialog-content'] {
   position: fixed;
+  z-index: 200;
   inset: 0;
   width: 100%;
   max-width: none;

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { SiteLink } from '@/components/site-link';
 import Image from 'next/image';
 import { ArrowUp, ArrowUpRight, Camera } from 'lucide-react';
 import { school } from '@/lib/school';
@@ -18,7 +18,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
       <div className="apex-footer-inner">
         <div className="apex-footer-top">
           <div className="apex-footer-brand">
-            <Link
+            <SiteLink
               className="footer-brand-lockup"
               href={home ? '#top' : '/'}
               aria-label={`${school.name} home`}
@@ -33,7 +33,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
               <span>
                 Apex<span>International School</span>
               </span>
-            </Link>
+            </SiteLink>
             <address>{school.address}</address>
             <a
               className="footer-directions"
@@ -50,10 +50,10 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
             <ul>
               {links.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>
+                  <SiteLink href={link.href}>
                     {link.label}
                     <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                  </SiteLink>
                 </li>
               ))}
             </ul>
@@ -94,10 +94,10 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
             Mandatory public disclosure{' '}
             <ArrowUpRight size={14} aria-hidden="true" />
           </a>
-          <Link className="footer-back-top" href="#top">
+          <SiteLink className="footer-back-top" href="#top">
             <span>Back to top</span>
             <ArrowUp size={18} strokeWidth={1.5} aria-hidden="true" />
-          </Link>
+          </SiteLink>
         </div>
       </div>
     </footer>
