@@ -3,6 +3,14 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const files = [
+  'results/class-of-2026.webp',
+  'results/nehan-bin-shibil.webp',
+  'results/liyan-firoz-np.webp',
+  'results/amaan-iskander.webp',
+  'results/class-results-2025-26.webp',
+  'results/toppers-2025-26.webp',
+  'results/perfect-scores-2025-26.webp',
+  'results/student-results-2025-26.webp',
   'apex-art-cinematic-hero.png',
   'apex-art-cinematic-hero-mobile.png',
   'activities/taekwondo.webp',
@@ -23,6 +31,13 @@ const files = [
   'apex-video-campus.jpg',
   '07a6dcb8-4d03-4929-a681-785467613806.JPG',
   'cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG',
+  'library/art-original-2019.jpg',
+  'library/art-talent-2022.jpg',
+  'library/chess-day-2024.jpg',
+  'library/guitar-talent-2022.jpg',
+  'library/skating-original-2019.jpg',
+  'library/taekwondo-original-2019.jpg',
+  'library/school-radio-original-2019.jpg',
 ];
 const manifest = {};
 let originalBytes = 0;

@@ -1,5 +1,5 @@
 export type Activity = {
-  slug: string;
+  slug: 'taekwondo' | 'school-radio' | 'art-and-craft' | 'skating' | 'chess';
   name: string;
   category: string;
   summary: string;

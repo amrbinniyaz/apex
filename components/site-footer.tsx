@@ -8,6 +8,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
   const links = [
     { label: 'Our school', href: `${home ? '' : '/'}#our-school` },
     { label: 'Life at Apex', href: '/life-at-apex' },
+    { label: 'Results & achievements', href: '/results' },
     { label: 'Admissions', href: '/apply-now' },
     { label: 'Visit us', href: '/visit-us' },
     { label: 'Watch our film', href: `${home ? '' : '/'}#discover` },

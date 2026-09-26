@@ -9,6 +9,8 @@ import { SchoolDoodle } from '@/components/school-doodle';
 import { EnquiryForm } from '@/components/enquiry-form';
 import { InstagramStories } from '@/components/instagram-stories';
 import { ContentFeature, ContentFacts } from '@/components/content-page-blocks';
+import { SchoolGallery } from '@/components/school-gallery';
+import { ContentPageHero } from '@/components/content-page-hero';
 
 const directions = school.directions;
 
@@ -94,52 +96,26 @@ export function AdmissionsPage({
       </SiteLink>
       <SiteHeader current={kind} photo />
       <main id="page-content">
-        <section
-          className="ad-photographic-hero"
-          aria-labelledby="ad-page-title"
-        >
-          <Image
-            className="ad-page-photo"
-            preload
-            loading="eager"
-            src={
-              visiting
-                ? '/assets/apex-video-campus.jpg'
-                : '/assets/apex-campus-source.jpg'
-            }
-            alt={
-              visiting
-                ? 'Apex International School campus in Kozhikode'
-                : 'Apex pupils exploring together in the science laboratory'
-            }
-            width={visiting ? 1179 : 1200}
-            height={visiting ? 714 : 900}
-            fetchPriority="high"
-          />
-          <div className="ad-page-photo-shade" aria-hidden="true" />
-          <div className="ad-page-title-group">
-            <nav className="ad-page-breadcrumb" aria-label="Breadcrumb">
-              <SiteLink href="/">Home</SiteLink>
-              <span aria-hidden="true">/</span>
-              <span>{visiting ? 'Visit us' : 'Admissions'}</span>
-            </nav>
-            <h1 id="ad-page-title">
-              {visiting ? 'Visit Apex.' : 'Admissions.'}
-            </h1>
-            <p>
-              {visiting
-                ? 'Explore the campus and meet our school community.'
-                : 'Information for families considering Apex.'}
-            </p>
-          </div>
-          <SiteLink
-            className="ad-hero-anchor"
-            href="#introduction"
-            aria-label="Explore this page"
-          >
-            <ArrowDown size={23} strokeWidth={1.5} />
-          </SiteLink>
-        </section>
+        <ContentPageHero
+          title={visiting ? 'Visit Apex.' : 'Admissions.'}
+          description={
+            visiting
+              ? 'Explore the campus and meet our school community.'
+              : 'Information for families considering Apex.'
+          }
+          image={
+            visiting
+              ? '/assets/apex-video-campus.jpg'
+              : '/assets/apex-campus-source.jpg'
+          }
+          alt={
+            visiting
+              ? 'Apex International School campus in Kozhikode'
+              : 'Apex pupils exploring together in the science laboratory'
+          }
+          breadcrumbs={[{ label: visiting ? 'Visit us' : 'Admissions' }]}
+          nextSection="#introduction"
+        />
         <nav className="ad-page-sections" aria-label="On this page">
           <span>{visiting ? 'Your visit' : 'Admissions'}</span>
           <SiteLink href="#introduction">Overview</SiteLink>
@@ -165,6 +141,7 @@ export function AdmissionsPage({
         </section>
         <ContentFeature kind={kind} />
         <ContentFacts />
+        <SchoolGallery album={kind} />
         <section
           className="ad-enquiry"
           id="enquire"

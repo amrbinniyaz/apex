@@ -2,11 +2,12 @@ import { SiteLink } from '@/components/site-link';
 import { ArrowRight, ArrowUpRight, Phone } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
-import { SchoolImage } from '@/components/school-image';
+import { ContentPageHero } from '@/components/content-page-hero';
 import { ActivityCards } from '@/components/activity-cards';
 import { type Activity, activityHref } from '@/lib/activities';
 import { school } from '@/lib/school';
 import { siteUrl } from '@/lib/site-url';
+import { SchoolGallery } from '@/components/school-gallery';
 
 export function ActivityPage({ activity }: { activity: Activity }) {
   const visitHref = `/visit-us?activity=${activity.slug}#enquire`;
@@ -56,7 +57,7 @@ export function ActivityPage({ activity }: { activity: Activity }) {
       <a href="#activity-content" className="skip-link">
         Skip to content
       </a>
-      <SiteHeader current="life" />
+      <SiteHeader current="life" photo />
       <main id="activity-content">
         <script
           type="application/ld+json"
@@ -64,44 +65,20 @@ export function ActivityPage({ activity }: { activity: Activity }) {
             __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
           }}
         />
-        <nav className="activity-breadcrumb" aria-label="Breadcrumb">
-          <SiteLink href="/">Home</SiteLink>
-          <span aria-hidden="true">/</span>
-          <SiteLink href="/life-at-apex">Life at Apex</SiteLink>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">{activity.name}</span>
-        </nav>
-        <section className="activity-hero" aria-labelledby="activity-title">
-          <div className="activity-hero-copy">
-            <p className="content-block-kicker">
-              {activity.category} · Life at Apex
-            </p>
-            <h1 id="activity-title">{activity.name}</h1>
-            <p className="activity-lead">{activity.summary}</p>
-            <SiteLink
-              href="#activity-enquiry"
-              className="apex-text-link activity-action"
-            >
-              Ask about {activity.name} <ArrowUpRight size={22} />
-            </SiteLink>
-            <p className="activity-location">
-              Apex International School · Kozhikode, Kerala
-            </p>
-          </div>
-          <figure className="activity-hero-photo">
-            <SchoolImage
-              src={activity.image}
-              alt={activity.alt}
-              width={1200}
-              height={900}
-              preload
-              sizes="(max-width: 767px) 100vw, 58vw"
-            />
-            <figcaption>{activity.name} at Apex</figcaption>
-          </figure>
-        </section>
+        <ContentPageHero
+          title={activity.name}
+          description={activity.summary}
+          image={activity.image}
+          alt={activity.alt}
+          breadcrumbs={[
+            { label: 'Life at Apex', href: '/life-at-apex' },
+            { label: activity.name },
+          ]}
+          nextSection="#activity-introduction"
+        />
         <section
           className="activity-intro activity-section"
+          id="activity-introduction"
           aria-labelledby="activity-intro-title"
         >
           <div>
@@ -186,6 +163,7 @@ export function ActivityPage({ activity }: { activity: Activity }) {
             </details>
           </div>
         </section>
+        <SchoolGallery album={activity.slug} />
         <section
           className="activity-visit activity-section"
           id="activity-enquiry"

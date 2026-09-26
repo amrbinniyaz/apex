@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/visit-us',
     '/apply-now',
     '/life-at-apex',
+    '/results',
     ...activities.map(({ slug }) => activityHref(slug)),
   ].map((path) => ({
     url: siteUrl(path),

@@ -1,4 +1,52 @@
 {
+  "/assets/results/class-of-2026.webp": {
+    "width": 1512,
+    "height": 591,
+    "widths": [480, 800, 1200, 1512],
+    "stem": "class-of-2026"
+  },
+  "/assets/results/nehan-bin-shibil.webp": {
+    "width": 326,
+    "height": 328,
+    "widths": [326],
+    "stem": "nehan-bin-shibil"
+  },
+  "/assets/results/liyan-firoz-np.webp": {
+    "width": 330,
+    "height": 330,
+    "widths": [330],
+    "stem": "liyan-firoz-np"
+  },
+  "/assets/results/amaan-iskander.webp": {
+    "width": 330,
+    "height": 330,
+    "widths": [330],
+    "stem": "amaan-iskander"
+  },
+  "/assets/results/class-results-2025-26.webp": {
+    "width": 3240,
+    "height": 2160,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "class-results-2025-26"
+  },
+  "/assets/results/toppers-2025-26.webp": {
+    "width": 3240,
+    "height": 2160,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "toppers-2025-26"
+  },
+  "/assets/results/perfect-scores-2025-26.webp": {
+    "width": 3240,
+    "height": 2160,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "perfect-scores-2025-26"
+  },
+  "/assets/results/student-results-2025-26.webp": {
+    "width": 3240,
+    "height": 2160,
+    "widths": [480, 800, 1200, 1680],
+    "stem": "student-results-2025-26"
+  },
   "/assets/apex-art-cinematic-hero.png": {
     "width": 1672,
     "height": 941,
@@ -118,5 +166,47 @@
     "height": 1142,
     "widths": [480, 800, 1200, 1600],
     "stem": "cab4df71-3a80-47cc-8d48-e48c96e9e7a9"
+  },
+  "/assets/library/art-original-2019.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [480, 800, 1080],
+    "stem": "art-original-2019"
+  },
+  "/assets/library/art-talent-2022.jpg": {
+    "width": 1080,
+    "height": 1350,
+    "widths": [480, 800, 1080],
+    "stem": "art-talent-2022"
+  },
+  "/assets/library/chess-day-2024.jpg": {
+    "width": 1440,
+    "height": 1800,
+    "widths": [480, 800, 1200, 1440],
+    "stem": "chess-day-2024"
+  },
+  "/assets/library/guitar-talent-2022.jpg": {
+    "width": 1080,
+    "height": 1350,
+    "widths": [480, 800, 1080],
+    "stem": "guitar-talent-2022"
+  },
+  "/assets/library/skating-original-2019.jpg": {
+    "width": 720,
+    "height": 720,
+    "widths": [480, 720],
+    "stem": "skating-original-2019"
+  },
+  "/assets/library/taekwondo-original-2019.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [480, 800, 1080],
+    "stem": "taekwondo-original-2019"
+  },
+  "/assets/library/school-radio-original-2019.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [480, 800, 1080],
+    "stem": "school-radio-original-2019"
   }
 }
