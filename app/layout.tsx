@@ -25,6 +25,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          src="https://analytics.amrniyaz.com/script.js"
+          data-website-id="d0774aeb-c5fd-45f0-befa-0a6147ee6c9a"
+        />
+      </head>
       <body>
         <SchoolStructuredData />
         {children}

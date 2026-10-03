@@ -84,3 +84,54 @@ await test('never treats a provider failure or malformed receipt as success', as
     }),
   );
 });
+
+await test('contact enquiries require a message but not a class or visit timing', () => {
+  const contact = {
+    ...valid,
+    kind: 'contact',
+    year: '',
+    timing: '',
+    message: '  Please tell me about school transport.  ',
+  };
+  assert.equal(
+    parseEnquiry(contact)?.message,
+    'Please tell me about school transport.',
+  );
+  assert.equal(parseEnquiry({ ...contact, message: '  ' }), null);
+  assert.equal(parseEnquiry({ ...contact, consent: false }), null);
+  assert.equal(parseEnquiry({ ...contact, message: 'x'.repeat(801) }), null);
+  assert.equal(parseEnquiry({ ...valid, year: '' }), null);
+  assert.equal(parseEnquiry({ ...valid, kind: 'apply', year: '' }), null);
+});
+
+await test('contact emails use general enquiry wording and retain the actual message', async () => {
+  const enquiry = parseEnquiry({
+    ...valid,
+    kind: 'contact',
+    year: '',
+    message: 'A question about transport.',
+  })!;
+  const receipt = await deliverEnquiry(
+    enquiry,
+    {
+      apiKey: 'test-key',
+      from: 'sender@example.test',
+      to: 'school@example.test',
+    },
+    async (_url, options) => {
+      assert.ok(typeof options?.body === 'string');
+      const payload = JSON.parse(options.body);
+      assert.equal(payload.subject, 'Apex contact enquiry');
+      assert.match(payload.text, /Name: Parent Example/);
+      assert.match(payload.text, /A question about transport\./);
+      assert.doesNotMatch(
+        payload.text,
+        /Class \/ year group|Preferred start|Parent \/ guardian/,
+      );
+      assert.equal(payload.reply_to, valid.email);
+      assert.deepEqual(payload.to, ['school@example.test']);
+      return Response.json({ id: 'contact-receipt' });
+    },
+  );
+  assert.equal(receipt, 'contact-receipt');
+});

@@ -16,7 +16,10 @@ import { SchoolImage } from '@/components/school-image';
 import { school } from '@/lib/school';
 import { activities, activityHref } from '@/lib/activities';
 
-type SiteMenuProps = { home?: boolean; current?: 'visit' | 'apply' | 'life' };
+type SiteMenuProps = {
+  home?: boolean;
+  current?: 'visit' | 'apply' | 'life' | 'contact';
+};
 type MenuItem = {
   label: string;
   href: string;
@@ -86,7 +89,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
         { label: 'Getting here', href: '/visit-us#getting-here' },
       ],
     },
-    { label: 'Contact us', href: '#contact' },
+    { label: 'Contact us', href: '/contact-us', active: current === 'contact' },
   ];
   const shortcuts = [
     {
@@ -246,7 +249,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
                 <SiteLink href="/apply-now" onClick={close}>
                   Apply now <ArrowUpRight size={14} />
                 </SiteLink>
-                <SiteLink href="#contact" onClick={close}>
+                <SiteLink href="/contact-us" onClick={close}>
                   Contact <ArrowUpRight size={14} />
                 </SiteLink>
               </nav>

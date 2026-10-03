@@ -12,16 +12,17 @@ export function SiteHeader({
 }: {
   home?: boolean;
   photo?: boolean;
-  current?: 'visit' | 'apply' | 'life';
+  current?: 'visit' | 'apply' | 'life' | 'contact';
 }) {
   const links = [
-    ['Contact', '#contact'],
+    ['Contact', '/contact-us'],
     ['Visit us', '/visit-us'],
     ['Apply now', '/apply-now'],
   ];
   const isCurrent = (href: string) =>
     (current === 'visit' && href === '/visit-us') ||
-    (current === 'apply' && href === '/apply-now');
+    (current === 'apply' && href === '/apply-now') ||
+    (current === 'contact' && href === '/contact-us');
   return (
     <header
       className={`site-header cinematic-header shared-site-header ${photo ? 'header-photo' : 'header-paper'}`}

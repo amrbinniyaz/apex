@@ -1,5 +1,5 @@
 export type Enquiry = {
-  kind: 'visit' | 'apply';
+  kind: 'visit' | 'apply' | 'contact';
   name: string;
   email: string;
   phone: string;
@@ -23,7 +23,8 @@ const limits = {
 export function parseEnquiry(input: unknown): Enquiry | null {
   if (!input || typeof input !== 'object' || Array.isArray(input)) return null;
   const value = input as Record<string, unknown>;
-  if (value.kind !== 'visit' && value.kind !== 'apply') return null;
+  if (!['visit', 'apply', 'contact'].includes(value.kind as string))
+    return null;
   if (
     value.consent !== true ||
     (value.website !== undefined && value.website !== '')
@@ -52,13 +53,13 @@ export function parseEnquiry(input: unknown): Enquiry | null {
   ) as Pick<Enquiry, keyof typeof limits>;
   if (
     !fields.name ||
-    !fields.year ||
+    (value.kind === 'contact' ? !fields.message : !fields.year) ||
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)
   )
     return null;
   return {
     ...fields,
-    kind: value.kind,
+    kind: value.kind as Enquiry['kind'],
     consent: true,
     requestId: value.requestId,
   };
@@ -87,17 +88,23 @@ export async function deliverEnquiry(
       to: [config.to],
       reply_to: enquiry.email,
       subject:
-        enquiry.kind === 'visit'
-          ? 'Apex school visit enquiry'
-          : 'Apex admissions enquiry',
+        enquiry.kind === 'contact'
+          ? 'Apex contact enquiry'
+          : enquiry.kind === 'visit'
+            ? 'Apex school visit enquiry'
+            : 'Apex admissions enquiry',
       text: [
-        `Parent / guardian: ${enquiry.name}`,
+        `${enquiry.kind === 'contact' ? 'Name' : 'Parent / guardian'}: ${enquiry.name}`,
         `Email: ${enquiry.email}`,
         `Phone: ${enquiry.phone || 'Not provided'}`,
-        `Class / year group: ${enquiry.year}`,
-        `Preferred ${enquiry.kind === 'visit' ? 'visit timing' : 'start'}: ${enquiry.timing || 'Please advise'}`,
+        ...(enquiry.kind === 'contact'
+          ? []
+          : [
+              `Class / year group: ${enquiry.year}`,
+              `Preferred ${enquiry.kind === 'visit' ? 'visit timing' : 'start'}: ${enquiry.timing || 'Please advise'}`,
+            ]),
         `Message: ${enquiry.message || 'I would like to learn more.'}`,
-        'The parent / guardian agreed to be contacted about this enquiry.',
+        'The sender agreed to be contacted about this enquiry.',
       ].join('\n\n'),
     }),
     signal: AbortSignal.timeout(10000),

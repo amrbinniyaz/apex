@@ -13,27 +13,11 @@ const heroSlides = [
     height: 941,
   },
   {
-    image: 'apex-creativity-hero-v2.png',
-    label: 'Creativity',
-    alt: 'A creative portrait of an Apex pupil drawing, with imagined scenes of her making paper crafts and thinking',
-    width: 1672,
-    height: 941,
-    tone: 'light',
-  },
-  {
     image: 'apex-cinematic-hero-v2.png',
     label: 'Science',
     alt: 'Apex pupils discovering together in a sunlit science laboratory, with colourful glassware',
     width: 1671,
     height: 941,
-  },
-  {
-    image: 'apex-skating-editorial-hero.png',
-    label: 'Skating',
-    alt: 'A creative portrait of an Apex pupil adjusting her blue skating guards, with imagined scenes of her skating and balancing',
-    width: 1672,
-    height: 941,
-    tone: 'light',
   },
 ];
 
@@ -68,7 +52,7 @@ export function HeroCarousel({ introActive }: { introActive: boolean }) {
       className={`hero cinematic-hero ${paused || !heroVisible ? 'cinematic-paused' : ''}`}
       aria-labelledby="hero-title"
       aria-roledescription="carousel"
-      data-tone={heroSlides[heroSlide].tone ?? 'dark'}
+      data-tone="dark"
       data-scene={heroSlides[heroSlide].label.toLowerCase()}
     >
       {heroSlides.map((slide, index) => (

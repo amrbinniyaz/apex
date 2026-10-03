@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     '/',
     '/visit-us',
+    '/contact-us',
     '/apply-now',
     '/life-at-apex',
     '/results',

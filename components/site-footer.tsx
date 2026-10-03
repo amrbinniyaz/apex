@@ -11,7 +11,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
     { label: 'Results & achievements', href: '/results' },
     { label: 'Admissions', href: '/apply-now' },
     { label: 'Visit us', href: '/visit-us' },
-    { label: 'Watch our film', href: `${home ? '' : '/'}#discover` },
+    { label: 'Contact us', href: '/contact-us' },
   ];
 
   return (
