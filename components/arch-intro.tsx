@@ -16,7 +16,7 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
       return;
     }
     // Always release the page, including when an animation event is interrupted.
-    const timeout = window.setTimeout(onComplete, 3800);
+    const timeout = window.setTimeout(onComplete, 1500);
     const dismiss = () => onComplete();
     window.addEventListener('apex:intro-end', dismiss);
     window.addEventListener('wheel', dismiss, { passive: true, once: true });

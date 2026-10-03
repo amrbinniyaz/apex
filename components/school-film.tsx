@@ -123,74 +123,80 @@ export function SchoolFilm({
         player.current.playVideo();
       else player.current.pauseVideo();
     };
+    const mount = document.createElement('div');
+    host.current.appendChild(mount);
+    let requested = false;
+    const preparePlayer = () => {
+      if (requested || disposed) return;
+      requested = true;
+      loadYouTube()
+        .then((api) => {
+          if (disposed) return;
+          instance = new api.Player(mount, {
+            host: 'https://www.youtube-nocookie.com',
+            videoId: 's3l7IsnY_jk',
+            playerVars: {
+              ...cleanPlayerVars,
+              loop: 1,
+              playlist: 's3l7IsnY_jk',
+              origin: window.location.origin,
+            },
+            events: {
+              onReady: ({ target }) => {
+                if (disposed) return;
+                player.current = target;
+                target.mute();
+                hideCaptions(target);
+                target.getIframe().title = 'Apex International School video';
+                target.getIframe().tabIndex = -1;
+                setReady(true);
+                syncPlayback();
+              },
+              onStateChange: ({ data }) => {
+                if (disposed) return;
+                setPlaying(data === 1);
+                if (data === 1) {
+                  setHasStarted(true);
+                  if (player.current) hideCaptions(player.current);
+                }
+                if (
+                  data === 1 &&
+                  (!inView.current ||
+                    document.hidden ||
+                    manuallyPaused.current ||
+                    popupOpen.current)
+                )
+                  player.current?.pauseVideo();
+              },
+              onAutoplayBlocked: () => {
+                if (!disposed) setPlaying(false);
+              },
+              onApiChange: ({ target }) => {
+                if (!disposed) hideCaptions(target);
+              },
+              onError: () => {
+                if (!disposed) {
+                  setFailed(true);
+                  setPlaying(false);
+                }
+              },
+            },
+          });
+        })
+        .catch(() => {
+          if (!disposed) setFailed(true);
+        });
+    };
     const observer = new IntersectionObserver(
       ([entry]) => {
         inView.current = entry.isIntersecting && entry.intersectionRatio >= 0.1;
+        if (inView.current) preparePlayer();
         syncPlayback();
       },
       { threshold: [0, 0.1] },
     );
     observer.observe(sectionRef.current);
     document.addEventListener('visibilitychange', syncPlayback);
-    const mount = document.createElement('div');
-    host.current.appendChild(mount);
-    loadYouTube()
-      .then((api) => {
-        if (disposed) return;
-        instance = new api.Player(mount, {
-          host: 'https://www.youtube-nocookie.com',
-          videoId: 's3l7IsnY_jk',
-          playerVars: {
-            ...cleanPlayerVars,
-            loop: 1,
-            playlist: 's3l7IsnY_jk',
-            origin: window.location.origin,
-          },
-          events: {
-            onReady: ({ target }) => {
-              if (disposed) return;
-              player.current = target;
-              target.mute();
-              hideCaptions(target);
-              target.getIframe().title = 'Apex International School video';
-              target.getIframe().tabIndex = -1;
-              setReady(true);
-              syncPlayback();
-            },
-            onStateChange: ({ data }) => {
-              if (disposed) return;
-              setPlaying(data === 1);
-              if (data === 1) {
-                setHasStarted(true);
-                if (player.current) hideCaptions(player.current);
-              }
-              if (
-                data === 1 &&
-                (!inView.current ||
-                  document.hidden ||
-                  manuallyPaused.current ||
-                  popupOpen.current)
-              )
-                player.current?.pauseVideo();
-            },
-            onAutoplayBlocked: () => {
-              if (!disposed) setPlaying(false);
-            },
-            onApiChange: ({ target }) => {
-              if (!disposed) hideCaptions(target);
-            },
-            onError: () => {
-              if (!disposed) {
-                setFailed(true);
-                setPlaying(false);
-              }
-            },
-          },
-        });
-      })
-      .catch(() => {
-        if (!disposed) setFailed(true);
-      });
     return () => {
       disposed = true;
       observer.disconnect();

@@ -16,6 +16,13 @@ const featuredActivities = [
 
 export function SchoolLife() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loadedScenes, setLoadedScenes] = useState([0]);
+  const activate = (index: number) => {
+    setActiveIndex(index);
+    setLoadedScenes((loaded) =>
+      loaded.includes(index) ? loaded : [...loaded, index],
+    );
+  };
 
   return (
     <section
@@ -40,14 +47,16 @@ export function SchoolLife() {
               data-activity={activity.slug}
               aria-hidden={activeIndex !== index}
             >
-              <SchoolImage
-                src={activity.image}
-                alt={activity.alt}
-                width={1440}
-                height={960}
-                sizes="(max-width: 767px) 100vw, 88vw"
-                loading="lazy"
-              />
+              {loadedScenes.includes(index) && (
+                <SchoolImage
+                  src={activity.image}
+                  alt={activity.alt}
+                  width={1440}
+                  height={960}
+                  sizes="(max-width: 767px) calc(100vw - 48px), 88vw"
+                  loading="lazy"
+                />
+              )}
             </div>
           ))}
 
@@ -57,9 +66,9 @@ export function SchoolLife() {
                 key={activity.slug}
                 href={activityHref(activity.slug)}
                 data-active={activeIndex === index}
-                onFocus={() => setActiveIndex(index)}
+                onFocus={() => activate(index)}
                 onPointerEnter={(event) => {
-                  if (event.pointerType === 'mouse') setActiveIndex(index);
+                  if (event.pointerType === 'mouse') activate(index);
                 }}
               >
                 <span>{activity.name}</span>

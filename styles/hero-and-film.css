@@ -441,7 +441,7 @@
   mask-position:
     center,
     50% 110vh;
-  animation: apex-arch-open 3.25s cubic-bezier(0.76, 0, 0.24, 1) both;
+  animation: apex-arch-open 1.1s cubic-bezier(0.76, 0, 0.24, 1) both;
 }
 .arch-intro-brand {
   display: flex;
@@ -450,7 +450,7 @@
   gap: 20px;
   color: var(--apex-paper);
   text-align: center;
-  animation: apex-crest-arrive 0.75s ease-out both;
+  animation: apex-crest-arrive 0.35s ease-out both;
 }
 .arch-intro-brand > img {
   width: 112px;
@@ -488,7 +488,7 @@
   font-size: 20px;
   cursor: pointer;
   text-shadow: 0 1px 5px #14234080;
-  animation: apex-intro-dismiss 0.01s 3.25s forwards;
+  animation: apex-intro-dismiss 0.01s 1.1s forwards;
 }
 .intro-skip:focus-visible {
   outline: 2px solid #f4cc78;
@@ -509,7 +509,7 @@ html[data-apex-intro='active'] .intro-active .cinematic-header,
 html[data-apex-intro='active'] .intro-active .cinematic-copy,
 html[data-apex-intro='active'] .intro-active .cinematic-controls,
 html[data-apex-intro='active'] .intro-active .cinematic-scroll {
-  animation: apex-ui-arrive 0.75s 2.4s both;
+  animation: apex-ui-arrive 0.35s 0.55s both;
 }
 /* No overlay, skip button or delayed entrance on returning/no-script visits. */
 html:not([data-apex-intro='active']) .arch-intro,
@@ -601,7 +601,7 @@ html:not([data-apex-intro='active']) .intro-skip {
 }
 @supports not (mask-composite: exclude) {
   .arch-intro {
-    animation: apex-intro-fade 1.2s 0.6s both;
+    animation: apex-intro-fade 0.6s 0.2s both;
   }
   @keyframes apex-intro-fade {
     to {

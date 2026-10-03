@@ -15,21 +15,21 @@
 
 @font-face {
   font-family: ApexStory;
-  src: url('/assets/lora-regular.ttf') format('truetype');
+  src: url('/assets/lora-regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: ApexStory;
-  src: url('/assets/lora-bold.ttf') format('truetype');
+  src: url('/assets/lora-bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
   font-family: ApexHand;
-  src: url('/assets/patrick-hand.ttf') format('truetype');
+  src: url('/assets/patrick-hand.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;

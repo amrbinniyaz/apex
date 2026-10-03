@@ -85,7 +85,7 @@ await test('content pages do not consume the first homepage intro', () => {
 await test('a failed or delayed client bundle cannot leave the intro covering the page', () => {
   const result = visit();
   assert.equal(result.timers.length, 1);
-  assert.equal(result.timers[0].delay, 4500);
+  assert.equal(result.timers[0].delay, 2000);
   result.timers[0].callback();
   assert.equal(result.active(), false);
   assert.deepEqual(result.events, ['apex:intro-end']);

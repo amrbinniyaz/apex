@@ -19,7 +19,7 @@ export const introBootstrap = String.raw`
     document.documentElement.removeAttribute('data-apex-intro');
     window.dispatchEvent(new Event('apex:intro-end'));
   };
-  window.setTimeout(finish, 4500);
+  window.setTimeout(finish, 2000);
   window.addEventListener('pagehide', finish, { once: true });
 })();
 `;

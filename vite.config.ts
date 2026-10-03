@@ -60,7 +60,18 @@ export default defineConfig(async () => {
         ],
       },
       css: { postcss: { plugins: [tailwindcss()] } },
-      plugins: [vinext(), nitro({ preset: 'node' })],
+      plugins: [
+        vinext(),
+        nitro({
+          preset: 'node',
+          compressPublicAssets: { gzip: true, brotli: true },
+          routeRules: {
+            '/assets/**': {
+              headers: { 'cache-control': 'public, max-age=604800' },
+            },
+          },
+        }),
+      ],
     };
   }
 
