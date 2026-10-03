@@ -7,6 +7,7 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     // Deep links and restored scroll positions should go straight to their content.
     if (
+      document.documentElement.getAttribute('data-apex-intro') !== 'active' ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
       window.location.hash ||
       window.scrollY > 80
@@ -17,6 +18,7 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
     // Always release the page, including when an animation event is interrupted.
     const timeout = window.setTimeout(onComplete, 3800);
     const dismiss = () => onComplete();
+    window.addEventListener('apex:intro-end', dismiss);
     window.addEventListener('wheel', dismiss, { passive: true, once: true });
     window.addEventListener('touchstart', dismiss, {
       passive: true,
@@ -25,6 +27,7 @@ export function ArchIntro({ onComplete }: { onComplete: () => void }) {
     window.addEventListener('keydown', dismiss, { once: true });
     return () => {
       window.clearTimeout(timeout);
+      window.removeEventListener('apex:intro-end', dismiss);
       window.removeEventListener('wheel', dismiss);
       window.removeEventListener('touchstart', dismiss);
       window.removeEventListener('keydown', dismiss);

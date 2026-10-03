@@ -494,7 +494,7 @@
   outline: 2px solid #f4cc78;
   outline-offset: 5px;
 }
-.intro-active .cinematic-image {
+html[data-apex-intro='active'] .intro-active .cinematic-image {
   animation-play-state: paused;
 }
 .cinematic-header,
@@ -505,11 +505,16 @@
     opacity 0.65s ease,
     translate 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.intro-active .cinematic-header,
-.intro-active .cinematic-copy,
-.intro-active .cinematic-controls,
-.intro-active .cinematic-scroll {
+html[data-apex-intro='active'] .intro-active .cinematic-header,
+html[data-apex-intro='active'] .intro-active .cinematic-copy,
+html[data-apex-intro='active'] .intro-active .cinematic-controls,
+html[data-apex-intro='active'] .intro-active .cinematic-scroll {
   animation: apex-ui-arrive 0.75s 2.4s both;
+}
+/* No overlay, skip button or delayed entrance on returning/no-script visits. */
+html:not([data-apex-intro='active']) .arch-intro,
+html:not([data-apex-intro='active']) .intro-skip {
+  display: none;
 }
 @keyframes apex-ui-arrive {
   from {

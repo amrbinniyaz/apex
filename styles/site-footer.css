@@ -172,8 +172,12 @@
   }
   .apex-footer-bottom {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px 16px;
+  }
+  .apex-footer-bottom > a {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   .apex-footer-bottom > p {
     grid-column: 1 / -1;

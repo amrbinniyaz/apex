@@ -22,7 +22,7 @@
   max-width: 1380px;
   margin: 0 auto 64px;
   display: grid;
-  grid-template-columns: 1.04fr 1fr;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
   align-items: center;
   gap: 10px;
 }
@@ -268,7 +268,7 @@
     padding: 60px 20px 38px;
   }
   .chapter-intro {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     margin-bottom: 38px;
     gap: 14px;
   }
@@ -768,7 +768,7 @@
   color: #243668;
   padding: 110px max(6vw, 24px) 120px;
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: 7vw;
   align-items: center;
   position: relative;
@@ -901,7 +901,7 @@
 }
 @media (max-width: 700px) {
   .apex-visit {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding: 65px 26px 75px;
     gap: 50px;
   }

@@ -2,13 +2,17 @@
   padding: clamp(56px, 7vw, 106px) max(6vw, 24px);
   background: var(--apex-paper);
   color: var(--apex-ink);
+  overflow: clip;
 }
 .home-life-inner {
+  min-width: 0;
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
 }
 .home-life-heading {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 24px;
@@ -83,6 +87,7 @@
 }
 .home-life-links a {
   display: flex;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
@@ -93,6 +98,10 @@
   font: 400 clamp(20px, 2vw, 29px)/1.2 var(--apex-accent);
   text-decoration: none;
   transition: border-color 200ms ease;
+}
+.home-life-links a > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .home-life-links a[data-active='true'],
 .home-life-links a:hover {
@@ -146,11 +155,11 @@
   }
   .home-life-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 24px;
-    padding: 20px 24px;
+    gap: 0 clamp(12px, 4vw, 24px);
+    padding: 20px clamp(12px, 4vw, 24px);
   }
   .home-life-links a {
-    font-size: 23px;
+    font-size: clamp(20px, 5.5vw, 23px);
     min-height: 54px;
   }
   .home-life-links a:last-child {
