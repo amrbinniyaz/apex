@@ -7,12 +7,21 @@ import { SchoolImage } from '@/components/school-image';
 import { activities, activityHref } from '@/lib/activities';
 
 const featuredActivities = [
+  'taekwondo',
   'art-and-craft',
   'skating',
   'chess',
-  'taekwondo',
   'school-radio',
-].map((slug) => activities.find((activity) => activity.slug === slug)!);
+].map((slug) => {
+  const activity = activities.find((activity) => activity.slug === slug)!;
+  return slug === 'taekwondo'
+    ? {
+        ...activity,
+        image: '/assets/apex-kickboxing-cinematic-hero.webp',
+        alt: 'Four Apex kickboxing medallists proudly holding their medals and certificates',
+      }
+    : activity;
+});
 
 export function SchoolLife() {
   const [activeIndex, setActiveIndex] = useState(0);

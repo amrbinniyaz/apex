@@ -18,7 +18,7 @@ import { activities, activityHref } from '@/lib/activities';
 
 type SiteMenuProps = {
   home?: boolean;
-  current?: 'visit' | 'apply' | 'life' | 'contact';
+  current?: 'visit' | 'apply' | 'life' | 'contact' | 'about';
 };
 type MenuItem = {
   label: string;
@@ -49,8 +49,12 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
     { label: 'Home', href: home ? '#top' : '/', active: home },
     {
       label: 'Our school',
-      href: section('our-school'),
+      href: '/about',
+      active: current === 'about',
       children: [
+        { label: 'About Apex', href: '/about' },
+        { label: 'Headmaster’s welcome', href: '/about#headmasters-welcome' },
+        { label: 'Why choose Apex', href: '/about#why-choose-apex' },
         { label: 'Discover Apex', href: section('our-school') },
         { label: 'Explore our campus', href: '/visit-us' },
         { label: 'Results & achievements', href: '/results' },
@@ -94,7 +98,7 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
   const shortcuts = [
     {
       label: 'Our school',
-      href: section('our-school'),
+      href: '/about',
       image: '/assets/apex-campus-source.jpg',
       width: 2400,
       height: 1480,

@@ -5,6 +5,7 @@ import { activities, activityHref } from '@/lib/activities';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     '/',
+    '/about',
     '/visit-us',
     '/contact-us',
     '/apply-now',

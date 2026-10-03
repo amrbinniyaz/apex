@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 const origin = process.argv[2] || 'http://127.0.0.1:4173';
 const routes = [
   '/',
+  '/about',
   '/visit-us',
   '/apply-now',
   '/contact-us',

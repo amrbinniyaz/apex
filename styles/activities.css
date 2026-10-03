@@ -56,7 +56,6 @@
 .home-life-scene[data-activity='chess'] img {
   object-position: center 68%;
 }
-.home-life-scene[data-activity='taekwondo'] img,
 .home-life-scene[data-activity='school-radio'] img {
   object-fit: contain;
   padding-bottom: 100px;
@@ -144,6 +143,10 @@
   .home-life-scene[data-activity='taekwondo'] img,
   .home-life-scene[data-activity='school-radio'] img {
     padding-bottom: 0;
+  }
+  .home-life-scene[data-activity='taekwondo'] img {
+    object-fit: contain;
+    object-position: center;
   }
   .home-life-cinema::after {
     background: linear-gradient(

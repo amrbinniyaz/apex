@@ -3,6 +3,9 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const files = [
+  'apex-kickboxing-cinematic-hero.webp',
+  'achievements/apex-it-fest-achievers.webp',
+  'achievements/apex-kickboxing-medallists.webp',
   'results/class-of-2026.webp',
   'results/nehan-bin-shibil.webp',
   'results/liyan-firoz-np.webp',

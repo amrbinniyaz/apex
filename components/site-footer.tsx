@@ -6,7 +6,7 @@ import { instagramProfile } from '@/lib/instagram';
 
 export function SiteFooter({ home = false }: { home?: boolean }) {
   const links = [
-    { label: 'Our school', href: `${home ? '' : '/'}#our-school` },
+    { label: 'About Apex', href: '/about' },
     { label: 'Life at Apex', href: '/life-at-apex' },
     { label: 'Results & achievements', href: '/results' },
     { label: 'Admissions', href: '/apply-now' },

@@ -33,15 +33,15 @@ export function VisitInvitation() {
         <div className="visit-photo">
           <Image
             sizes="(max-width: 767px) 100vw, 50vw"
-            src="/assets/07a6dcb8-4d03-4929-a681-785467613806.JPG"
-            alt="Apex pupils receiving a certificate together at a school event"
-            width={1600}
-            height={1142}
+            src="/assets/apex-visit-group.webp"
+            alt="A group from Apex at the Malabar Sahodaya IT Fest"
+            width={1484}
+            height={1060}
             loading="lazy"
           />
         </div>
         <figcaption>
-          <span>Pupils receiving a certificate at a school event</span>
+          <span>Together at the Malabar Sahodaya IT Fest</span>
         </figcaption>
       </figure>
     </section>

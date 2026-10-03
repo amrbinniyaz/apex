@@ -12,7 +12,7 @@ export function SiteHeader({
 }: {
   home?: boolean;
   photo?: boolean;
-  current?: 'visit' | 'apply' | 'life' | 'contact';
+  current?: 'visit' | 'apply' | 'life' | 'contact' | 'about';
 }) {
   const links = [
     ['Contact', '/contact-us'],

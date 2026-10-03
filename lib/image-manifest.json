@@ -2,211 +2,397 @@
   "/assets/results/class-of-2026.webp": {
     "width": 1512,
     "height": 591,
-    "widths": [480, 800, 1200, 1512],
+    "widths": [
+      480,
+      800,
+      1200,
+      1512
+    ],
     "stem": "class-of-2026"
   },
   "/assets/results/nehan-bin-shibil.webp": {
     "width": 326,
     "height": 328,
-    "widths": [326],
+    "widths": [
+      326
+    ],
     "stem": "nehan-bin-shibil"
   },
   "/assets/results/liyan-firoz-np.webp": {
     "width": 330,
     "height": 330,
-    "widths": [330],
+    "widths": [
+      330
+    ],
     "stem": "liyan-firoz-np"
   },
   "/assets/results/amaan-iskander.webp": {
     "width": 330,
     "height": 330,
-    "widths": [330],
+    "widths": [
+      330
+    ],
     "stem": "amaan-iskander"
   },
   "/assets/results/class-results-2025-26.webp": {
     "width": 3240,
     "height": 2160,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "class-results-2025-26"
   },
   "/assets/results/toppers-2025-26.webp": {
     "width": 3240,
     "height": 2160,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "toppers-2025-26"
   },
   "/assets/results/perfect-scores-2025-26.webp": {
     "width": 3240,
     "height": 2160,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "perfect-scores-2025-26"
   },
   "/assets/results/student-results-2025-26.webp": {
     "width": 3240,
     "height": 2160,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "student-results-2025-26"
   },
   "/assets/apex-art-cinematic-hero.png": {
     "width": 1672,
     "height": 941,
-    "widths": [480, 800, 1200, 1672],
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
     "stem": "apex-art-cinematic-hero"
   },
   "/assets/apex-art-cinematic-hero-mobile.png": {
     "width": 1024,
     "height": 1536,
-    "widths": [480, 800, 1024],
+    "widths": [
+      480,
+      800,
+      1024
+    ],
     "stem": "apex-art-cinematic-hero-mobile"
   },
   "/assets/activities/taekwondo.webp": {
     "width": 1080,
     "height": 1080,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "taekwondo"
   },
   "/assets/activities/school-radio.webp": {
     "width": 1080,
     "height": 1080,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "school-radio"
   },
   "/assets/activities/art-and-craft.webp": {
     "width": 1440,
     "height": 960,
-    "widths": [480, 800, 1200, 1440],
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
     "stem": "art-and-craft"
   },
   "/assets/activities/skating.webp": {
     "width": 720,
     "height": 720,
-    "widths": [480, 720],
+    "widths": [
+      480,
+      720
+    ],
     "stem": "skating"
   },
   "/assets/activities/chess.webp": {
     "width": 1440,
     "height": 1800,
-    "widths": [480, 800, 1200, 1440],
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
     "stem": "chess"
   },
   "/assets/apex-creativity-hero-v2.png": {
     "width": 1672,
     "height": 941,
-    "widths": [480, 800, 1200, 1672],
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
     "stem": "apex-creativity-hero-v2"
   },
   "/assets/apex-skating-editorial-hero.png": {
     "width": 1672,
     "height": 941,
-    "widths": [480, 800, 1200, 1672],
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
     "stem": "apex-skating-editorial-hero"
   },
   "/assets/apex-cinematic-hero-v2.png": {
     "width": 1671,
     "height": 941,
-    "widths": [480, 800, 1200, 1671],
+    "widths": [
+      480,
+      800,
+      1200,
+      1671
+    ],
     "stem": "apex-cinematic-hero-v2"
   },
   "/assets/apex-skating-hero.png": {
     "width": 1672,
     "height": 941,
-    "widths": [480, 800, 1200, 1672],
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
     "stem": "apex-skating-hero"
   },
   "/assets/apex-campus-pencil.png": {
     "width": 1672,
     "height": 941,
-    "widths": [480, 800, 1200, 1672],
+    "widths": [
+      480,
+      800,
+      1200,
+      1672
+    ],
     "stem": "apex-campus-pencil"
   },
   "/assets/apex-chapter-illustration-transparent.png": {
     "width": 1536,
     "height": 1024,
-    "widths": [480, 800, 1200, 1536],
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
     "stem": "apex-chapter-illustration-transparent"
   },
   "/assets/apex-possibilities-illustration.png": {
     "width": 1536,
     "height": 1024,
-    "widths": [480, 800, 1200, 1536],
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
     "stem": "apex-possibilities-illustration"
   },
   "/assets/apex-campus-source.jpg": {
     "width": 2400,
     "height": 1480,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "apex-campus-source"
   },
   "/assets/apex-cinematic-source.jpg": {
     "width": 2400,
     "height": 1485,
-    "widths": [480, 800, 1200, 1680],
+    "widths": [
+      480,
+      800,
+      1200,
+      1680
+    ],
     "stem": "apex-cinematic-source"
   },
   "/assets/apex-skating-source.png": {
     "width": 1450,
     "height": 1416,
-    "widths": [480, 800, 1200, 1450],
+    "widths": [
+      480,
+      800,
+      1200,
+      1450
+    ],
     "stem": "apex-skating-source"
   },
   "/assets/apex-video-campus.jpg": {
     "width": 1179,
     "height": 714,
-    "widths": [480, 800, 1179],
+    "widths": [
+      480,
+      800,
+      1179
+    ],
     "stem": "apex-video-campus"
   },
   "/assets/07a6dcb8-4d03-4929-a681-785467613806.JPG": {
     "width": 1600,
     "height": 1142,
-    "widths": [480, 800, 1200, 1600],
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
     "stem": "07a6dcb8-4d03-4929-a681-785467613806"
   },
   "/assets/cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG": {
     "width": 1600,
     "height": 1142,
-    "widths": [480, 800, 1200, 1600],
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
     "stem": "cab4df71-3a80-47cc-8d48-e48c96e9e7a9"
   },
   "/assets/library/art-original-2019.jpg": {
     "width": 1080,
     "height": 1080,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "art-original-2019"
   },
   "/assets/library/art-talent-2022.jpg": {
     "width": 1080,
     "height": 1350,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "art-talent-2022"
   },
   "/assets/library/chess-day-2024.jpg": {
     "width": 1440,
     "height": 1800,
-    "widths": [480, 800, 1200, 1440],
+    "widths": [
+      480,
+      800,
+      1200,
+      1440
+    ],
     "stem": "chess-day-2024"
   },
   "/assets/library/guitar-talent-2022.jpg": {
     "width": 1080,
     "height": 1350,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "guitar-talent-2022"
   },
   "/assets/library/skating-original-2019.jpg": {
     "width": 720,
     "height": 720,
-    "widths": [480, 720],
+    "widths": [
+      480,
+      720
+    ],
     "stem": "skating-original-2019"
   },
   "/assets/library/taekwondo-original-2019.jpg": {
     "width": 1080,
     "height": 1080,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "taekwondo-original-2019"
   },
   "/assets/library/school-radio-original-2019.jpg": {
     "width": 1080,
     "height": 1080,
-    "widths": [480, 800, 1080],
+    "widths": [
+      480,
+      800,
+      1080
+    ],
     "stem": "school-radio-original-2019"
+  },
+  "/assets/achievements/apex-it-fest-achievers.webp": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "stem": "apex-it-fest-achievers"
+  },
+  "/assets/achievements/apex-kickboxing-medallists.webp": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "stem": "apex-kickboxing-medallists"
+  },
+  "/assets/apex-kickboxing-cinematic-hero.webp": {
+    "width": 1671,
+    "height": 941,
+    "widths": [
+      480,
+      800,
+      1200,
+      1671
+    ],
+    "stem": "apex-kickboxing-cinematic-hero"
   }
 }
