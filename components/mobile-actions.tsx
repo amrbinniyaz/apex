@@ -6,12 +6,17 @@ import { school, whatsappHref } from '@/lib/school';
 export function MobileActions() {
   return (
     <nav className="mobile-actions" aria-label="Contact Apex">
-      <a href={school.phoneHref}>
+      <a href={school.phoneHref} data-track-source="mobile-bar">
         <Phone size={19} aria-hidden="true" />
         Call
       </a>
       {whatsappHref && (
-        <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-source="mobile-bar"
+        >
           <MessageCircle size={19} aria-hidden="true" />
           WhatsApp
         </a>

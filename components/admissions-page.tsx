@@ -229,7 +229,7 @@ export function AdmissionsPage({
               <address>
                 Odumbra, Olavanna P.O.
                 <br />
-                Kozhikode, Kerala 673025, India
+                Kozhikode, Kerala 673019, India
               </address>
               <SiteLink
                 className="ad-button apex-cta"

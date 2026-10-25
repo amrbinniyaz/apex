@@ -199,3 +199,33 @@
     outline-offset: 2px;
   }
 }
+/* Floating WhatsApp button; phones use the contact bar instead. */
+.whatsapp-widget {
+  position: fixed;
+  z-index: 90;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 22px 0 18px;
+  border-radius: 999px;
+  background: #1f7a4d;
+  box-shadow: 0 8px 24px #0f3d2640;
+  font: 400 20px/1 var(--apex-accent);
+  color: #fff;
+  transition: background 0.2s;
+}
+.whatsapp-widget:hover {
+  background: #17603c;
+}
+.whatsapp-widget:focus-visible {
+  outline: 3px solid var(--apex-ink);
+  outline-offset: 3px;
+}
+@media (max-width: 767px) {
+  .whatsapp-widget {
+    display: none;
+  }
+}

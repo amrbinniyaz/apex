@@ -5,6 +5,7 @@ import { school, whatsappHref } from '@/lib/school';
 import { socialLinks } from '@/lib/social';
 import { SocialIcon } from '@/components/social-icon';
 import { MobileActions } from '@/components/mobile-actions';
+import { WhatsAppWidget } from '@/components/whatsapp-widget';
 
 export function SiteFooter({ home = false }: { home?: boolean }) {
   const links = [
@@ -39,6 +40,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
               </span>
             </SiteLink>
             <address>{school.address}</address>
+            <p className="footer-affiliation">{school.affiliation}</p>
             <a
               className="footer-directions"
               href={school.directions}
@@ -74,7 +76,12 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
             {whatsappHref && (
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track-source="footer"
+              >
                 <span>WhatsApp the school</span>
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
@@ -100,17 +107,11 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
           <p>
             © {new Date().getFullYear()} {school.name}
           </p>
-          {school.disclosureHref ? (
-            <a
-              href={school.disclosureHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          {school.disclosureHref && (
+            <SiteLink href={school.disclosureHref}>
               Mandatory public disclosure{' '}
               <ArrowUpRight size={14} aria-hidden="true" />
-            </a>
-          ) : (
-            <span />
+            </SiteLink>
           )}
           <SiteLink className="footer-back-top" href="#top">
             <span>Back to top</span>
@@ -119,6 +120,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
         </div>
       </div>
       <MobileActions />
+      <WhatsAppWidget />
     </footer>
   );
 }

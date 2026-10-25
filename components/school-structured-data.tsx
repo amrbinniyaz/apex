@@ -20,6 +20,11 @@ export function SchoolStructuredData() {
           logo: siteUrl('/assets/apex-logo.svg'),
           image: siteUrl(shareImage.url),
           foundingDate: '2005',
+          identifier: {
+            '@type': 'PropertyValue',
+            propertyID: 'CBSE Affiliation Number',
+            value: school.affiliationNumber,
+          },
           telephone: school.phone,
           email: school.email,
           address: {
@@ -27,7 +32,7 @@ export function SchoolStructuredData() {
             streetAddress: 'Odumbra, Olavanna P.O.',
             addressLocality: 'Kozhikode',
             addressRegion: 'Kerala',
-            postalCode: '673025',
+            postalCode: '673019',
             addressCountry: 'IN',
           },
           hasMap: school.directions,

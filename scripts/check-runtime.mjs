@@ -15,6 +15,7 @@ const routes = [
   '/life-at-apex/school-radio',
   '/about/management',
   '/news',
+  '/mandatory-public-disclosure',
   '/news/amina-faiza-arabic-recitation',
   '/news/sravana-nair-light-music',
   '/news/it-fest-a-grades',

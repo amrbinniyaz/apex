@@ -235,3 +235,9 @@
     transition: none;
   }
 }
+.footer-affiliation {
+  max-width: 320px;
+  margin-top: 10px;
+  font: 14px/1.5 var(--apex-interface);
+  color: #626873;
+}

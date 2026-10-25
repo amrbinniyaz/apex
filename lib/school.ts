@@ -9,8 +9,12 @@ export const school = {
   whatsapp: '',
   // Public URL of the CBSE mandatory disclosure (a PDF under /documents or a page).
   // The footer link is hidden while empty, so it never points to a missing page.
-  disclosureHref: '',
-  address: 'Odumbra, Olavanna P.O., Kozhikode, Kerala 673025, India',
+  disclosureHref: '/mandatory-public-disclosure',
+  // From the CBSE SARAS disclosure and the school's own publicity.
+  affiliation:
+    'Affiliated to CBSE, New Delhi · Affiliation No. 930963 · Since 2005',
+  affiliationNumber: '930963',
+  address: 'Odumbra, Olavanna P.O., Kozhikode, Kerala 673019, India',
   directions:
     'https://www.google.com/maps/search/?api=1&query=Apex%20International%20School%20Odumbra%20Olavanna%20Kozhikode',
 };

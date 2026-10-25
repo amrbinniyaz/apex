@@ -1,0 +1,105 @@
+.disclosure-page main {
+  background: var(--apex-paper);
+  color: var(--apex-ink);
+}
+.disclosure-page .ad-page-title-group h1 {
+  font-size: clamp(34px, 4.2vw, 62px);
+  line-height: 1.1;
+}
+.disclosure-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 72px) 24px clamp(56px, 7vw, 96px);
+}
+.disclosure-note {
+  margin-bottom: 28px;
+  font: 16px/1.6 var(--apex-interface);
+  color: #626873;
+}
+.disclosure-body section + section {
+  margin-top: clamp(40px, 5vw, 60px);
+}
+.disclosure-table caption,
+.disclosure-body h2 {
+  margin-bottom: 16px;
+  font: 700 clamp(24px, 2.4vw, 32px)/1.2 var(--apex-heading);
+  letter-spacing: -0.035em;
+  text-align: left;
+}
+.disclosure-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--apex-surface);
+  border: 1px solid #c9cdd18c;
+}
+.disclosure-table th,
+.disclosure-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid #24366818;
+  font: 16px/1.5 var(--apex-interface);
+  text-align: left;
+  vertical-align: top;
+}
+.disclosure-table th {
+  width: 45%;
+  font-weight: 400;
+  color: #515064;
+}
+.disclosure-table td {
+  font-weight: 700;
+}
+.disclosure-docs {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+}
+.disclosure-docs a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 12px 18px;
+  background: var(--apex-surface);
+  border: 1px solid #c9cdd18c;
+  font: 16px/1.4 var(--apex-interface);
+  color: var(--apex-ink);
+  transition: border-color 0.2s;
+}
+.disclosure-docs a:hover {
+  border-color: var(--apex-red);
+}
+.disclosure-docs a:focus-visible {
+  outline: 3px solid var(--apex-red);
+  outline-offset: 3px;
+}
+.disclosure-docs svg {
+  flex-shrink: 0;
+  color: var(--apex-red);
+}
+.disclosure-docs span:first-of-type {
+  flex: 1;
+}
+.disclosure-pdf {
+  flex-shrink: 0;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--apex-surface-muted);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #515064;
+}
+@media (max-width: 767px) {
+  .disclosure-table th,
+  .disclosure-table td {
+    display: block;
+    width: auto;
+    padding: 6px 16px;
+  }
+  .disclosure-table th {
+    padding-top: 14px;
+    border-bottom: 0;
+  }
+  .disclosure-table td {
+    padding-bottom: 14px;
+  }
+}

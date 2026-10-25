@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/results',
     ...activities.map(({ slug }) => activityHref(slug)),
     '/news',
+    '/mandatory-public-disclosure',
     ...newsArticles.map(({ slug }) => newsHref(slug)),
   ].map((path) => ({
     url: siteUrl(path),

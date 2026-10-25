@@ -10,7 +10,12 @@ export function AnalyticsEvents() {
       const link = (event.target as Element | null)?.closest('a');
       if (!link) return;
       const name = linkEvent(link);
-      if (name) track(name, { page: window.location.pathname });
+      if (!name) return;
+      // Where on the page the click came from, e.g. mobile bar or floating widget.
+      const source =
+        link.closest<HTMLElement>('[data-track-source]')?.dataset.trackSource ??
+        'page';
+      track(name, { page: window.location.pathname, source });
     };
     document.addEventListener('click', record, { capture: true });
     return () =>
