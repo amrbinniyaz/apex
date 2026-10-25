@@ -15,11 +15,12 @@ import {
 import { SchoolImage } from '@/components/school-image';
 import { school } from '@/lib/school';
 import { managementPublished } from '@/lib/management';
+import { newsArticles, newsHref } from '@/lib/news';
 import { activities, activityHref } from '@/lib/activities';
 
 type SiteMenuProps = {
   home?: boolean;
-  current?: 'visit' | 'apply' | 'life' | 'contact' | 'about';
+  current?: 'visit' | 'apply' | 'life' | 'contact' | 'about' | 'news';
 };
 type MenuItem = {
   label: string;
@@ -62,7 +63,6 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
         { label: 'Discover Apex', href: section('our-school') },
         { label: 'Explore our campus', href: '/visit-us' },
         { label: 'Results & achievements', href: '/results' },
-        { label: 'News', href: '/news' },
       ],
     },
     {
@@ -78,13 +78,27 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
       ],
     },
     {
+      label: 'News & events',
+      href: '/news',
+      active: current === 'news',
+      children: [
+        { label: 'All news & events', href: '/news' },
+        ...newsArticles.slice(0, 4).map((article) => ({
+          label: article.title,
+          href: newsHref(article.slug),
+        })),
+        { label: 'Results & achievements', href: '/results' },
+      ],
+    },
+    {
       label: 'Admissions',
       href: '/apply-now',
       active: current === 'apply',
       children: [
         { label: 'Welcome to Apex', href: '/apply-now' },
         { label: 'Make an enquiry', href: '/apply-now#enquire' },
-        { label: 'Your next steps', href: '/apply-now#next-steps' },
+        { label: 'How admission works', href: '/apply-now#joining-apex' },
+        { label: 'Results', href: '/apply-now#apex-results' },
         { label: 'Common questions', href: '/apply-now#questions' },
       ],
     },

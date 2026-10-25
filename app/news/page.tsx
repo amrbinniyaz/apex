@@ -7,11 +7,11 @@ import { newsArticles } from '@/lib/news';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'News & Achievements | Apex International School, Kozhikode',
+  title: 'News & Events | Apex International School, Kozhikode',
   description:
     'News from Apex International School in Kozhikode: CBSE Class X results, competition medals and pupil achievements.',
   path: '/news',
-  shareTitle: 'News | Apex International School',
+  shareTitle: 'News & Events | Apex International School',
   shareDescription: 'Results and achievements from Apex International School.',
 });
 
@@ -21,14 +21,14 @@ export default function NewsPage() {
       <a className="skip-link" href="#news-content">
         Skip to content
       </a>
-      <SiteHeader photo />
+      <SiteHeader current="news" photo />
       <main id="news-content">
         <ContentPageHero
-          title="News"
-          description="Results and achievements from Apex."
+          title="News & events"
+          description="Achievements, results and events at Apex."
           image="/assets/results/class-of-2026.webp"
           alt="The Apex Class X batch of 2025–26 with school staff"
-          breadcrumbs={[{ label: 'News' }]}
+          breadcrumbs={[{ label: 'News & events' }]}
           nextSection="#latest-news"
         />
         <section

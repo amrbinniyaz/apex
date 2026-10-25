@@ -11,7 +11,7 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
     { label: 'About Apex', href: '/about' },
     { label: 'Life at Apex', href: '/life-at-apex' },
     { label: 'Results & achievements', href: '/results' },
-    { label: 'News', href: '/news' },
+    { label: 'News & events', href: '/news' },
     { label: 'Admissions', href: '/apply-now' },
     { label: 'Visit us', href: '/visit-us' },
     { label: 'Contact us', href: '/contact-us' },

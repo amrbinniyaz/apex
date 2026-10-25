@@ -44,7 +44,7 @@ export default async function NewsArticlePage({ params }: Props) {
       <a className="skip-link" href="#news-content">
         Skip to content
       </a>
-      <SiteHeader photo />
+      <SiteHeader current="news" photo />
       <main id="news-content">
         <JsonLd
           nodes={[
@@ -70,7 +70,7 @@ export default async function NewsArticlePage({ params }: Props) {
           image={article.image}
           alt={article.alt}
           breadcrumbs={[
-            { label: 'News', href: '/news' },
+            { label: 'News & events', href: '/news' },
             { label: article.category },
           ]}
           nextSection="#story"
