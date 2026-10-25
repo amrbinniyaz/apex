@@ -26,8 +26,8 @@ export default function NewsPage() {
         <ContentPageHero
           title="News & events"
           description="Achievements, results and events at Apex."
-          image="/assets/news/annual-day-dancers.webp"
-          alt="Two young Apex dancers in traditional costume performing at the Annual Day"
+          image="/assets/news/onam-celebration.webp"
+          alt="Young Apex pupils in traditional dress greeting Maveli at the school’s Onam celebration"
           breadcrumbs={[{ label: 'News & events' }]}
           nextSection="#latest-news"
         />

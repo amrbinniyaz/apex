@@ -3,6 +3,14 @@
   background: var(--apex-paper);
   color: var(--apex-ink);
 }
+.news-page .ad-page-photo[src*='onam-celebration'] {
+  object-position: 62% 8%;
+}
+@media (max-width: 767px) {
+  .news-page .ad-page-photo[src*='onam-celebration'] {
+    object-position: 78% 20%;
+  }
+}
 .news-page .ad-page-title-group h1 {
   max-width: 900px;
   font-size: clamp(34px, 4.2vw, 62px);
