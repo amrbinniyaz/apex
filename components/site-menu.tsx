@@ -62,6 +62,10 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
         { label: 'Discover Apex', href: section('our-school') },
         { label: 'Explore our campus', href: '/visit-us' },
         { label: 'Results & achievements', href: '/results' },
+        {
+          label: 'Mandatory public disclosure',
+          href: '/mandatory-public-disclosure',
+        },
       ],
     },
     {
