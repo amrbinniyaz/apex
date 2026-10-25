@@ -13,6 +13,7 @@ import {
   instagramPostUrl,
   type InstagramStory,
 } from '@/lib/instagram';
+import { formatNewsDate } from '@/lib/news';
 
 function Instagram({
   size = 24,
@@ -37,13 +38,6 @@ function Instagram({
     </svg>
   );
 }
-
-const dateFormat = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
 
 /** Shared content-page section; its data can later come from the school CMS. */
 export function InstagramStories({
@@ -106,7 +100,7 @@ export function InstagramStories({
                     Instagram
                   </span>
                   <time dateTime={story.date}>
-                    {dateFormat.format(new Date(`${story.date}T00:00:00Z`))}
+                    {formatNewsDate(story.date, true)}
                   </time>
                 </div>
                 <div className="chapter-card-heading">

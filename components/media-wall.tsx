@@ -7,6 +7,7 @@ import { SiteLink } from '@/components/site-link';
 import { SocialIcon } from '@/components/social-icon';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import type { MediaItem, MediaSource } from '@/lib/media';
+import { formatNewsDate } from '@/lib/news';
 
 const filters: { value: MediaSource | 'all'; label: string }[] = [
   { value: 'all', label: 'All' },
@@ -22,14 +23,6 @@ const sourceLabel: Record<MediaSource, string> = {
 };
 
 const pageSize = 9;
-
-function formatDate(date: string) {
-  return new Intl.DateTimeFormat('en-IN', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }).format(new Date(`${date}T00:00:00`));
-}
 
 function SourceIcon({ source }: { source: MediaSource }) {
   if (source === 'instagram') return <SocialIcon network="instagram" />;
@@ -132,7 +125,7 @@ export function MediaWall({ items }: { items: MediaItem[] }) {
                     <div className="media-card-copy">
                       {item.date && (
                         <time dateTime={item.date}>
-                          {formatDate(item.date)}
+                          {formatNewsDate(item.date, true)}
                         </time>
                       )}
                       <h3>{item.title}</h3>

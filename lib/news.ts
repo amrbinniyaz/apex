@@ -116,10 +116,27 @@ export const newsHref = (slug: string) => `/news/${slug}`;
 export const getNewsArticle = (slug: string) =>
   newsArticles.find((article) => article.slug === slug);
 
-export function formatNewsDate(date: string) {
-  return new Intl.DateTimeFormat('en-IN', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(new Date(`${date}T00:00:00`));
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+/**
+ * Formats an ISO date as "22 October 2026" (or "22 Oct 2026" when short).
+ * Avoids Intl so server and browser render identical text during hydration.
+ */
+export function formatNewsDate(date: string, short = false) {
+  const [year, month, day] = date.split('-').map(Number);
+  const name = months[month - 1];
+  return `${day} ${short ? name.slice(0, 3) : name} ${year}`;
 }
