@@ -1,8 +1,11 @@
 // Results transcribed from the two school-supplied Instagram poster images.
+// Dates are the publication dates of the school's announcement posts.
 // Original posters remain in public/assets/instagram. Website images are
 // edited compositions with the poster graphics removed, not event photographs.
 export const schoolAchievements = [
   {
+    slug: 'it-fest-a-grades',
+    date: '2026-09-10',
     title: 'Malabar Sahodaya District Kalotsav IT Fest',
     result: 'A grades in digital creativity',
     description:
@@ -13,6 +16,8 @@ export const schoolAchievements = [
     source: 'https://www.instagram.com/p/DdGif9PGfdc/',
   },
   {
+    slug: 'kick-boxing-medals',
+    date: '2026-07-22',
     title: 'All Kerala Kick Boxing Championship',
     result: '1 gold · 3 silver',
     description:

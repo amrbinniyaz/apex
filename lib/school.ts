@@ -4,10 +4,20 @@ export const school = {
   email: 'info@apexinternationalschool.org',
   phone: '+91 495 296 5004',
   phoneHref: 'tel:+914952965004',
+  // WhatsApp number in international format without '+' or spaces, e.g. '919876543210'.
+  // Leave empty until the school confirms it; WhatsApp links stay hidden.
+  whatsapp: '',
+  // Public URL of the CBSE mandatory disclosure (a PDF under /documents or a page).
+  // The footer link is hidden while empty, so it never points to a missing page.
+  disclosureHref: '',
   address: 'Odumbra, Olavanna P.O., Kozhikode, Kerala 673025, India',
   directions:
     'https://www.google.com/maps/search/?api=1&query=Apex%20International%20School%20Odumbra%20Olavanna%20Kozhikode',
 };
+
+export const whatsappHref = school.whatsapp
+  ? `https://wa.me/${school.whatsapp}?text=${encodeURIComponent('Hello Apex International School, I would like to enquire about admission.')}`
+  : '';
 
 // Editorial themes, rather than unverified age ranges or programme names.
 export const schoolStages = [

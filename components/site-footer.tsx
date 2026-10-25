@@ -1,15 +1,17 @@
 import { SiteLink } from '@/components/site-link';
 import Image from 'next/image';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
-import { school } from '@/lib/school';
+import { school, whatsappHref } from '@/lib/school';
 import { socialLinks } from '@/lib/social';
 import { SocialIcon } from '@/components/social-icon';
+import { MobileActions } from '@/components/mobile-actions';
 
 export function SiteFooter({ home = false }: { home?: boolean }) {
   const links = [
     { label: 'About Apex', href: '/about' },
     { label: 'Life at Apex', href: '/life-at-apex' },
     { label: 'Results & achievements', href: '/results' },
+    { label: 'News', href: '/news' },
     { label: 'Admissions', href: '/apply-now' },
     { label: 'Visit us', href: '/visit-us' },
     { label: 'Contact us', href: '/contact-us' },
@@ -71,6 +73,12 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
               <span>{school.email}</span>
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
+            {whatsappHref && (
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                <span>WhatsApp the school</span>
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            )}
             <ul className="footer-socials" aria-label="Follow Apex">
               {socialLinks.map((social) => (
                 <li key={social.network}>
@@ -92,20 +100,25 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
           <p>
             © {new Date().getFullYear()} {school.name}
           </p>
-          <a
-            href="https://apexinternationalschool.org/mandatory-public-disclosure/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Mandatory public disclosure{' '}
-            <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+          {school.disclosureHref ? (
+            <a
+              href={school.disclosureHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Mandatory public disclosure{' '}
+              <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          ) : (
+            <span />
+          )}
           <SiteLink className="footer-back-top" href="#top">
             <span>Back to top</span>
             <ArrowUp size={18} strokeWidth={1.5} aria-hidden="true" />
           </SiteLink>
         </div>
       </div>
+      <MobileActions />
     </footer>
   );
 }

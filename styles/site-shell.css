@@ -157,3 +157,45 @@
 .apex-text-link svg {
   flex-shrink: 0;
 }
+/* Phone contact bar shared by every page. */
+.mobile-actions {
+  display: none;
+}
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
+  .mobile-actions {
+    position: fixed;
+    z-index: 90;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: var(--apex-surface);
+    border-top: 1px solid #24366820;
+    box-shadow: 0 -6px 18px #24366814;
+  }
+  .mobile-actions a {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    border: 1px solid #24366833;
+    font: 400 19px/1 var(--apex-accent);
+    color: var(--apex-ink);
+  }
+  .mobile-actions .mobile-actions-primary {
+    background: var(--apex-red);
+    border-color: var(--apex-red);
+    color: #fff;
+  }
+  .mobile-actions a:focus-visible {
+    outline: 2px solid var(--apex-ink);
+    outline-offset: 2px;
+  }
+}

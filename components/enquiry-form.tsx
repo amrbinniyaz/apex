@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type SubmitEvent } from 'react';
 import { school } from '@/lib/school';
 import { ArrowLeft, ArrowRight, Check, Copy, Mail } from 'lucide-react';
+import { track } from '@/lib/analytics';
 
 export function EnquiryForm({
   kind,
@@ -113,6 +114,7 @@ export function EnquiryForm({
         return;
       }
       setSent(true);
+      track('enquiry-submit', { kind });
     } catch {
       setSendError(
         'We could not confirm sending. Please retry or use the email option.',

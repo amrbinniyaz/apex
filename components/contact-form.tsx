@@ -3,6 +3,7 @@
 import { useRef, useState, type SubmitEvent } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { school } from '@/lib/school';
+import { track } from '@/lib/analytics';
 
 export function ContactForm({
   directSubmission,
@@ -48,6 +49,7 @@ export function ContactForm({
     setError('');
     if (!directSubmission) {
       setStatus('draft');
+      track('enquiry-email-draft', { kind: 'contact' });
       window.location.href = emailHref;
       return;
     }
@@ -79,6 +81,7 @@ export function ContactForm({
       )
         throw new Error('Delivery failed');
       setStatus('sent');
+      track('enquiry-submit', { kind: 'contact' });
       requestAnimationFrame(() => success.current?.focus());
     } catch {
       setStatus('idle');

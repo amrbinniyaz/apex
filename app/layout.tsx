@@ -1,6 +1,7 @@
 import { siteUrl } from '@/lib/site-url';
 import { pageMetadata, siteName } from '@/lib/seo';
 import { SchoolStructuredData } from '@/components/school-structured-data';
+import { AnalyticsEvents } from '@/components/analytics-events';
 import { introBootstrap } from '@/lib/intro-bootstrap';
 import type { Metadata } from 'next';
 import './globals.css';
@@ -34,6 +35,7 @@ export default function RootLayout({
       </head>
       <body>
         <SchoolStructuredData />
+        <AnalyticsEvents />
         {children}
       </body>
     </html>
