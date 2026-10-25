@@ -1,4 +1,37 @@
 {
+  "/assets/apex-kickboxing-cinematic-hero.webp": {
+    "width": 1671,
+    "height": 941,
+    "widths": [
+      480,
+      800,
+      1200,
+      1671
+    ],
+    "stem": "apex-kickboxing-cinematic-hero"
+  },
+  "/assets/achievements/apex-it-fest-achievers.webp": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "stem": "apex-it-fest-achievers"
+  },
+  "/assets/achievements/apex-kickboxing-medallists.webp": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      480,
+      800,
+      1200,
+      1536
+    ],
+    "stem": "apex-kickboxing-medallists"
+  },
   "/assets/results/class-of-2026.webp": {
     "width": 1512,
     "height": 591,
@@ -362,37 +395,99 @@
     ],
     "stem": "school-radio-original-2019"
   },
-  "/assets/achievements/apex-it-fest-achievers.webp": {
-    "width": 1536,
-    "height": 1024,
+  "/assets/news/onam-celebration.webp": {
+    "width": 1512,
+    "height": 1006,
     "widths": [
       480,
       800,
       1200,
-      1536
+      1512
     ],
-    "stem": "apex-it-fest-achievers"
+    "stem": "onam-celebration"
   },
-  "/assets/achievements/apex-kickboxing-medallists.webp": {
-    "width": 1536,
-    "height": 1024,
+  "/assets/news/amina-faiza-arabic-recitation.webp": {
+    "width": 900,
+    "height": 900,
     "widths": [
       480,
       800,
-      1200,
-      1536
+      900
     ],
-    "stem": "apex-kickboxing-medallists"
+    "stem": "amina-faiza-arabic-recitation"
   },
-  "/assets/apex-kickboxing-cinematic-hero.webp": {
-    "width": 1671,
-    "height": 941,
+  "/assets/news/sravana-nair-light-music.webp": {
+    "width": 900,
+    "height": 900,
     "widths": [
       480,
       800,
-      1200,
-      1671
+      900
     ],
-    "stem": "apex-kickboxing-cinematic-hero"
+    "stem": "sravana-nair-light-music"
+  },
+  "/assets/management/abdurasheed-m-k.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "abdurasheed-m-k"
+  },
+  "/assets/management/c-a-alikoya.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "c-a-alikoya"
+  },
+  "/assets/management/c-m-najeeb.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "c-m-najeeb"
+  },
+  "/assets/management/noushad-ali.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "noushad-ali"
+  },
+  "/assets/management/shoukathali-shahjahan.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "shoukathali-shahjahan"
+  },
+  "/assets/management/t-m-ahamed-koya.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "t-m-ahamed-koya"
+  },
+  "/assets/management/t-p-aboobackar.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "t-p-aboobackar"
+  },
+  "/assets/management/ummer-bin-abdul-azeez.webp": {
+    "width": 400,
+    "height": 400,
+    "widths": [
+      400
+    ],
+    "stem": "ummer-bin-abdul-azeez"
   }
 }

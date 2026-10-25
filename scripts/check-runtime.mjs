@@ -13,6 +13,13 @@ const routes = [
   '/life-at-apex/chess',
   '/life-at-apex/taekwondo',
   '/life-at-apex/school-radio',
+  '/about/management',
+  '/news',
+  '/news/amina-faiza-arabic-recitation',
+  '/news/sravana-nair-light-music',
+  '/news/it-fest-a-grades',
+  '/news/kick-boxing-medals',
+  '/news/cbse-class-x-results-2025-26',
 ];
 for (const route of routes) {
   const response = await fetch(new URL(route, origin));
@@ -53,11 +60,11 @@ for (const route of routes) {
       await css.arrayBuffer();
     }
     assert.ok(!html.includes('.ttf'), 'modern WOFF2 fonts');
-    const scenes = html.match(/class="home-life-scene"[\s\S]*?<\/div>/g) || [];
-    assert.equal(
-      scenes.filter((scene) => scene.includes('<img')).length,
-      1,
-      'only the active activity image is loaded',
+    const cards = html.match(/class="home-life-card"[\s\S]*?<\/a>/g) || [];
+    assert.equal(cards.length, 5, 'five Life at Apex activity cards');
+    assert.ok(
+      cards.every((card) => /<img[^>]+loading="lazy"/.test(card)),
+      'activity card images load lazily',
     );
   }
   console.log(`${route}: rendered with metadata and responsive images`);

@@ -41,6 +41,17 @@ const files = [
   'library/skating-original-2019.jpg',
   'library/taekwondo-original-2019.jpg',
   'library/school-radio-original-2019.jpg',
+  'news/onam-celebration.webp',
+  'news/amina-faiza-arabic-recitation.webp',
+  'news/sravana-nair-light-music.webp',
+  'management/abdurasheed-m-k.webp',
+  'management/c-a-alikoya.webp',
+  'management/c-m-najeeb.webp',
+  'management/noushad-ali.webp',
+  'management/shoukathali-shahjahan.webp',
+  'management/t-m-ahamed-koya.webp',
+  'management/t-p-aboobackar.webp',
+  'management/ummer-bin-abdul-azeez.webp',
 ];
 const manifest = {};
 let originalBytes = 0;
