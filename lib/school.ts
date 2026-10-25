@@ -19,8 +19,13 @@ export const school = {
     'https://www.google.com/maps/search/?api=1&query=Apex%20International%20School%20Odumbra%20Olavanna%20Kozhikode',
 };
 
+/** Pre-filled WhatsApp text, so the school can see the chat came from the website. */
+export function whatsappMessage(page = '') {
+  return `Hello Apex International School, I found you on your website${page ? ` (${page})` : ''} and would like to enquire about admission.`;
+}
+
 export const whatsappHref = school.whatsapp
-  ? `https://wa.me/${school.whatsapp}?text=${encodeURIComponent('Hello Apex International School, I would like to enquire about admission.')}`
+  ? `https://wa.me/${school.whatsapp}?text=${encodeURIComponent(whatsappMessage())}`
   : '';
 
 // Editorial themes, rather than unverified age ranges or programme names.
