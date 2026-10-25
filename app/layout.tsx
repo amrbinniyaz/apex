@@ -18,7 +18,15 @@ export const metadata: Metadata = {
   }),
   applicationName: siteName,
   robots: { index: true, follow: true },
-  icons: { icon: { url: '/assets/apex-logo.svg', type: 'image/svg+xml' } },
+  // Google search shows /favicon.ico or a 48px-multiple icon, so list all three.
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/assets/apex-icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/assets/apex-logo.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/assets/apple-touch-icon.png',
+  },
 };
 export default function RootLayout({
   children,
