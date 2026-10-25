@@ -6,7 +6,7 @@ export const school = {
   phoneHref: 'tel:+914952965004',
   // WhatsApp number in international format without '+' or spaces, e.g. '919876543210'.
   // Leave empty until the school confirms it; WhatsApp links stay hidden.
-  whatsapp: '',
+  whatsapp: '919895623694',
   // Public URL of the CBSE mandatory disclosure (a PDF under /documents or a page).
   // The footer link is hidden while empty, so it never points to a missing page.
   disclosureHref: '/mandatory-public-disclosure',
