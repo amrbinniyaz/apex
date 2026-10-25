@@ -15,13 +15,35 @@ export type InstagramStory = {
 };
 
 /**
- * Curated from the school's public profile on 2026-09-13, not an automatic feed.
+ * Curated from the school's public profile on 2026-09-13 (updated 2026-10-25), not an automatic feed.
  * Dates come from the public image descriptions. Titles and summaries are
  * editorial descriptions of the visible posts, not copied Instagram captions.
  * Local thumbnails avoid relying on Instagram's temporary CDN URLs.
  * Add a post with its original shortcode and an image in public/assets/instagram.
  */
 export const instagramStories: InstagramStory[] = [
+  {
+    id: 'DeyxS6tNd5C',
+    kind: 'post',
+    date: '2026-10-22',
+    title: 'Third prize in Arabic Recitation',
+    summary:
+      'Amina Faiza A of Class X-A won third prize with an A grade at the Malabar Sahodaya District Kalotsav.',
+    image: '/assets/instagram/DeyxS6tNd5C.webp',
+    width: 480,
+    height: 640,
+  },
+  {
+    id: 'DeyvqtVvqYS',
+    kind: 'post',
+    date: '2026-10-22',
+    title: 'Second prize in Light Music',
+    summary:
+      'Sravana Nair H C of Class X-B won second prize at the Malabar Sahodaya District Kalotsav 2026.',
+    image: '/assets/instagram/DeyvqtVvqYS.webp',
+    width: 480,
+    height: 640,
+  },
   {
     id: 'DdGif9PGfdc',
     kind: 'post',
