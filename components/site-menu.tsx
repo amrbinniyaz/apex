@@ -15,7 +15,6 @@ import {
 import { SchoolImage } from '@/components/school-image';
 import { school } from '@/lib/school';
 import { managementPublished } from '@/lib/management';
-import { newsArticles, newsHref } from '@/lib/news';
 import { activities, activityHref } from '@/lib/activities';
 
 type SiteMenuProps = {
@@ -83,10 +82,6 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
       active: current === 'news',
       children: [
         { label: 'All news & events', href: '/news' },
-        ...newsArticles.slice(0, 4).map((article) => ({
-          label: article.title,
-          href: newsHref(article.slug),
-        })),
         { label: 'Results & achievements', href: '/results' },
       ],
     },
