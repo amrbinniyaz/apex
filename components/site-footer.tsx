@@ -1,8 +1,9 @@
 import { SiteLink } from '@/components/site-link';
 import Image from 'next/image';
-import { ArrowUp, ArrowUpRight, Camera } from 'lucide-react';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import { school } from '@/lib/school';
-import { instagramProfile } from '@/lib/instagram';
+import { socialLinks } from '@/lib/social';
+import { SocialIcon } from '@/components/social-icon';
 
 export function SiteFooter({ home = false }: { home?: boolean }) {
   const links = [
@@ -70,16 +71,20 @@ export function SiteFooter({ home = false }: { home?: boolean }) {
               <span>{school.email}</span>
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
-            <a
-              className="footer-instagram"
-              href={instagramProfile.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Camera size={19} strokeWidth={1.5} aria-hidden="true" />
-              <span>Follow life at Apex</span>
-              <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
+            <ul className="footer-socials" aria-label="Follow Apex">
+              {socialLinks.map((social) => (
+                <li key={social.network}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Apex on ${social.label}`}
+                  >
+                    <SocialIcon network={social.network} />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

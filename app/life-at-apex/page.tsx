@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { SiteLink } from '@/components/site-link';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteHeader } from '@/components/site-header';
@@ -8,21 +9,15 @@ import { ContentFacts } from '@/components/content-page-blocks';
 import { SchoolGallery } from '@/components/school-gallery';
 import { ContentPageHero } from '@/components/content-page-hero';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Life at Apex: Activities in Kozhikode | Apex International School',
   description:
     'Discover Taekwondo, School Radio, Art and Craft, Skating and Chess at Apex International School in Kozhikode. Explore each activity and ask about current availability.',
-  alternates: { canonical: '/life-at-apex' },
-  openGraph: {
-    title: 'Life at Apex | Apex International School',
-    description:
-      'Explore sport, creativity and new interests beyond the classroom at Apex in Kozhikode.',
-    url: '/life-at-apex',
-    type: 'website',
-    siteName: 'Apex International School',
-    locale: 'en_IN',
-  },
-};
+  path: '/life-at-apex',
+  shareTitle: 'Life at Apex | Apex International School',
+  shareDescription:
+    'Explore sport, creativity and new interests beyond the classroom at Apex in Kozhikode.',
+});
 export default function LifeAtApex() {
   return (
     <div className="activity-page activity-index" id="top">

@@ -99,9 +99,35 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.apex-footer-contact .footer-instagram {
-  margin-top: 21px;
-  color: var(--apex-red);
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #24366833;
+  border-radius: 50%;
+  color: var(--apex-ink);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.apex-footer-top .footer-socials a:hover {
+  background: var(--apex-red);
+  border-color: var(--apex-red);
+  color: #fff;
+  text-decoration: none;
+}
+.footer-socials a:focus-visible {
+  outline: 2px solid var(--apex-ink);
+  outline-offset: 3px;
 }
 .apex-footer a svg {
   flex-shrink: 0;
@@ -199,11 +225,12 @@
   .apex-footer-brand {
     grid-column: auto;
   }
-  .apex-footer-contact .footer-instagram {
+  .footer-socials {
     margin-top: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .footer-socials a,
   .apex-footer a svg {
     transition: none;
   }

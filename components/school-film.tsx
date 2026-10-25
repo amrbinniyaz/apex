@@ -102,7 +102,6 @@ export function SchoolFilm({
   const [playing, setPlaying] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
   const [failed, setFailed] = useState(false);
-  const [muted, setMuted] = useState(true);
   const [filmOpen, setFilmOpen] = useState(false);
 
   useEffect(() => {
@@ -213,12 +212,6 @@ export function SchoolFilm({
     else player.current?.playVideo();
   }
 
-  function toggleAudio() {
-    if (muted) player.current?.unMute();
-    else player.current?.mute();
-    setMuted(!muted);
-  }
-
   function changePopup(open: boolean) {
     popupOpen.current = open;
     setFilmOpen(open);
@@ -266,27 +259,14 @@ export function SchoolFilm({
       </Dialog>
       <div className="school-film-controls">
         {!failed && (
-          <>
-            <button
-              className="film-toggle"
-              onClick={togglePlayback}
-              disabled={!ready}
-              aria-label={playing ? 'Pause school film' : 'Play school film'}
-            >
-              {playing ? <Pause size={16} /> : <Play size={16} />}
-            </button>
-            <button
-              className="film-audio-toggle"
-              onClick={toggleAudio}
-              disabled={!ready}
-              aria-label={muted ? 'Unmute school film' : 'Mute school film'}
-            >
-              {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-              <span className="film-control-label">
-                {muted ? 'Sound on' : 'Sound off'}
-              </span>
-            </button>
-          </>
+          <button
+            className="film-toggle"
+            onClick={togglePlayback}
+            disabled={!ready}
+            aria-label={playing ? 'Pause school film' : 'Play school film'}
+          >
+            {playing ? <Pause size={16} /> : <Play size={16} />}
+          </button>
         )}
       </div>
     </>

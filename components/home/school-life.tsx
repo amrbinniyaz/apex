@@ -1,38 +1,22 @@
-'use client';
-
-import { useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { SiteLink } from '@/components/site-link';
 import { SchoolImage } from '@/components/school-image';
 import { activities, activityHref } from '@/lib/activities';
+import { schoolAchievements } from '@/lib/achievements';
 
 const featuredActivities = [
-  'taekwondo',
   'art-and-craft',
   'skating',
   'chess',
   'school-radio',
-].map((slug) => {
-  const activity = activities.find((activity) => activity.slug === slug)!;
-  return slug === 'taekwondo'
-    ? {
-        ...activity,
-        image: '/assets/apex-kickboxing-cinematic-hero.webp',
-        alt: 'Four Apex kickboxing medallists proudly holding their medals and certificates',
-      }
-    : activity;
-});
+  'taekwondo',
+].map((slug) => activities.find((activity) => activity.slug === slug)!);
+
+const kickBoxing = schoolAchievements.find((achievement) =>
+  achievement.title.includes('Kick Boxing'),
+)!;
 
 export function SchoolLife() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [loadedScenes, setLoadedScenes] = useState([0]);
-  const activate = (index: number) => {
-    setActiveIndex(index);
-    setLoadedScenes((loaded) =>
-      loaded.includes(index) ? loaded : [...loaded, index],
-    );
-  };
-
   return (
     <section
       className="home-life"
@@ -47,45 +31,55 @@ export function SchoolLife() {
           </SiteLink>
         </div>
 
-        <div className="home-life-cinema">
-          {featuredActivities.map((activity, index) => (
-            <div
-              className="home-life-scene"
-              key={activity.slug}
-              data-active={activeIndex === index}
-              data-activity={activity.slug}
-              aria-hidden={activeIndex !== index}
-            >
-              {loadedScenes.includes(index) && (
-                <SchoolImage
-                  src={activity.image}
-                  alt={activity.alt}
-                  width={1440}
-                  height={960}
-                  sizes="(max-width: 767px) calc(100vw - 48px), 88vw"
-                  loading="lazy"
-                />
-              )}
-            </div>
-          ))}
+        <SiteLink className="home-life-feature" href="/about#achievements">
+          <div className="home-life-feature-photo">
+            <SchoolImage
+              src="/assets/apex-kickboxing-cinematic-hero.webp"
+              alt="Four Apex kick boxing medallists holding their medals and certificates"
+              width={1671}
+              height={941}
+              sizes="(max-width: 767px) calc(100vw - 48px), 58vw"
+              loading="lazy"
+            />
+          </div>
+          <div className="home-life-feature-copy">
+            <p className="home-life-feature-label">{kickBoxing.title}</p>
+            <h3>{kickBoxing.result}</h3>
+            <p>{kickBoxing.description}</p>
+            <span className="home-life-feature-more">
+              Achievements beyond the classroom
+              <ArrowUpRight size={20} aria-hidden="true" />
+            </span>
+          </div>
+        </SiteLink>
 
-          <nav className="home-life-links" aria-label="Activities at Apex">
-            {featuredActivities.map((activity, index) => (
+        <ul className="home-life-cards" aria-label="Activities at Apex">
+          {featuredActivities.map((activity) => (
+            <li key={activity.slug}>
               <SiteLink
-                key={activity.slug}
+                className="home-life-card"
                 href={activityHref(activity.slug)}
-                data-active={activeIndex === index}
-                onFocus={() => activate(index)}
-                onPointerEnter={(event) => {
-                  if (event.pointerType === 'mouse') activate(index);
-                }}
+                data-activity={activity.slug}
               >
-                <span>{activity.name}</span>
-                <ArrowUpRight size={20} aria-hidden="true" />
+                <div className="home-life-card-photo">
+                  <SchoolImage
+                    src={activity.image}
+                    alt={activity.alt}
+                    width={720}
+                    height={720}
+                    sizes="(max-width: 767px) 68vw, 18vw"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="home-life-card-category">{activity.category}</p>
+                <h3>
+                  {activity.name}
+                  <ArrowUpRight size={20} aria-hidden="true" />
+                </h3>
               </SiteLink>
-            ))}
-          </nav>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

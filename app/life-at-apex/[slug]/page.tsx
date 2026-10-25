@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import { activities, activityHref, getActivity } from '@/lib/activities';
 import { ActivityPage } from '@/components/activity-page';
@@ -11,20 +12,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const activity = getActivity((await params).slug);
   if (!activity)
     return { title: 'Activity not found', robots: { index: false } };
-  const title = `${activity.name} in Kozhikode | Apex International School`;
-  return {
-    title,
+  return pageMetadata({
+    title: `${activity.name} in Kozhikode | Apex International School`,
     description: activity.description,
-    alternates: { canonical: activityHref(activity.slug) },
-    openGraph: {
-      title,
-      description: activity.description,
-      url: activityHref(activity.slug),
-      type: 'website',
-      siteName: 'Apex International School',
-      locale: 'en_IN',
-    },
-  };
+    path: activityHref(activity.slug),
+    image: { url: activity.image, alt: activity.alt },
+  });
 }
 export default async function Page({ params }: Props) {
   const activity = getActivity((await params).slug);

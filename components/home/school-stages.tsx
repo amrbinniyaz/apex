@@ -51,7 +51,6 @@ export function SchoolStages() {
       >
         <div className="chapter-journey-heading">
           <SchoolDoodle kind="arrow-left" className="chapter-curly-arrow" />
-          <p>Learning in practice</p>
           <div className="chapter-navigation">
             <CarouselPrevious className="chapter-arrow" />
             <CarouselNext className="chapter-arrow" />

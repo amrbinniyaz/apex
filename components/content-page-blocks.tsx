@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { SchoolImage } from '@/components/school-image';
 import {
   contentPageFeatures,
@@ -32,14 +33,29 @@ export function ContentFeature({ kind }: { kind: ContentPageKind }) {
   );
 }
 
-export function ContentFacts() {
+export function ContentFacts({
+  facts = schoolFacts,
+  className,
+  intro,
+  action,
+}: {
+  facts?: readonly { value: string; label: string }[];
+  className?: string;
+  intro?: string;
+  action?: ReactNode;
+}) {
   return (
-    <section className="content-facts" aria-labelledby="school-facts-title">
+    <section
+      className={className ? `content-facts ${className}` : 'content-facts'}
+      aria-labelledby="school-facts-title"
+    >
       <div className="content-facts-heading">
         <h2 id="school-facts-title">Apex at a glance</h2>
+        {intro && <p>{intro}</p>}
+        {action}
       </div>
       <dl>
-        {schoolFacts.map((fact) => (
+        {facts.map((fact) => (
           <div key={fact.label}>
             <dt>{fact.label}</dt>
             <dd>{fact.value}</dd>

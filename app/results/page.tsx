@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { ArrowUpRight } from 'lucide-react';
 import { ContentPageHero } from '@/components/content-page-hero';
 import { SchoolGallery } from '@/components/school-gallery';
@@ -12,26 +13,21 @@ import {
   schoolToppers,
 } from '@/lib/results';
 
-export const metadata: Metadata = {
-  title: 'Results & Achievements 2025–26 | Apex International School',
+export const metadata: Metadata = pageMetadata({
+  title: 'CBSE Class X Results 2025–26 | Apex International School',
   description:
-    'Explore Apex International School’s CBSE Class X AISSE 2025–26 results, school toppers and perfect subject scores. View the original results posters.',
-  alternates: { canonical: '/results' },
-  openGraph: {
-    title: 'Results & Achievements | Apex International School',
-    description:
-      'CBSE Class X AISSE 2025–26: school results and student achievements.',
-    url: '/results',
-    images: [
-      {
-        url: '/assets/results/class-of-2026.webp',
-        width: 1512,
-        height: 591,
-        alt: 'Apex Class X pupils and staff, 2025–26',
-      },
-    ],
+    'Apex International School’s CBSE Class X AISSE 2025–26 results: 100% results, a school topper score of 99.6% and perfect subject scores. View the original results posters.',
+  path: '/results',
+  shareTitle: 'Results & Achievements | Apex International School',
+  shareDescription:
+    'CBSE Class X AISSE 2025–26: school results and student achievements.',
+  image: {
+    url: '/assets/results/class-of-2026.webp',
+    width: 1512,
+    height: 591,
+    alt: 'Apex Class X pupils and staff, 2025–26',
   },
-};
+});
 
 export default function ResultsPage() {
   return (

@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/dialog';
 import { SchoolImage } from '@/components/school-image';
 import { school } from '@/lib/school';
+import { managementPublished } from '@/lib/management';
 import { activities, activityHref } from '@/lib/activities';
 
 type SiteMenuProps = {
@@ -55,6 +56,9 @@ export function SiteMenu({ home = false, current }: SiteMenuProps) {
         { label: 'About Apex', href: '/about' },
         { label: 'Headmaster’s welcome', href: '/about#headmasters-welcome' },
         { label: 'Why choose Apex', href: '/about#why-choose-apex' },
+        ...(managementPublished
+          ? [{ label: 'Management', href: '/about/management' }]
+          : []),
         { label: 'Discover Apex', href: section('our-school') },
         { label: 'Explore our campus', href: '/visit-us' },
         { label: 'Results & achievements', href: '/results' },

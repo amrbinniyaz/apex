@@ -11,6 +11,8 @@ import { InstagramStories } from '@/components/instagram-stories';
 import { ContentFeature, ContentFacts } from '@/components/content-page-blocks';
 import { SchoolGallery } from '@/components/school-gallery';
 import { ContentPageHero } from '@/components/content-page-hero';
+import { JsonLd } from '@/components/json-ld';
+import { faqData } from '@/lib/seo';
 
 const directions = school.directions;
 
@@ -199,6 +201,11 @@ export function AdmissionsPage({
           </ol>
         </section>
         <section className="ad-practical" id="questions">
+          <JsonLd
+            nodes={[
+              faqData(faqs.map(([question, answer]) => ({ question, answer }))),
+            ]}
+          />
           <div>
             <h2>Frequently asked questions</h2>
           </div>

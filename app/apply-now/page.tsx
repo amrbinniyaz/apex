@@ -1,21 +1,16 @@
 import type { Metadata } from 'next';
-import { AdmissionsPage } from '@/components/admissions-page';
+import { pageMetadata } from '@/lib/seo';
+import { ApplyPage } from '@/components/apply-page';
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/apply-now' },
-  openGraph: {
-    title: 'Admissions | Apex International School',
-    description:
-      'Contact Apex International School in Kozhikode to enquire about admissions.',
-    url: '/apply-now',
-    type: 'website',
-    siteName: 'Apex International School',
-    locale: 'en_IN',
-  },
-  title: 'Apply Now | Apex International School',
+export const metadata: Metadata = pageMetadata({
+  title: 'Admissions in Kozhikode | Apex International School',
   description:
-    'Start an admissions conversation with Apex International School in Kozhikode. Enquire about joining the school and your child’s next chapter.',
-};
+    'Start an admissions enquiry with Apex International School, a CBSE school in Kozhikode. Ask about class availability, fees and the application process.',
+  path: '/apply-now',
+  shareTitle: 'Admissions | Apex International School',
+  shareDescription:
+    'Contact Apex International School in Kozhikode to enquire about admissions.',
+});
 export default function ApplyNow() {
-  return <AdmissionsPage kind="apply" />;
+  return <ApplyPage />;
 }

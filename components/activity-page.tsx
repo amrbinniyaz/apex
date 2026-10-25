@@ -7,51 +7,28 @@ import { ActivityCards } from '@/components/activity-cards';
 import { type Activity, activityHref } from '@/lib/activities';
 import { school } from '@/lib/school';
 import { siteUrl } from '@/lib/site-url';
+import { faqData } from '@/lib/seo';
+import { JsonLd } from '@/components/json-ld';
 import { SchoolGallery } from '@/components/school-gallery';
 
 export function ActivityPage({ activity }: { activity: Activity }) {
   const visitHref = `/visit-us?activity=${activity.slug}#enquire`;
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage',
-        '@id': siteUrl(activityHref(activity.slug)),
-        name: `${activity.name} at Apex International School`,
-        description: activity.description,
-        url: siteUrl(activityHref(activity.slug)),
-        about: { '@id': siteUrl('/#school') },
-        isPartOf: {
-          '@type': 'CollectionPage',
-          url: siteUrl('/life-at-apex'),
-          name: 'Life at Apex',
-        },
+  const structuredData = [
+    {
+      '@type': 'WebPage',
+      '@id': siteUrl(activityHref(activity.slug)),
+      name: `${activity.name} at Apex International School`,
+      description: activity.description,
+      url: siteUrl(activityHref(activity.slug)),
+      about: { '@id': siteUrl('/#school') },
+      isPartOf: {
+        '@type': 'CollectionPage',
+        url: siteUrl('/life-at-apex'),
+        name: 'Life at Apex',
       },
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: siteUrl('/'),
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: 'Life at Apex',
-            item: siteUrl('/life-at-apex'),
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
-            name: activity.name,
-            item: siteUrl(activityHref(activity.slug)),
-          },
-        ],
-      },
-    ],
-  };
+    },
+    faqData(activity.questions),
+  ];
   return (
     <div className={`activity-page activity-${activity.slug}`} id="top">
       <a href="#activity-content" className="skip-link">
@@ -59,12 +36,7 @@ export function ActivityPage({ activity }: { activity: Activity }) {
       </a>
       <SiteHeader current="life" photo />
       <main id="activity-content">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
-          }}
-        />
+        <JsonLd nodes={structuredData} />
         <ContentPageHero
           title={activity.name}
           description={activity.summary}

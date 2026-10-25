@@ -57,17 +57,91 @@
   text-align: center;
 }
 .about-section-heading p,
-.about-story p,
 .about-visit > p {
   font: 19px/1.65 var(--apex-interface);
   color: #5e6272;
   margin-top: 20px;
 }
-.about-results h3 {
-  margin-bottom: 22px;
+/* Why choose Apex: one results feature, then two evidence cards. */
+.about-reason {
+  min-width: 0;
+  background: var(--apex-surface);
+  border: 1px solid #c9cdd18c;
+  box-shadow: 4px 8px 0 #bfc4ca24;
 }
-.about-results .content-feature-photo > img {
+.about-reason-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: center;
+  max-width: calc(1560px - 2 * max(6vw, 24px));
+  margin: 0 max(6vw, 24px) clamp(28px, 4vw, 48px);
+}
+@media (min-width: 1560px) {
+  .about-reason-feature {
+    margin-inline: auto;
+  }
+}
+.about-reason-photo {
+  margin: 0;
+}
+.about-reason-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.about-reason-feature .about-reason-photo img {
   aspect-ratio: 1512 / 591;
+}
+.about-reason-photo figcaption {
+  padding: 12px 24px;
+  font: 14px/1.5 var(--apex-interface);
+  color: #626873;
+  border-bottom: 1px solid #24366815;
+}
+.about-reason-feature .about-reason-photo figcaption {
+  border-bottom: 0;
+}
+.about-reason-copy {
+  padding: clamp(24px, 3vw, 44px);
+}
+.about-reason-copy > p:not(.about-reason-label, .about-reason-stat) {
+  margin-top: 14px;
+  font: 18px/1.65 var(--apex-interface);
+  color: #5e6272;
+}
+.about-reason-label {
+  margin-bottom: 10px;
+  font: 22px/1.3 var(--apex-accent);
+  color: var(--apex-red);
+}
+.about-reason-stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #24366820;
+  font: 700 clamp(44px, 4.4vw, 64px)/1 var(--apex-heading);
+  letter-spacing: -0.05em;
+}
+.about-reason-stat span {
+  font: 14px/1.4 var(--apex-interface);
+  letter-spacing: 0;
+  color: #676676;
+}
+.about-page .about-reason h3 {
+  font-size: clamp(25px, 2.4vw, 34px);
+}
+.about-reason-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px);
+  max-width: 1560px;
+  margin: auto;
+  padding: 0 max(6vw, 24px);
 }
 .about-story-grid {
   display: grid;
@@ -77,17 +151,31 @@
   margin: auto;
   padding: 0 max(6vw, 24px);
 }
-.about-story {
-  min-width: 0;
+.about-reason-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  list-style: none;
 }
-.about-story:nth-child(2) .content-feature-photo {
-  rotate: 1.5deg;
+.about-reason-chips a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 16px;
+  border: 1px solid #24366833;
+  border-radius: 999px;
+  font: 16px/1.3 var(--apex-interface);
+  color: var(--apex-ink);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
-.about-story h3 {
-  margin-top: 36px;
-}
-.about-story .content-feature-photo > img {
-  aspect-ratio: 3 / 2;
+.about-reason-chips a:hover {
+  background: var(--apex-ink);
+  border-color: var(--apex-ink);
+  color: #fff;
 }
 .about-page .about-text-link {
   display: inline-flex;
@@ -160,7 +248,9 @@
 }
 @media (max-width: 767px) {
   .about-page .about-welcome,
-  .about-story-grid {
+  .about-story-grid,
+  .about-reason-grid,
+  .about-reason-feature {
     grid-template-columns: minmax(0, 1fr);
   }
   .about-page .about-welcome {
@@ -169,17 +259,10 @@
   .about-page .content-feature-photo {
     rotate: 0deg;
   }
-  .about-page .about-story:nth-child(2) .content-feature-photo {
-    rotate: 0deg;
-  }
   .about-story-grid {
     gap: 42px;
   }
-  .about-story h3 {
-    margin-top: 24px;
-  }
   .about-section-heading p,
-  .about-story p,
   .about-visit > p {
     font-size: 18px;
   }

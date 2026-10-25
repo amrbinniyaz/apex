@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { ArrowUpRight } from 'lucide-react';
 import { ContentFacts } from '@/components/content-page-blocks';
 import { ContentPageHero } from '@/components/content-page-hero';
@@ -6,28 +7,62 @@ import { SchoolImage } from '@/components/school-image';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { SiteLink } from '@/components/site-link';
-import { resultsYear, schoolToppers } from '@/lib/results';
+import {
+  perfectSubjectScores,
+  resultsYear,
+  schoolToppers,
+} from '@/lib/results';
 import { schoolAchievements } from '@/lib/achievements';
+import { activities, activityHref } from '@/lib/activities';
+import { school } from '@/lib/school';
+import { JsonLd } from '@/components/json-ld';
+import { faqData } from '@/lib/seo';
 import './about.css';
 
-export const metadata: Metadata = {
-  title: 'About Apex | Apex International School, Kozhikode',
+export const metadata: Metadata = pageMetadata({
+  title: 'About Apex | CBSE School in Kozhikode | Apex International School',
   description:
-    'Get to know Apex International School in Kozhikode. Read our welcome and explore classroom learning, pupil achievements and activities beyond lessons.',
-  alternates: { canonical: '/about' },
-  openGraph: {
-    title: 'About Apex | Apex International School',
-    description:
-      'A welcome to our school, and a closer look at learning and life at Apex.',
-    url: '/about',
-    images: [
-      {
-        url: '/assets/apex-cinematic-source.jpg',
-        alt: 'Pupils learning together at Apex',
-      },
-    ],
+    'Get to know Apex International School, a CBSE-affiliated school in Kozhikode since 2005. Read our welcome and explore learning, pupil achievements and activities.',
+  path: '/about',
+  shareTitle: 'About Apex | Apex International School',
+  shareDescription:
+    'A welcome to our school, and a closer look at learning and life at Apex.',
+  image: {
+    url: '/assets/apex-cinematic-source.jpg',
+    alt: 'Pupils learning together at Apex',
   },
-};
+});
+
+const joinList = (items: string[]) =>
+  `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`;
+const perfectSubjects = joinList(
+  perfectSubjectScores.map((score) => score.subject),
+);
+
+// Answers use confirmed school facts, published results and activity names only.
+const aboutFaqs = [
+  {
+    question: 'Is Apex International School a CBSE school?',
+    answer:
+      'Yes. Apex International School is a CBSE-affiliated school in Kozhikode, Kerala, established in 2005.',
+  },
+  {
+    question: 'Where is Apex International School located?',
+    answer: `The school is in Odumbra, Olavanna, Kozhikode. The full address is ${school.address}.`,
+  },
+  {
+    question: `What were Apex’s CBSE Class X results in ${resultsYear}?`,
+    answer: `Apex achieved 100% results in CBSE Class X (AISSE) ${resultsYear}. The school topper, ${schoolToppers[0].name}, scored ${schoolToppers[0].score}%.`,
+  },
+  {
+    question: 'What activities can pupils take part in?',
+    answer: `Activities at Apex include ${joinList(activities.map((activity) => activity.name))}. Ask the school about current groups and timings.`,
+  },
+  {
+    question: 'How can we visit or apply?',
+    answer: `Send an enquiry through the Visit Us or Admissions page, call ${school.phone} or email ${school.email}. The school can confirm visit dates, class availability and fees.`,
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -50,6 +85,7 @@ export default function AboutPage() {
           <SiteLink href="#headmasters-welcome">Headmaster’s welcome</SiteLink>
           <SiteLink href="#why-choose-apex">Why choose Apex</SiteLink>
           <SiteLink href="#achievements">Achievements</SiteLink>
+          <SiteLink href="#about-questions">Questions</SiteLink>
         </nav>
 
         {/* Welcome copy is an editorial draft pending the school's approval;
@@ -98,82 +134,92 @@ export default function AboutPage() {
         >
           <div className="about-section-heading">
             <h2 id="why-title">Why choose Apex?</h2>
-            <p>
-              Look at what pupils learn, what they achieve and the experiences
-              open to them. Here are three ways to get to know our school.
-            </p>
+            <p>Results, activities and pupil voice you can see for yourself.</p>
           </div>
 
-          <article className="content-feature about-results">
-            <figure className="content-feature-photo">
+          <article className="about-reason about-reason-feature">
+            <figure className="about-reason-photo">
               <SchoolImage
                 src="/assets/results/class-of-2026.webp"
                 alt="The Apex Class X batch of 2025–26 with their teachers"
-                sizes="(max-width: 767px) calc(100vw - 68px), 50vw"
+                sizes="(max-width: 767px) calc(100vw - 48px), 55vw"
               />
               <figcaption>Class X pupils and staff, {resultsYear}</figcaption>
             </figure>
-            <div className="content-feature-copy">
-              <h3>Academic achievement</h3>
+            <div className="about-reason-copy">
+              <p className="about-reason-label">Academic results</p>
+              <p className="about-reason-stat">
+                100%
+                <span>CBSE Class X results, {resultsYear}</span>
+              </p>
+              <h3>Strong CBSE results</h3>
               <p>
-                Our pupils’ work speaks through their achievements. In the CBSE
-                Class X results for {resultsYear}, school topper{' '}
-                {schoolToppers[0].name} achieved {schoolToppers[0].score}%.
-                Explore the full results and the school’s original
-                announcements.
+                {schoolToppers[0].name} topped the school with{' '}
+                {schoolToppers[0].score}%, and pupils achieved perfect scores in{' '}
+                {perfectSubjects}.
               </p>
               <SiteLink className="about-text-link" href="/results">
-                Explore our results{' '}
+                See the full results{' '}
                 <ArrowUpRight size={18} aria-hidden="true" />
               </SiteLink>
             </div>
           </article>
 
-          <div className="about-story-grid">
-            <article className="about-story">
-              <figure className="content-feature-photo">
+          <div className="about-reason-grid">
+            <article className="about-reason">
+              <figure className="about-reason-photo">
                 <SchoolImage
                   src="/assets/activities/art-and-craft.webp"
                   alt="A pupil and teacher displaying a handmade flower artwork at Apex"
-                  sizes="(max-width: 767px) calc(100vw - 68px), 40vw"
+                  sizes="(max-width: 767px) calc(100vw - 48px), 40vw"
                 />
                 <figcaption>
-                  A handmade flower artwork in an art and craft session
+                  A handmade flower artwork in art and craft
                 </figcaption>
               </figure>
-              <h3>Room to try something new</h3>
-              <p>
-                Art and craft, Taekwondo, skating and chess offer different ways
-                to get involved beyond lessons. Explore the activities, then ask
-                us what is available for your child’s class.
-              </p>
-              <SiteLink className="about-text-link" href="/life-at-apex">
-                Explore life at Apex{' '}
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </SiteLink>
+              <div className="about-reason-copy">
+                <p className="about-reason-label">Beyond lessons</p>
+                <h3>Activities to explore</h3>
+                <p>
+                  Pupils can discover new interests in sport, strategy and
+                  creative work.
+                </p>
+                <ul className="about-reason-chips" aria-label="Activities">
+                  {activities.map((activity) => (
+                    <li key={activity.slug}>
+                      <SiteLink href={activityHref(activity.slug)}>
+                        {activity.name}
+                      </SiteLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </article>
-            <article className="about-story">
-              <figure className="content-feature-photo">
+            <article className="about-reason">
+              <figure className="about-reason-photo">
                 <SchoolImage
                   src="/assets/cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG"
-                  alt="A speaker at a microphone during an Apex school event"
-                  sizes="(max-width: 767px) calc(100vw - 68px), 40vw"
+                  alt="A pupil speaking at a microphone during an Apex school event"
+                  sizes="(max-width: 767px) calc(100vw - 48px), 40vw"
                 />
                 <figcaption>Speaking at an Apex school event</figcaption>
               </figure>
-              <h3>Opportunities to find a voice</h3>
-              <p>
-                Sharing an idea is part of learning, too. School Radio gives
-                pupils a way to explore speaking, listening and presenting,
-                alongside opportunities to take part in school events.
-              </p>
-              <SiteLink
-                className="about-text-link"
-                href="/life-at-apex/school-radio"
-              >
-                Discover School Radio{' '}
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </SiteLink>
+              <div className="about-reason-copy">
+                <p className="about-reason-label">Pupil voice</p>
+                <h3>Confidence to speak up</h3>
+                <p>
+                  School Radio gives pupils a platform for discussions,
+                  interviews, shows and radio drama, alongside speaking at
+                  school events.
+                </p>
+                <SiteLink
+                  className="about-text-link"
+                  href="/life-at-apex/school-radio"
+                >
+                  Discover School Radio{' '}
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </SiteLink>
+              </div>
             </article>
           </div>
         </section>
@@ -214,6 +260,28 @@ export default function AboutPage() {
                   </a>
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="ad-practical about-questions"
+          id="about-questions"
+          aria-labelledby="about-questions-title"
+        >
+          <JsonLd nodes={[faqData(aboutFaqs)]} />
+          <div>
+            <h2 id="about-questions-title">Frequently asked questions</h2>
+          </div>
+          <div className="ad-faqs">
+            {aboutFaqs.map(({ question, answer }) => (
+              <details key={question}>
+                <summary>
+                  {question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{answer}</p>
+              </details>
             ))}
           </div>
         </section>

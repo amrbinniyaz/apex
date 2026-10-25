@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { ArrowUpRight } from 'lucide-react';
 import { ContentPageHero } from '@/components/content-page-hero';
 import { ContactForm } from '@/components/contact-form';
@@ -8,17 +9,15 @@ import { SiteLink } from '@/components/site-link';
 import { deliveryConfigured } from '@/lib/enquiry';
 import { school } from '@/lib/school';
 
-export const metadata: Metadata = {
-  title: 'Contact Us | Apex International School',
+export const metadata: Metadata = pageMetadata({
+  title: 'Contact Us | Apex International School, Kozhikode',
   description:
-    'Contact Apex International School in Kozhikode. Send an enquiry, call the school or find our campus in Odumbra, Olavanna.',
-  alternates: { canonical: '/contact-us' },
-  openGraph: {
-    title: 'Contact Us | Apex International School',
-    description: 'Get in touch and find your way to our campus in Kozhikode.',
-    url: '/contact-us',
-  },
-};
+    'Contact Apex International School in Kozhikode. Call +91 495 296 5004, email info@apexinternationalschool.org, send an enquiry or find our campus in Odumbra, Olavanna.',
+  path: '/contact-us',
+  shareTitle: 'Contact Us | Apex International School',
+  shareDescription:
+    'Get in touch and find your way to our campus in Kozhikode.',
+});
 
 export default function ContactPage() {
   const directSubmission = deliveryConfigured({

@@ -17,7 +17,7 @@ export const schoolStages = [
     image: 'apex-campus-source.jpg',
     alt: 'Apex pupils exploring the science laboratory',
     line: 'Science in the classroom',
-    href: '/apply-now',
+    href: '/about',
   },
   {
     name: 'Discovery',
@@ -25,7 +25,7 @@ export const schoolStages = [
     image: 'apex-cinematic-source.jpg',
     alt: 'Learning together at Apex International School',
     line: 'Learning together',
-    href: '/apply-now',
+    href: '/about#why-choose-apex',
   },
   {
     name: 'Confidence',
@@ -33,7 +33,7 @@ export const schoolStages = [
     image: 'cab4df71-3a80-47cc-8d48-e48c96e9e7a9.JPG',
     alt: 'An Apex pupil speaking at a microphone during a school event',
     line: 'Pupil leadership',
-    href: '/visit-us',
+    href: '/about#achievements',
   },
   {
     name: 'Possibility',
@@ -41,6 +41,6 @@ export const schoolStages = [
     image: 'apex-video-campus.jpg',
     alt: 'The Apex International School campus',
     line: 'Explore our campus',
-    href: '/apply-now',
+    href: '/visit-us',
   },
 ] as const;

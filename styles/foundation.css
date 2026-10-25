@@ -419,7 +419,7 @@ p {
   }
 }
 .discover-section {
-  height: 250svh;
+  height: 200svh;
   --film-button-progress: 0;
 }
 .discover-sticky {
@@ -454,7 +454,7 @@ p {
   width: max(100cqw, 177.78cqh);
   height: max(100cqh, 56.25cqw);
   max-width: none;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1.2);
   border: 0;
 }
 .discover-mask {
@@ -514,6 +514,7 @@ p {
 .school-film-full i {
   color: #ffdf8e;
   margin-top: 10px;
+  text-shadow: 0 2px 10px #000c;
   opacity: clamp(0, calc(var(--film-button-progress)*5), 1);
   white-space: nowrap;
 }

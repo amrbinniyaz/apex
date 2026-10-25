@@ -1,23 +1,21 @@
 import { siteUrl } from '@/lib/site-url';
+import { pageMetadata, siteName } from '@/lib/seo';
 import { SchoolStructuredData } from '@/components/school-structured-data';
 import { introBootstrap } from '@/lib/intro-bootstrap';
 import type { Metadata } from 'next';
 import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl()),
-  alternates: { canonical: '/' },
-  openGraph: {
-    type: 'website',
-    siteName: 'Apex International School',
-    locale: 'en_IN',
-    title: 'Apex International School | Kozhikode, Kerala',
+  ...pageMetadata({
+    title: 'Apex International School | CBSE School in Kozhikode, Kerala',
     description:
-      'A place to wonder, learn and grow. Explore Apex International School in Kozhikode, Kerala.',
-    url: '/',
-  },
-  title: 'Apex International School | Find your spark. Make it shine.',
-  description:
-    'Find your spark at Apex International School in Kozhikode, Kerala. A place to wonder, learn and grow.',
+      'Apex International School is a CBSE-affiliated school in Odumbra, Olavanna, Kozhikode, established in 2005. Explore results, activities and school life, and arrange a visit.',
+    path: '/',
+    shareTitle: 'Apex International School | Kozhikode, Kerala',
+    shareDescription:
+      'A CBSE school in Kozhikode since 2005. Explore results, activities and life at Apex.',
+  }),
+  applicationName: siteName,
   robots: { index: true, follow: true },
   icons: { icon: { url: '/assets/apex-logo.svg', type: 'image/svg+xml' } },
 };
@@ -25,7 +23,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-IN" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: introBootstrap }} />
         <script

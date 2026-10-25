@@ -16,163 +16,228 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 .home-life-heading h2 {
   font-family: var(--apex-heading);
   font-weight: 700;
-  font-size: clamp(38px, 4.8vw, 68px);
+  font-size: clamp(40px, 4vw, 64px);
   line-height: 1.1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.05em;
 }
 .home-life-heading > a {
   flex-shrink: 0;
 }
-.home-life-cinema {
-  position: relative;
-  isolation: isolate;
-  aspect-ratio: 2 / 1;
-  min-height: 410px;
-  overflow: hidden;
-  background: #101b2b;
+/* Achievement feature: photo with a paper caption panel. */
+.home-life-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  background: var(--apex-surface);
+  border: 1px solid #c9cdd18c;
+  box-shadow: 4px 8px 0 #bfc4ca24;
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
 }
-.home-life-scene {
+.home-life-feature:hover {
+  box-shadow: 6px 14px 0 #bfc4ca33;
+}
+.home-life-feature:focus-visible {
+  outline: 3px solid var(--apex-red);
+  outline-offset: 5px;
+}
+.home-life-feature-photo {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: #dce8ed;
+}
+.home-life-feature-photo img {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  transition: opacity 550ms ease;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.6s ease;
 }
-.home-life-scene[data-active='true'] {
-  opacity: 1;
+.home-life-feature:hover .home-life-feature-photo img {
+  transform: scale(1.03);
 }
-.home-life-scene img {
+.home-life-feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: clamp(28px, 3.6vw, 56px);
+}
+.home-life-feature-label {
+  font: 400 22px/1.25 var(--apex-accent);
+  color: var(--apex-red);
+}
+.home-life-feature-copy h3 {
+  font-family: var(--apex-heading);
+  font-weight: 700;
+  font-size: clamp(32px, 3.2vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+.home-life-feature-copy > p:not(.home-life-feature-label) {
+  max-width: 420px;
+  font-family: var(--apex-heading);
+  font-size: 17px;
+  line-height: 1.7;
+  color: #515064;
+}
+.home-life-feature-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  font: 400 22px/1.3 var(--apex-accent);
+  color: var(--apex-red);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+.home-life-feature-more svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.home-life-feature:hover .home-life-feature-more svg {
+  transform: translate(2px, -2px);
+}
+/* Activity cards share the homepage paper-card treatment. */
+.home-life-cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 1.8vw, 28px);
+  margin: clamp(28px, 3vw, 44px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.home-life-card {
+  display: block;
+  height: 100%;
+  padding: 10px 10px 18px;
+  background: var(--apex-surface);
+  border: 1px solid #c9cdd18c;
+  box-shadow: 3px 6px 0 #bfc4ca24;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.home-life-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 5px 12px 0 #bfc4ca30;
+}
+.home-life-card:focus-visible {
+  outline: 3px solid var(--apex-red);
+  outline-offset: 5px;
+}
+.home-life-card-photo {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #dce8ed;
+}
+.home-life-card-photo img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 42%;
 }
-.home-life-scene[data-activity='chess'] img {
-  object-position: center 68%;
+.home-life-card[data-activity='chess'] img {
+  object-position: center 70%;
 }
-.home-life-scene[data-activity='school-radio'] img {
-  object-fit: contain;
-  padding-bottom: 100px;
+.home-life-card[data-activity='art-and-craft'] img {
+  object-position: 62% center;
 }
-.home-life-cinema::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent 42%,
-    #07101b40 65%,
-    #07101bed 100%
-  );
+.home-life-card-category {
+  margin: 16px 4px 4px;
+  font-family: var(--apex-interface);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #676676;
 }
-.home-life-links {
-  position: absolute;
-  z-index: 2;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(16px, 2.8vw, 40px);
-  padding: 32px clamp(24px, 3.4vw, 50px);
-}
-.home-life-links a {
+.home-life-card h3 {
   display: flex;
-  min-width: 0;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 56px;
-  padding: 14px 0;
-  border-top: 1px solid #ffffff66;
-  color: #fff;
-  font: 400 clamp(20px, 2vw, 29px)/1.2 var(--apex-accent);
-  text-decoration: none;
-  transition: border-color 200ms ease;
+  margin: 0 4px;
+  font-family: var(--apex-heading);
+  font-weight: 700;
+  font-size: clamp(19px, 1.5vw, 24px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
-.home-life-links a > span {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.home-life-links a[data-active='true'],
-.home-life-links a:hover {
-  border-color: #fff;
-}
-.home-life-links svg {
+.home-life-card h3 svg {
   flex-shrink: 0;
-  opacity: 0.6;
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
+  color: var(--apex-red);
+  transition: transform 0.2s ease;
 }
-.home-life-links a[data-active='true'] svg,
-.home-life-links a:hover svg {
-  opacity: 1;
+.home-life-card:hover h3 svg {
   transform: translate(2px, -2px);
 }
-.home-life-links a:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 6px;
+@media (max-width: 1000px) {
+  .home-life-feature {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-life-feature-photo {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .home-life-cards {
+    display: flex;
+    gap: 16px;
+    margin-inline: calc(-1 * max(6vw, 24px));
+    padding: 6px max(6vw, 24px) 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: max(6vw, 24px);
+    scrollbar-width: none;
+  }
+  .home-life-cards::-webkit-scrollbar {
+    display: none;
+  }
+  .home-life-cards > li {
+    flex: 0 0 min(36vw, 260px);
+    scroll-snap-align: start;
+  }
 }
 @media (max-width: 767px) {
   .home-life-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
   }
   .home-life-heading > a {
     font-size: 22px;
   }
-  .home-life-cinema {
-    aspect-ratio: 4 / 5;
-    min-height: 480px;
+  .home-life-feature-photo {
+    aspect-ratio: 4 / 3;
   }
-  .home-life-scene img {
-    object-position: center top;
-    height: 75%;
+  .home-life-feature-copy {
+    gap: 12px;
+    padding: 24px 20px 28px;
   }
-  .home-life-scene[data-activity='taekwondo'] img,
-  .home-life-scene[data-activity='school-radio'] img {
-    padding-bottom: 0;
+  .home-life-feature-copy > p:not(.home-life-feature-label) {
+    font-size: 16px;
   }
-  .home-life-scene[data-activity='taekwondo'] img {
-    object-fit: contain;
-    object-position: center;
-  }
-  .home-life-cinema::after {
-    background: linear-gradient(
-      180deg,
-      transparent 26%,
-      #07101b55 47%,
-      #07101bf5 72%
-    );
-  }
-  .home-life-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 clamp(12px, 4vw, 24px);
-    padding: 20px clamp(12px, 4vw, 24px);
-  }
-  .home-life-links a {
-    font-size: clamp(20px, 5.5vw, 23px);
-    min-height: 54px;
-  }
-  .home-life-links a:last-child {
-    grid-column: 1 / -1;
+  .home-life-cards > li {
+    flex-basis: 68vw;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-life-scene,
-  .home-life-links a,
-  .home-life-links svg {
+  .home-life-feature,
+  .home-life-feature-photo img,
+  .home-life-card,
+  .home-life-card svg,
+  .home-life-feature-more svg {
     transition: none;
   }
 }

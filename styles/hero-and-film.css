@@ -11,10 +11,10 @@
     top: 34%;
     bottom: auto;
     left: 5vw;
-    max-width: 31vw;
+    max-width: 34vw;
   }
   .cinematic-hero[data-scene='art'] .cinematic-copy h1 {
-    font-size: clamp(30px, 3.6vw, 60px);
+    font-size: clamp(40px, 4.3vw, 72px);
   }
   .cinematic-image.cinematic-image-art {
     object-position: 65% center;
@@ -623,13 +623,12 @@ html:not([data-apex-intro='active']) .intro-skip {
 .school-film-poster.is-playing {
   opacity: 0;
 }
-.discover-mobile-cue,
-.film-control-label {
+.discover-mobile-cue {
   display: none;
 }
 @media (max-width: 768px) {
   .discover-section {
-    height: 180svh;
+    height: 160svh;
   }
   .discover-sticky {
     position: sticky;
@@ -657,14 +656,12 @@ html:not([data-apex-intro='active']) .intro-skip {
   .discover-mask .discover-heading p {
     max-width: 280px;
     margin: 0 auto;
-    font-size: clamp(29px, 7.6vw, 35px);
-    line-height: 1.16;
-    letter-spacing: -0.045em;
+    font-size: 20px;
   }
   .discover-mask .discover-heading h2 {
-    font-size: clamp(32px, 8.6vw, 41px);
+    font-size: clamp(34px, 9vw, 42px);
     line-height: 1.12;
-    margin-top: 9px;
+    margin-top: 6px;
   }
   .discover-mobile-cue {
     display: flex;
@@ -706,21 +703,6 @@ html:not([data-apex-intro='active']) .intro-skip {
     height: 46px;
     border: 1px solid color-mix(in srgb, var(--apex-paper) 40%, transparent);
     box-shadow: 0 3px 14px #14234024;
-  }
-  .school-film-controls .film-audio-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: auto;
-    padding: 0 17px;
-    border-radius: 24px;
-  }
-  .film-control-label {
-    display: inline;
-    font-family: ApexHand, cursive;
-    font-size: 19px;
-    white-space: nowrap;
   }
   .school-film-dialog {
     width: calc(100% - 24px) !important;

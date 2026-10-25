@@ -1,22 +1,17 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { AdmissionsPage } from '@/components/admissions-page';
 import { getActivity } from '@/lib/activities';
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/visit-us' },
-  openGraph: {
-    title: 'Visit Us | Apex International School',
-    description:
-      'Contact Apex International School in Kozhikode to arrange a school visit.',
-    url: '/visit-us',
-    type: 'website',
-    siteName: 'Apex International School',
-    locale: 'en_IN',
-  },
-  title: 'Visit Us | Apex International School',
+export const metadata: Metadata = pageMetadata({
+  title: 'Visit Us | Apex International School, Kozhikode',
   description:
-    'Get a feel for life at Apex International School in Kozhikode. Plan a visit, ask your questions and find your way to our campus.',
-};
+    'Plan a visit to Apex International School in Odumbra, Olavanna, Kozhikode. Ask your questions, explore the campus and get directions.',
+  path: '/visit-us',
+  shareTitle: 'Visit Us | Apex International School',
+  shareDescription:
+    'Contact Apex International School in Kozhikode to arrange a school visit.',
+});
 export default async function VisitUs({
   searchParams,
 }: {

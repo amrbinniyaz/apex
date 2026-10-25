@@ -262,9 +262,6 @@ export function EnquiryForm({
         </div>
       ) : (
         <form key={step} onSubmit={submit}>
-          <p className="ad-hand">
-            {visiting ? 'Visit enquiry' : 'Admissions enquiry'}
-          </p>
           <h2 ref={heading} tabIndex={-1}>
             {step === 1
               ? 'Your contact details'

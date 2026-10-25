@@ -2,6 +2,8 @@ import { Fragment } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { SchoolImage } from '@/components/school-image';
 import { SiteLink } from '@/components/site-link';
+import { JsonLd } from '@/components/json-ld';
+import { breadcrumbData } from '@/lib/seo';
 
 /** Shared full-width image opening used by Apex content pages. */
 export function ContentPageHero({
@@ -24,6 +26,7 @@ export function ContentPageHero({
       className="ad-photographic-hero"
       aria-labelledby="content-page-title"
     >
+      <JsonLd nodes={[breadcrumbData(breadcrumbs)]} />
       <SchoolImage
         className="ad-page-photo"
         src={image}
